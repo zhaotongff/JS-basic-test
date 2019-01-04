@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <!--在form标签中，属性action写将表单数据提交到哪个URL，method写以哪种方法提交（get/post）-->
+    <form action="http://xxx.xxx.xxx/xxx" method="get">
+        <div>
+            <span>城市:</span>
+            <!--下拉选择框使用select标签,单选-->
+            <select name="city">
+                <!--选项使用option标签，提交选项的value的值-->
+                <option value="BeiJing">北京</option>
+                <!--默认选中，使用selected="selected"属性-->
+                <option value="ShangHai" selected="selected">上海</option>
+                <option value="GuangZhou">广州</option>
+                <option value="ShenZhen">深圳</option>
+            </select>
+            <br />
+            <span>城市(多选)：</span>
+            <!--下拉选择框使用select标签,多选使用multiple="multiple"属性, size为默认显示几条选项-->
+            <select name="city" multiple="multiple" size="4">
+                <!--选项使用option标签，提交选项的value的值-->
+                <option value="BeiJing">北京</option>
+                <!--默认选中，使用selected="selected"属性-->
+                <option value="ShangHai" selected="selected">上海</option>
+                <option value="GuangZhou">广州</option>
+                <option value="ShenZhen">深圳</option>
+            </select>
+            <br />
+            <span>城市(分组选):</span>
+            <!--下拉选择框使用select标签,单选-->
+            <select name="city">
+                <!--使用optgroup标签对选项进行分组-->
+                <optgroup label="中国">
+                    <!--选项使用option标签，提交选项的value的值-->
+                    <option value="BeiJing">北京</option>
+                    <!--默认选中，使用selected="selected"属性-->
+                    <option value="ShangHai" selected="selected">上海</option>
+                    <option value="GuangZhou">广州</option>
+                    <option value="ShenZhen">深圳</option>
+                </optgroup>
+
+                <optgroup label="美国">
+                    <!--选项使用option标签，提交选项value属性的值-->
+                    <option value="1">华盛顿</option>
+                    <!--默认选中，使用selected="selected"属性-->
+                    <option value="2" selected="selected">纽约</option>
+                    <option value="3">洛杉矶</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <p>
+            <!--多行文本输入，使用textarea标签-->
+            <textarea name="docs">默认值</textarea>
+            <input type="submit" />
+        </p>
+    </form>
+
+
+</div>
+
+</body>
+</html>

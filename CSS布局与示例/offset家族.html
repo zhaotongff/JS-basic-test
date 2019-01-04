@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding:0;
+        margin: 0;}
+        #box{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+
+        }
+        #parentbox{
+            width: 500px;
+            height: 400px;
+            border: 5px solid pink;
+            padding: 10px;
+            background-color: #999888;
+            left:20px;
+            top:30px;
+            position: absolute;
+            margin:50px;
+        }
+        button{
+            width:70px;
+            height:30px;
+
+            margin:20px 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="parentbox">
+<div id="box">
+
+</div>
+</div>
+<button>获取</button>
+<script>
+    var box=document.getElementById("box");
+    var parentbox=document.getElementById("parentbox")
+    var btn=document.getElementsByTagName("button")[0];
+    btn.onclick=function(){
+
+        //offsetWidth=盒子自身宽高+2*padding+2*border   与outerWidth不一样
+        console.log(box.offsetWidth);
+        console.log(typeof box.offsetWidth);
+        /*console.log(box.width());
+        console.log(box.innerWidth());
+        console.log(box.outerWidth());*///Jquery里面方法
+        console.log(box.offsetHeight);
+        console.log(typeof box.offsetHeight);
+        //带有定位的父盒子的左边和上边的距离padding+margin，不算border,如果父级都没有定位则以body开始算
+        console.log(box.offsetLeft);
+        console.log(typeof box.offsetLeft);
+        console.log(box.offsetTop);
+        console.log(typeof box.offsetTop);
+
+        //box.style.top只能获取行内样式，并且已经在行内定义过top
+    }
+</script>
+</body>
+</html>

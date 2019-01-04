@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+   <style>
+
+    *{
+    	margin:0px;
+    	padding:0px;
+    }
+    ul{
+    	list-style:none ;
+        width: 1200px;
+      
+
+    }
+    li{
+    	width: 150px;
+    	height: 150px;
+    	float: left;
+    	background: pink;
+    	margin: 30px;
+    	font:30px/110px "simsun";
+    	text-align: center;
+    }
+   </style>
+</head>
+<body>
+  <ul>
+  	<li>1</li>
+  	<li>2</li>
+  	<li>3</li>
+  	<li>4</li>
+  	<li>5</li>
+  	<li>6</li>
+  	<li>7</li>
+  	<li>8</li>
+  	<li>9</li>
+  	<li>10</li>
+  </ul>
+  <script>
+  	
+    $(function(){
+    $("li").each(function(index,element){
+      $(element).css("opacity",(index+1)/10)
+    })	
+    })
+
+  </script>
+</body>
+</html>

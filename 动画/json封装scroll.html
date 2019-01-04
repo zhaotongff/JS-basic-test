@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 5000px;
+            width: 5000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+   /* window.onscroll=function () {
+        document.title=scroll().top+" "+scroll().left;
+    }
+
+  /!*  function scroll(){
+        if(document.pageYOffset!==undefined){
+            //火狐 谷歌 ie9
+            return {
+                top:parseInt(window.pageYOffset),    //wondow.pageYOffset
+                left:parseInt(window.pageXOffset)
+        };
+        }else{
+            return{
+                top:parseInt(document.documentElement.scrollTop),
+                left:parseInt(document.documentElement.scrollLeft)
+
+            }
+        }
+
+    }*!/
+
+  //简单写法*/
+   /*function scroll(){
+       return {
+           top: window.pageYOffset || document.documentElement.scrollTop || document.body.offsetHeight,
+           left: window.pageXOffset || document.documentElement.scrollLeft || document.body.offsetWidtH,
+       }
+   }*/
+
+   //复杂写法
+    function scroll(){
+        if(window.pageYOffset!==undefined){
+
+            return{
+                top:window.pageYOffset,
+                left:window.pageXOffset,
+            }
+
+        }else{
+            return{
+                top:document.documentElement.scrollTop,
+                left:document.documentElement.scrollLeft,
+            }
+        }
+    }
+
+    window.onscroll=function ( ) {
+        document.title=scroll().top;
+    }
+</script>
+</body>
+</html>

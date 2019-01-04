@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str="HelloitsztWorld";
+   /* URL编码
+ /!*  encodeURLComponent() 函数把字符串作为URL组建进行编码
+   decodeURLComponent()函数可把字符串作为*!/*/
+
+    var urlStr="http://www.baidu.com?username=呵呵&userpwd=12345";
+    var ens=encodeURIComponent(urlStr);
+    console.log(ens);
+    console.log(decodeURIComponent(ens));
+
+
+    console.log(str.substring(5,6) );
+    console.log(str.substr(5,6) );
+
+
+    //字符串替换  replace(srcchar,destchar)  把字符串中srcchar的字符或者字符串替换成dest中的字符或者字符串  只替换第一个出现的字符
+    // 把字符串中所有srcchar都替换  采用正则表达式  全局替换g全局替换   忽略大小写
+    console.log(str.replace("llo","×") );
+    console.log(str.replace(/l/ig,"×") );
+
+
+    //splite();将字符串转化为数组,不传参数时整个字符串就是数组一个元素
+    var arr=str.split();
+    console.log(arr);
+
+    //传入参数“”；字符串每一个字符都是数组的一个元素
+    var arr2=str.split("");
+    console.log(arr2);
+    //传入参数"kkkkk"拆分，不包含拆分呢规则本身的字符串
+    var arr3=str.split("kkk");
+    console.log(arr3);
+    //拆分，只取前两个元素放入数组
+    var arr4=str.split("5",2);
+    console.log(arr4);
+
+    // 字符串截取 substring(start,end) 从start位置开始 截取到end位置 end不娶  包含头不包含尾
+    //            substr(start,length) 从start位置开始截取length长度字符串 end不娶
+    //传入一个参数时  两种效果一样  都是从起始位置截取到末尾
+
+    //trim（）去除字符串首尾的所有空格
+    var str="  sd f h h j  ";
+    var str2=str.trim();
+
+    console.log(str2);
+   //去除字符串中所有空格使用replace
+    var str3=str.replace(/ /g,"");
+    console.log(str3);
+   //字符串转换大小写toUpperCase().toLowerCase()
+   var str4=str3.toUpperCase();
+    console.log(str4);
+   var str5=str4.toLowerCase();
+    console.log(str5);
+
+   //big标签,sup标签
+   /* var str="shdjv";
+    var str1=str.big();
+    alert(str1);
+   var str2=str.sup();
+   alert(str2);*/
+</script>
+</body>
+</html>

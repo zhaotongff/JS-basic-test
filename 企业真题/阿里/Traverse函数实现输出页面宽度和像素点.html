@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .outer{
+            width:300px;
+            height:300px ;
+            border: 1px solid black;
+            padding:2px;
+            margin: 10px auto;
+        }
+        .inner{
+            width:100px;
+            height:100px ;
+            border: 1px solid black;
+            padding:2px;
+            margin: 10px auto;
+        }
+        .span{
+            width:30px;
+            height:30px ;
+            border: 1px solid black;
+            margin: 10px 0 0 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="outer">
+    <div class="inner">
+        <span class="span">
+ssssss
+        </span>
+    </div>
+
+</div>
+<script>
+  //  写一个traverse函数，输出所有页面宽度和高度大于50像素的节点。
+var outer=document.getElementsByClassName("outer")[0];
+var inner=document.getElementsByClassName("inner")[0];
+var span=document.getElementsByClassName("span")[0];
+
+    function traverse(ele){
+        var pageWidth=ele.offsetWidth;
+        var domHeight=ele.offsetHeight;
+        console.log("Width"+pageWidth);
+        if(domHeight>50){
+            console.log("Height"+domHeight);
+        }
+    }
+  traverse(outer);
+  traverse(inner);
+  traverse(span);
+</script>
+</body>
+</html>

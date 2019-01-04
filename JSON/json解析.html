@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var person={    //JAVAscript对象通过JSON.stringify()序列化为JSON字符串
+        name:"zt",
+        age:25,
+        engering:function(){
+            return("信息与通信");
+            releaseData:new Data(2011,2,2)
+        }
+    }
+    alert(person.name);
+    alert(person.age);
+
+    var jsontext=JSON.stringify(person);
+    alert(jsontext);
+    //JSON字符串通过JSON.parase()序列化为JAVAscript对象
+    var json1=JSON.parse(jsontext,function(key,value){
+        if(key=="releaseData"){
+            return new Data(value);
+        }else {
+            return value;
+        }
+
+    });
+
+    alert(json1.releaseData.getFullYear());
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.0.0-my.js">
+
+    </script>
+    <style>
+        img{
+            width: 100px;
+            height:200px;
+        }
+        #left{
+            top:80px;
+            position: absolute;
+            left: 30px;
+        }
+        #right{
+            top:80px;
+            position: absolute;
+           right: 30px;
+        }
+        div{
+            width: 900px;
+            color:green;
+            margin: 80px 150px 0 350px;
+            font:500  20px/70px "simsun"
+        }
+    </style>
+</head>
+<body>
+<img src="imgs/1.gif" id="left">
+<img src="imgs/1.gif" id="right">
+<div>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+    天气晴朗，万里无云<br>
+</div>
+<script>
+var imgArr=document.getElementsByTagName("img");
+window.onscroll=function () {
+    var val=scroll().top//  获取被卷曲的头部高度   scroll()linearSpeedAnimateY   封装好的  导入直接用
+    linearSpeedAnimateY(imgArr[0],val+80)
+    linearSpeedAnimateY(imgArr[1],val+80)
+
+}
+
+</script>
+
+
+</body>
+</html>

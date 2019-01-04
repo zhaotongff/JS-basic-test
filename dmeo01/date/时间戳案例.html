@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            color:red;
+            font-size:30px;
+            margin-top:100px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    2017年5月12日 13:23:45  星期四
+</div>
+<script>
+    setInterval(function(){
+        var d=document.getElementsByTagName("div")[0];
+        var date=new Date();
+        var year=date.getFullYear();
+        var month=date.getMonth();
+        var day=date.getDate();
+        var hour=date.getHours();
+        var minutes=date.getMinutes();
+        var second=date.getSeconds();
+        var week=date.getDay();
+        var weekArr=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+      d.innerHTML=year+"年"+(month+1)+"月"+day+"日 " +hour+":"+minutes+":"+second+"  "+weekArr[week];
+
+    },1000);
+
+</script>
+</body>
+</html>

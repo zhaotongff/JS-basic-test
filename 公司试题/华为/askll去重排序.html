@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //找出字符串中重复的字符，再根据ASCII码把字符串从小到大排序
+    //输入一个不超过100的字符串，，输出排序后字符串
+
+    function fn(str){
+        var str1=""
+        if(str.length<=100){
+            var json={}
+            for(var i=0;i<str.length;i++){
+              var c=str.charAt(i);
+              if(json[c]===undefined){
+                  json[c]=1;
+              }else{
+                  json[c]+=1;
+              }
+
+            }
+
+                for(var k in json){
+                    if(json[k]>1){
+                   str1+=k
+                    }
+                }
+  var arr1=str1.split("");
+      for(let j=0;j<arr1.length-1;j++){
+          for(let k=j+1;k<arr1.length;k++){
+                if(arr1[j]>arr1[k]) {
+                    let temp=arr1[j];
+                    arr1[j]=arr1[k];
+                    arr1[k]=temp;
+                 }
+                }
+      }
+      console.log(arr1.join(""))
+        }
+    }
+
+    var str="aaabbbadwcw1saasdcfs"
+    //console.log(fn(str));
+    fn(str)
+</script>
+</body>
+</html>

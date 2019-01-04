@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* 编写一个函数来查找字符串数组中的最长公共前缀。
+
+如果不存在公共前缀，返回空字符串 ""。
+
+示例 1:
+
+   输入:
+   输出: "fl"
+   示例 2:
+
+   输入: ["dog","racecar","car"]
+   输出: ""
+   解释: 输入不存在公共前缀。*/
+
+    var str=["flower","flow","flight"];
+
+    var longestCommonPrefix = function(strs) {
+        var newarr1=[]
+        for(var i=0;i<strs.length;i++){
+
+            for(var j=0;j<strs[i].length;j++){
+                var newarr2=strs[i].split('');
+            }
+            newarr1[i]=newarr2;
+
+        }
+
+        var arr=[];
+        for(var k=0;k<strs.length-1;k++){
+            var n=0;
+            for(var m=0;m<strs[k].length;m++){
+                if(  newarr1[k][m]===newarr1[k+1][m]){
+                    n++;
+                }else{
+                    arr.push(n);
+                    break;
+
+                }
+            }
+        }
+        for(var i=0;i<arr.length;i++){
+            var p=Math.min(arr[i])
+
+        }
+
+        //newarr1[0].splice(p, newarr1[0].length) ;
+
+        var newArr3=[]
+        for(var o=0;o<p;o++){
+            newArr3.push(newarr1[0][o]);
+        }
+
+        if(p==0){
+
+            return ('\"\" ') ;
+        }
+        else{
+
+            return ( newArr3.join(''))
+        }
+    };
+
+    console.log(longestCommonPrefix(str));
+</script>
+</body>
+</html>

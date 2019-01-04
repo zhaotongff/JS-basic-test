@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width:350px;
+            height: 35px;
+            margin:20px;
+            color:#999;
+            border-color: red;
+
+        }
+#la{
+    left:128px;
+    top:50px;
+    font-size:13px;
+    color:#999;
+   cursor:text;
+    position: absolute;
+}
+
+        .hide{
+            display:none;
+
+        }
+        .show{
+            display:inline-block;
+
+        }
+    </style>
+</head>
+<body>
+
+淘宝：
+<label for="tao"  id="la">我是淘宝</label>
+<input type="text" id="tao"><br>
+
+京东：
+
+<input type="text" id="dong" value="我是京东"><br>
+
+placeholder：
+<input type="text" placeholder="placeholder">
+
+<script>
+    var tao=document.getElementById("tao");
+    var la=document.getElementById("la");
+    tao.oninput=function(){
+        if(this.value===""){
+
+            la.className="show";
+
+        }else{
+
+            la.className="hide";
+        }
+
+
+
+    }
+    var dong=document.getElementById("dong");
+    dong.onfocus=function(){
+       if(this.value==="我是京东"){
+         this.style.color="black";
+           this.value="";
+
+       }
+
+
+
+    }
+    dong.onblur=function() {
+        if (this.value === "") {
+            this.value = "我是京东";
+        }
+    }
+</script>
+</body>
+</html>

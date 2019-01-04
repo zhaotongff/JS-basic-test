@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+	<style>
+       *{
+       	padding:0px;
+       	margin: 0px; 
+       }
+       select{
+       	width: 100px;
+       	height: 200x;
+       	background-color: pink;
+       	margin: auto;
+       }
+    </style>
+</head>
+<body>
+	<script>
+      $(function(){
+      	//右边拼接左边所有
+      	$("button").eq(0).click(function(){
+      		$("#sel2").append($("#sel1>option"))
+      	})
+      	//左边拼接右边所有
+      	$("button").eq(1).click(function(){
+      		$("#sel1").append($("#sel2>option"))
+      	})
+      	//选中的拼接  右边拼接左边选中的
+   
+
+   $("button").eq(2).click(function(){
+      		$("#sel2").append($("#sel1>option:selected"))
+      	})
+      	//右边拼接左边选中的
+      	$("button").eq(3).click(function(){
+      		$("#sel1").append($("#sel2>option:selected"))
+      	})
+      })
+
+	</script>
+	<!-- multiple=""  表示多行直接显示出来   -->
+	<select name="" id="sel1" multiple="">
+        <option value="">香蕉</option>
+        <option value="">苹果</option>
+        <option value="">柠檬</option>
+        <option value="">柚子</option>
+	</select>
+
+	<button>>>></button>
+	<button><<<</button>
+	<button>></button>
+	<button><</button>
+	<select name="" id="sel2" multiple="">
+
+	</select>
+</body>
+</html>

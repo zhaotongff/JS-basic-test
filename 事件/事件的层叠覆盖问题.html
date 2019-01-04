@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>创建</button>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+    //事件层叠问题； btn定义两个事件会出现层叠，只能输出hello
+
+    btn.onclick=function(){
+        alert("你好1");
+    }
+    btn.onclick=function(){
+        alert("hello1");
+    }
+
+    //解决层叠问题  添加事件监听  addEventListenner("不加on的事件"，驱动函数);
+
+    btn.addEventListener("click",function(){
+        alert("你好2");//输出你好
+    });
+    btn.addEventListener("click",function(){
+        alert("hello2");//输出hello
+    });
+</script>
+</body>
+</html>

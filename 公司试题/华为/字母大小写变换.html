@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//第一题  给定一个字符串，把其中的大写字母变成小写字母，把小写字母变成大写字母，其他字符不变
+/* var str=readline()
+print(test(str))*/
+function test(str) {
+            var newStr = '';
+            for(var i = 0;i < str.length;i++){
+                if(str.charCodeAt(i) >= 97 && str.charCodeAt(i) <= 122){
+                   var asc =  str.charCodeAt(i) - 32;
+              
+                    newStr += String.fromCharCode(asc);
+
+                }else if(str.charCodeAt(i) >= 65 && str.charCodeAt(i) <= 90){
+                    var asc =  str.charCodeAt(i) + 32;
+                    newStr += String.fromCharCode(asc);
+                }else{
+                    newStr += str[i];
+                }
+            }
+         // console.log(newStr)
+        }
+
+        var str="abcd@3$5XYZ";
+        test(str)
+</script>
+</body>
+</html>

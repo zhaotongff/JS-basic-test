@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1,.box2{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+
+
+
+        }
+
+        .box1 {
+            top:20px;
+            left:0px;
+        }
+        .box2{
+            top:110px;
+
+        }
+    </style>
+</head>
+<body>
+
+<button>缓动右移到200</button>
+<button>缓动右移到400</button>
+<div class="box1"></div>
+<br><br><br><br>
+<button>缓动下移到200</button>
+<button>缓动下移到400</button>
+<div class="box2"></div>
+
+<script>
+
+    //右移
+    var btn=document.getElementsByTagName("button");
+    var box1=document.getElementsByClassName("box1")[0];
+    btn[0].onclick=function(){
+        linearSpeedAnimateX(box1,200)
+
+    }
+    btn[1].onclick=function(){
+        linearSpeedAnimateX(box1,400)
+
+    }
+    /*    var timer=null;*/
+    function linearSpeedAnimateX(ele,endX){
+        clearInterval(ele.timer);
+        ele.timer=setInterval(function(){
+            var step=(endX-ele.offsetLeft)/10; //匀速动画与缓动动画的不同在与步长不一样  匀速动画给定值  缓动动画为e（ndX-ele.offsetLeft）/10
+            if(step<1){
+                step=Math.ceil(step);
+            }
+            ele.style.left=ele.offsetLeft+step+"px";
+            if(Math.abs(endX-ele.offsetLeft)<=Math.abs(step)){
+                ele.style.left=endX+"px";
+                clearInterval(ele.timer);
+            }
+
+
+        },30);
+
+
+    }
+
+    //下移
+
+    var box2=document.getElementsByClassName("box2")[0];
+    btn[2].onclick=function(){
+        linearSpeedAnimateY(box2,200)
+
+    }
+    btn[3].onclick=function(){
+        linearSpeedAnimateY(box2,400)
+
+    }
+
+    /*    var timer=null;*/
+    function  linearSpeedAnimateY(ele,endY){
+        clearInterval(ele.timer);
+        ele.timer=setInterval(function(){
+            var step=(endY-ele.offsetTop)/10; //匀速动画与缓动动画的不同在与步长不一样  匀速动画给定值  缓动动画为e（ndX-ele.offsetLeft）/10
+            if(step<1){
+                step=Math.ceil(step);
+            }
+            ele.style.top=ele.offsetTop+step+"px";
+            if(Math.abs(endY-ele.offsetTop)<=Math.abs(step)){
+                ele.style.top=endY+"px";
+                clearInterval(ele.timer);
+            }
+
+        },30);
+
+
+    }
+</script>
+</body>
+</html>

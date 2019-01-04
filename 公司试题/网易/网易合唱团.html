@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*有 n 个学生站成一排，每个学生有一个能力值，
+    牛牛想从这 n 个学生中按照顺序选取 k 名学生，
+    要求相邻两个学生的位置编号的差不超过 d，使得这 k 个学生的能力值的乘积最大，
+    你能返回最大的乘积吗？*/
+    /*输入：每个输入包含 1 个测试用例。
+    每个测试数据的第一行包含一个整数 n (1 <= n <= 50)，
+    表示学生的个数，接下来的一行，包含 n 个整数，按顺序表示每个学生的能力值 ai（-50 <= ai <= 50）。
+    接下来的一行包含两个整数，k 和 d (1 <= k <= 10, 1 <= d <= 50)。*/
+
+
+    /*思路：因为有正有负，负负得正，所以要维护两个dp数组，一个存储最大，一个存储最小。 定义fm[k][i]表示当选中了k个学生，
+    并且以第i个学生为结尾，所产生的最大乘积；  fn[k][i]表示 当选中了k个学生，并且以第i个学生为结尾，所产生的最小乘积；
+        那么fm[k+1][i+1]=max(fm[k][i]*stu[i+1],fn[k][i]*stu[i+1])，  即当选中了k个学生后，再选择第i+1编号学生，所产生的最大乘积；
+        然而，并不能保证上一次选择的就是第i个学生，所以要遍历子数组fm[k]， 令j从i到1，并且j与i+1之间小于间隔D，遍历fm[k][j]，以及fn[k][j]；
+        同理fn[k+1][i+1]=min(fn[k][i]*stu[i+1],fm[k][i]*stu[i+1])。最后，遍历一遍fm[K][i]求得最大值（i从1～N）。*/
+
+    function fn(n,nums){
+        var k=2;var d=50;
+        var max = new Array();  //先声明一维
+        for(var i=0;i<k;i++){    //一维长度为i,i为变量，可以根据实际情况改变
+
+            max[i]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
+
+            for(var j=0;j<n;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+
+                max[i][j]="";    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
+            }
+        }
+
+        var min = new Array();  //先声明一维
+        for(var i=0;i<k;i++){    //一维长度为i,i为变量，可以根据实际情况改变
+
+            min[i]=new Array();  //声明二维，每一个一维数组里面的一个元素都是一个数组；
+
+            for(var j=0;j<n;j++){   //一维数组里面每个元素数组可以包含的数量p，p也是一个变量；
+
+                min[i][j]="";    //这里将变量初始化，我这边统一初始化为空，后面在用所需的值覆盖里面的值
+            }
+        }
+
+        for(var i = 0; i < k; i++)
+        for(var j = 0; j < n; j++){
+            max[i][j] = 1;
+            if(i == 0){
+                min[i][j] = nums[j];
+                max[i][j] = nums[j];
+            }
+        }
+
+        for(var i = 1; i < k; i++)
+        for(var j = 0; j < n; j++)
+        for(var  m = 1; m <= d; m++){
+            if(j - m >= 0){
+                if(nums[j] > 0){
+                    min[i][j] = Math.min(min[i][j], min[i - 1][j - m] * nums[j]);
+                    max[i][j] = Math.max(max[i][j], max[i - 1][j - m] * nums[j]);
+                } else{
+                    min[i][j] = Math.min(min[i][j], max[i - 1][j - m] * nums[j]);
+                    max[i][j] = Math.max(max[i][j], min[i - 1][j - m] * nums[j]);
+                }
+            }
+        }
+       var  Max = 0;
+        for(var i = 0; i < n; i++){
+        Max = Math.max(Max, max[k - 1][i]);
+
+    }
+        alert(Max);
+    }
+    var n=3;
+    var nums=[747];
+    fn(3,[7,4,7])
+</script>
+</body>
+</html>

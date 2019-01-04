@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>-->
+</head>
+<body>
+<script>
+
+  //网易笔试题
+/*function fn(){
+    var arr=arguments;
+    var newArr=[];
+    newArr.push(arr[0]*arr[1]*arr[2])
+    newArr.push(arr[0]+arr[1]+arr[2])
+    newArr.push((arr[0]+arr[1])*arr[2])
+    newArr.push((arr[0]+arr[2])*arr[1])
+    newArr.push((arr[1]+arr[2])*arr[0])
+    newArr.push((arr[0]*arr[1])+arr[2])
+    newArr.push((arr[0]*arr[2])+arr[1])
+    newArr.push((arr[1]*arr[2])+arr[0])
+    var max=Math.max.apply(this,newArr)
+    console.log(max)
+}
+fn(1,2,3)
+*/
+
+function fn(m,n,k){
+    var arr=[]
+    var str1=""
+     var str2=""
+    for(var i=0;i<m;i++){
+     str1+="a"
+    }
+      for(var j=0;j<n;j++){
+     str2+="z"
+    }
+    var str3=str1+str2;
+    var str4=str2+str1;
+   arr.push(str3)
+   arr.push(str4)
+ var s1=str3.split("")
+  var s2=str4.split("")
+      for(var h=0;h<m;h++){
+        for(var l=m;l<m+n;l++){  
+            var s1=str3.split("")
+            var temp=s1[h]
+           s1[h]= s1[l]
+            s1[l]=temp;
+           arr.push(s1.join(""))
+     
+        }
+  
+    }
+   // console.log(arr)
+    for(var r=0;r<n;r++){
+        for(var t=n;t<m+n;t++){
+           var s2=str4.split("")
+            var temp=s2[r]
+           s2[r]= s2[t]
+            s2[t]=temp;
+           arr.push(s2.join(""))
+        }
+        
+    }
+    var json={}
+    var newArr=[]
+    for(var d=0;d<arr.length;d++){
+      var c=arr[d]
+
+      if(json[c]===undefined){
+       json[c]=1
+        newArr.push(c)
+      }else{
+          json[c]+=1
+      }
+    
+    }
+     /* for(var v in json){
+       if(json[v]==1){
+          newArr.push(v)
+      } 
+     }*/
+    // 
+ console.log(newArr[k-1])
+
+}
+fn(3,2,6)
+</script>
+</body>
+</html>

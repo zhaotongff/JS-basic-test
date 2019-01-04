@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //给定字符串 str，检查其是否包含数字，包含返回 true，否则返回 false
+    function containsNumber(str) {
+for(var i=0;i<str.length;i++){
+    if(str[i]>=0||str[i]<=9){
+        return true
+    }
+}
+
+            return false;
+
+    }
+    var str="abc123"
+    document.write(containsNumber(str) )
+</script>
+</body>
+</html>

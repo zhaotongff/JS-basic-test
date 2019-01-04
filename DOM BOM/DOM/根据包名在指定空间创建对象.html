@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //根据包名，在指定空间中创建对象
+    //namespace({a: {test: 1, b: 2}}, 'a.b.c.d')   //{a: {test: 1, b: {c: {d: {}}}}}
+
+
+    function namespace(oNamespace, sPackage) {
+
+        var  packNameArr=sPackage.split(".");
+
+        var  currObj=oNamespace;
+
+        for(var i=0;i<packNameArr.length;i++){
+
+            if(!currObj.hasOwnProperty(packNameArr[i])){
+
+                currObj[packNameArr[i]]={};
+
+                currObj=currObj[packNameArr[i]];
+
+            }
+        }
+        return
+        oNamespace;
+
+    }
+</script>
+</body>
+</html>

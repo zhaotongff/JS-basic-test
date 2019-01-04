@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //求 a 和 b 相乘的值，a 和 b 可能是小数，需要注意结果的精度问题  3*0.0001=0.0003
+
+    function multiply(a, b) {
+        //把数字转换成字符串
+        var stra=a.toString()
+        var strb=b.toString()
+        //计算字符串小数点后面的位数
+        var a1=(stra.indexOf(".")==-1?0:(stra.length-stra.indexOf(".")-1));
+        var b1=(strb.indexOf(".")==-1?0:(strb.length-strb.indexOf(".")-1));
+        //计算两个小数最大小数位
+       var l=Math.max(a1,b1);
+       //返回相乘值并固定最大小数位
+        var result = parseFloat(a * b).toFixed(l);
+
+        return result;
+
+    }
+    var  a=3;var b=0.0001;
+    document.write( multiply(a, b))
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<DOCTYPE!>
+<html>
+<head>
+	<meta charset="UTF-8"></mata>
+	<title>jquery练习及体验</title>
+	<style>
+     *{
+     	margin:0;
+     	padding:0;
+     }
+     div{
+     	height:20px;
+     	background-color: pink;
+        display:none;
+     }
+    </style>
+   
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+   
+</head>
+<body>
+    <button>点击创建</button>
+<div>网易</div>
+<div>网易</div>
+<div>网易</div>
+<div>网易</div>
+
+	<script>
+	/*	window.onload=function(){
+		    var btn=document.getElementsByTagName("button")[0];
+     var divarr=document.getElementsByTagName("div")
+     btn.onclick=function(){
+     	 for(var i=0;i<divarr.length;i++){
+         divarr[i].style.display="block";
+          divarr[i].innerHTML="网易"
+     }
+     }
+    	
+		}*/
+$(document).ready(function(){
+	$("button").click(function(){
+      $("div").text()
+      show();
+
+	})
+}
+	)
+ 
+	</script>
+</body>
+</html>
+

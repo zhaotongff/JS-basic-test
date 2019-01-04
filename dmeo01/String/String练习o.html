@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //截取中华
+/*    var str="我爱中华人民共和国";
+    var str2="";
+    for(var i=0;i<str.length;i++){
+        if(str[i]==="中"){
+            str2=str.substr(i,2);
+            str3=str.substring(i,i+2);
+            str4=str.slice(i,i+2);
+            str5=str.split("").splice(i,2);
+
+        }
+
+    }
+    alert(str2);
+    alert(str3);
+    alert(str4);
+    alert(str5);*/
+//查找所有O出现的位置  cahrAt
+ /*   var strr="abcoefoxyozzopp";
+    var strr2=[];
+    for(var i=0;i<strr.length;i++){
+        if(strr.charAt(i)==="o"){
+            strr2.push(i);
+        }
+    }
+    alert(strr2);
+*/
+    //所有o替换成！
+    /*var strr="abcoefoxyozzopp";
+    console.log(strr.replace(/o/g,"!"));
+    var str3=strr.replace(/o/g,"!");
+    alert(str3);*/
+
+    //统计字符串中每个字符出现重复次数；
+//
+
+//字符串去重
+  /*  var strr="abcoefoxyozzopp";
+    var newStr=new String();
+    //  arr=strr.split(""); //字符串转换成数组；
+    for(var i=0;i<strr.length;i++) {
+        if(strr.indexOf(strr[i])===i){
+            newStr=newStr.concat(strr[i]);
+        }
+    }
+    console.log(newStr)*/
+//字符串翻转  无reverse方法
+
+    //1转换成数组
+    /*var str3="abcdefg";
+    var d=[];
+    console.log(str3.split("").reverse().join(""));*/
+var str5="abaasdffggghhjjkkfddsssss3444343";
+/*
+var s=str5.length;//字符串长度
+    console.log(s);
+
+var str=[];
+  str.push(str5.charAt(0));
+    str.push(str5.charAt(3));
+    str.push(str5.charAt(5));
+    str.push(str5.charAt(9));
+    console.log(str);  //取出指定位置0，3，5，9位置字符
+for(var i=0;i<str5.length;i++){
+    if(str5[i]==="i"){
+        console.log("that'sru te");
+    }
+}
+    var str6=str5.replace(/g/g,22);
+    console.log(str6);
+    var str7=str5.substring(1,6);
+    console.log(str7);
+*/
+
+//找出字符串中出现次数最多的字符  也可以用于去重
+/*
+var json={ };
+for (var i=0;i<str5.length;i++){
+    var c=str5.charAt(i);
+
+    if (json[c] === undefined) {
+        json[c] = 1;
+
+    } else {
+        json[c] += 1;
+    }
+
+
+}console.log(json);
+    var max = json[str5[0]];
+    var key;
+    for(k in json){
+    if (json[k] > max) {
+        max = json[k];
+        key = k;
+    }
+    }
+   console.log(key + "  "+max);
+
+*/
+
+</script>
+</body>
+</html>

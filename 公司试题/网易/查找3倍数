@@ -1,0 +1,15 @@
+function fn(n,m){
+    var count=0;
+    var  str=""
+    for(var k=1;k<n;k++){
+       str+=k; 
+    }
+    for(var i=n;i<m;i++){
+        str+=n;
+        var num=Number(str);
+        if(num%3==0){
+            count+=1;
+        }
+    }
+    return count;
+}

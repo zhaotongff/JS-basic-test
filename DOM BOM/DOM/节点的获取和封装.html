@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            width:100px;
+            height: 100px;
+            list-style: none;
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li></li>
+    <li class="box1"></li>
+    <li id="box"></li>
+    <li class="box1"></li>
+    <li></li>
+
+</ul>
+<script>
+
+function getEle(selector){
+    var first=selector.charAt(0);
+    if(first==="#"){
+        return document.getElementById(selector.slice(1));
+
+    }else if(first==="."){
+
+        return document.getElementsByClassName(selector.slice(1));
+
+    }else{
+        return document.getElementsByTagName(selector);
+    }
+
+
+
+}
+var box=getEle("#box");
+box.style.backgroundColor="red";
+  var box2=getEle(".box1");
+  for(var i=0;i<box2.length;i++) {
+      box2[i].style.backgroundColor = "blue";
+  }
+  var box3=getEle("li");
+  for(var i=0;i<box3.length;i++) {
+      box3[i].style.border = "2px solid black";
+  }
+</script>
+</body>
+</html>

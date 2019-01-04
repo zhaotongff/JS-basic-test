@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<table  border="1px">
+    <thead >
+    <tr style="background-color: blue">
+        <th>
+            <input type="checkbox" id="theadInp" ></input>
+        </th>
+        <th>菜名</th>
+        <th>餐馆名</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <tr>
+        <th>
+            <input type="checkbox" ></input>
+        </th>
+        <th>西兰花</th>
+        <th>矿大</th>
+    </tr><br>
+    <tr>
+        <th>
+            <input type="checkbox" ></input>
+        </th>
+        <th>番茄鸡蛋</th>
+        <th>南大</th>
+    </tr><br>
+    <tr>
+        <th>
+            <input type="checkbox" ></input>
+        </th>
+        <th>豆腐</th>
+        <th>苏大</th>
+    </tr><br>
+    <tr>
+        <th>
+            <input type="checkbox"></input>
+        </th>
+        <th>公爆鸡丁</th>
+        <th>东南</th>
+    </tr><br>
+
+    </tbody>
+
+</table>
+<script>
+    var topCb=document.getElementById("theadInp");
+    var tbody=document.getElementById("tbody");
+
+    var arr=tbody.getElementsByTagName("input");
+   topCb.onclick=function() {
+       for (var i = 0; i < arr.length; i++) {
+           if(topCb.checked ===true){
+               arr[i].checked=true;
+
+           }else{ arr[i].checked=false;}
+
+       }
+
+   }
+
+        for (var i = 0; i < arr.length; i++){
+          arr[i].onclick=function() {
+              var boo=true;
+              for (var j = 0; j < arr.length; j++) {
+
+              if (arr[j].checked===false) {
+                  boo=false;
+                 break;
+              }
+
+          }
+              topCb.checked=boo;
+          }
+
+
+
+        }
+ 
+
+
+</script>
+</body>
+</html>

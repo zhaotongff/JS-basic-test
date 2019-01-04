@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+.show{
+    color:red;
+}
+
+    </style>
+</head>
+<body>
+<div id="box">
+ <!--   <form action="demo_form.php" method="post">
+        <input type="text" name="fname" required="required">
+        <input type="submit" value="提交">
+    </form>
+
+    <p>点击提交按钮，如果输入框是空的，浏览器会提示错误信息。</p>
+
+-->
+    用户名: <input type="text" id="fname"><span id="yh"></span><br>
+    密码： <input type="password" name="pass">
+    <button type="submit" >提交</button>
+
+   <!-- <form name="myForm" action="demo_form.php" onsubmit="return validateForm()" method="post">
+        用户名: <input type="text" name="fname"><span id="yh"></span><br>
+        密码： <input type="password" name="pass">
+        <button type="submit" >提交</button>
+    </form>-->
+    <!--<form name="myForm" action="demo_form.php.php" onsubmit="return validateForm1();" method="post">
+        Email: <input type="text" name="email">
+        <input type="submit" value="提交">
+    </form>-->
+
+</div>
+
+<script>
+    var sp=document.getElementById("fname")
+    var x=document.getElementById("fname").value;
+    var yh=document.getElementById("yh")
+    sp.onmouseover=funtion(){
+
+        if (x==null || x==""){
+            yh.innerHTML="用户名须填写";
+            yh.className="show"
+
+        }
+        if(x="白金组"){
+            yh.innerHTML="√";
+            yh.className=""
+
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

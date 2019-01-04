@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+        width:200px;
+        height:20px;
+            font-size:20px;
+
+        }
+.wrong{
+    border:1px solid red;
+
+}
+       .correct{
+            border: 1px  solid green;
+
+        }
+    </style>
+</head>
+<body>
+用户名：<input type="text" id="jdtext" onblur="check(this)">
+<script>
+
+   function check(xx){
+       var str=xx.value;
+       if(str.length<6||str.length>12){
+           xx.className="wrong";
+
+       }else{
+           xx.className="correct";
+
+       }
+
+   }
+
+
+
+</script>
+</body>
+</html>

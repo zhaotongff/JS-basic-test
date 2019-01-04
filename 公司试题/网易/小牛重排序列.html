@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*小易有一个长度为N的正整数数列A = {A[1], A[2], A[3]..., A[N]}。
+牛博士给小易出了一个难题:
+对数列A进行重新排列,使数列A满足所有的A[i] * A[i + 1](1 ≤ i ≤ N - 1)都是4的倍数。
+小易现在需要判断一个数列是否可以重排之后满足牛博士的要求。 */
+
+    /* 输入的第一行为数列的个数t(1 ≤ t ≤ 10),
+接下来每两行描述一个数列A,第一行为数列长度n(1 ≤ n ≤ 10^5)
+第二行为n个正整数A[i](1 ≤ A[i] ≤ 10^9)
+2
+3
+1 10 100
+4
+1 2 3 4*/
+
+    /*对于每个数列输出一行表示是否可以满足牛博士要求,如果可以输出Yes,否则输出No。
+    * yes
+    * no*/
+
+ /*   var s=fn();
+    alert(s)
+    function fn(){
+        var a=[1,10,100]
+        var jishu=0;
+        var oushu=0;
+        var four=0;
+        for(var i=0;i<a.length;i++){
+            if(a[i]%2===1){ jishu++}
+            if(a[i]%2===0&&a[i]%4!=0){oushu++}
+            if(a[i]%4===0){four++}
+
+        }
+        if(four>=(a.length-four-1)){
+            return"true"
+        }
+        if(four>=jishu&&oushu>=2){
+            return"true"
+        }else{return "false "}
+    }*/
+    var str=fn();
+    alert(str)
+    function fn() {
+        var a = [1, 10, 100]
+        var jiShu = 0;
+       var four = 0;
+       var ouShu = 0;
+        for (var  i = 0; i <= a.length - 1; i++)
+        {
+            //不符合要求
+            if (a[i] <= 0) {
+                return false;
+            }
+            //奇数个数
+            if (a[i] % 2 == 1) {
+                jiShu++;
+            }
+            //只是二的倍数个数
+            if (a[i] % 2 == 0 && a[i] % 4 != 0) {
+                ouShu++;
+            }
+            //4的倍数
+            if (a[i] % 4 == 0) {
+                four++;
+            }
+        }
+        if (four >= a.length - four - 1) {
+                      return "true";
+                   }
+              //4的倍数的个数必须大于等于奇数个数（如果有奇数的话），同时，偶数个数必须至少2个，1 3 5 4 4 4 2 2 2 2 2 2 2 2 2
+               if ((four >= jiShu) && (ouShu >= 2)) {
+                     return true;
+                   }
+               return "false";
+
+    }
+
+
+</script>
+</body>
+</html>

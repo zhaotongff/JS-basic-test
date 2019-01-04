@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--方法一 浮动法-->
+   <!--  <style>
+   *{
+       margin: 0;
+       padding: 0
+   }
+       #box1{
+          
+           height: 1000px;
+   
+   
+       }
+       #left{
+           width:200px;
+           height:100%;
+           background-color: #00ffdd;
+           float:left;
+       }
+       #right{
+           width:200px;
+           height:100%;
+           background-color: #00ffdd;
+           float:right;
+       }
+       #center{
+           height:100%;
+           margin:auto 200px;
+           background-color: #999888;
+       }
+   </style> -->
+
+
+    <!--方法2   定位法-->
+ <!--    <style>
+ 
+   *{
+    margin: 0;
+    padding: 0
+    }
+ 
+     #box1{
+        
+         height: 1000px;
+          position: relative;
+ 
+     }
+     #left{
+         width:200px;
+         height:100%;
+         background-color: #00ffdd;
+         left:0;
+         position: absolute;
+     }
+     #right{
+         width:200px;
+         height:100%;
+         background-color: #00ffdd;
+         right:0;
+         position: absolute;
+     }
+     #center{
+         height:100%;
+        
+         background-color: #999888;
+     }
+ </style> -->
+<!-- 圣杯布局 -->
+ <style>
+ 
+   *{
+    margin: 0;
+    padding: 0;
+    }
+ 
+     #box1{
+         height: 1000px;
+         margin: 0 200px 0 200px;
+
+     }
+     #left,#right, #center{
+      height:100%;
+      }
+
+     #left{
+         width:200px;
+         background-color: #00ffdd;
+         float: left;
+         margin-left: -100%;
+         left:-200px;
+         position: relative;
+       
+
+     }
+     #right{
+         width:200px;
+        float: left;
+         background-color: #00ffaa;
+         position: relative;
+          margin-left:-200px;
+          right: -200px
+   
+
+     }
+     #center{
+         width:100%;
+         float: left;
+         background-color: #999888;
+
+     }
+ </style>
+
+</head>
+<body>
+<div id="box1">
+     <!--  <div id="left">左边定宽300px</div>
+     <div id="right">右边定宽300px</div>
+     <div id="center">中间自适应</div> -->
+       <div id="center">中间自适应</div>
+      <div id="left">左边定宽200px</div>
+      <div id="right">右边定宽200px</div>
+    
+    
+</div>
+</body>
+</html>

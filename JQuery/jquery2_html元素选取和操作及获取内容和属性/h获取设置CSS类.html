@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script  src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        .blue{
+            color:blue;
+
+        }
+        .important{
+            font-weight:bold;
+            font-size:xx-large;
+
+        }
+
+    </style>
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#div1 p").addClass("blue important");                   //添加类addClass
+
+        });
+
+
+        $("#btn2").click(function(){
+            $("#div2 p").removeClass("blue");                   //删除类removeClass
+            $("#div2 h3").removeClass("important");                   //删除类removeClass
+
+        });
+
+
+        $("#btn3").click(function(){
+            $("#div3 p").toggleClass("blue important");                   //添加删除类toggleClass
+
+        });
+
+
+        $("#btn4").click(function(){
+           alert($("#div4 p:first").css("background-color")) ;                   //css()方法设置或者返回被选元素的一个或者多个样式属性 返回div4中第一个p元素颜色
+
+        });
+        $("#btn5").click(function(){
+            $("#div4 p").css({"background-color":"yellow","font-size":"200%"}) ;                   //设置div4中所有p元素颜色为黄色
+
+        });
+    });
+
+</script>
+<div id="div1">
+<h3>第一个标题</h3>
+<p>第一段</p>
+<p>第二段</p>
+<button id="btn1">添加类</button>
+</div>
+<br><br>
+<div id="div2">
+<h3 class="important">第二个标题</h3>
+<p  class="blue ">第一段</p>
+<p class="blue">第二段</p>
+<button id="btn2">删除类</button>
+</div>
+
+<div id="div3">
+    <h3 class="important">第三个标题</h3>
+    <p  class="blue" >第一段</p>
+    <p class="blue" >第二段</p>
+    <button id="btn3">添加/删除类</button>
+</div>
+
+<div id="div4">
+    <h3 >第四个标题</h3>
+    <p style="background-color: #FF0000">第一段</p>
+    <p style="background-color: #00ff00" >第二段</p>
+    <p  style="background-color: #0000ff">第三段</p>
+    <button id="btn4">获取CSS类</button> <button id="btn5">设置CSS类</button>
+</div>
+</body>
+</html>

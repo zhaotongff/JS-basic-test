@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+var line="wefrsfgjksdfghs2"
+fn(line)
+function fn(line){
+    var k=line[line.length-1]
+    var s=line.slice(0,line.length-1)
+   var str="";
+ 
+   (function fns(s){
+    if(s.length<=k&&s.length>0){
+        var newarr=[]
+          for(var i=s.length-1;i>=0;i--){
+             newarr.push(s[i])
+          }
+          str+=newarr.join("");
+         
+        }else if(s.length>k&&s.length<3*k){
+           var newarr=[];
+          for(var i=k-1;i>=0;i--){
+             newarr.push(s[i])
+          }
+           for(var j=k;j<s.length;j++){
+             newarr.push(s[j])
+          }
+          str+=newarr.join("")
+
+        }else if(s.length>3*k){
+             var newarr=[];
+             var newarr2=[]
+             for(var j=k-1;j>=0;j--){
+               newarr2.push(s[j])
+       }
+           for(var m=k;m<3*k;m++){
+          newarr2.push(s[m])
+           }
+           
+             str+=newarr2.join("")
+            var str1=s.slice(3*k)
+            fns(str1)  
+   }
+     
+        })(s)
+      console.log(str)
+       
+   
+  }  
+      
+ 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>创建元素</button>
+<script>
+
+    /*请编写一段JavaScript脚本生成下面这段DOM结构。要求：使用标准的DOM方法或属性。
+
+<div id=”example”>
+    <p class=”slogan”>淘！你喜欢</p>
+</div>*/
+    var but=document.getElementsByTagName("button")[0];
+    var parent=but.parentNode;
+      but.onclick=function(){
+         var div= document.createElement("div")
+          div.id="example"
+          parent.appendChild(div)
+          var p=document.createElement("p")
+          p.class="slogan"
+          p.innerHTML="淘！你喜欢"
+          div.appendChild(p)
+}
+
+    //
+
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function paixu() {
+        var str = "172864ajfhsbc875携程携";
+        var l = str.length;
+
+        var n = 0;
+        var m = 0;
+        var p = 0;
+        var str1 = new Array();
+        var str2 = new Array();
+        var str5 = new Array();
+        for (var i = 0; i < l; i++) {
+            if (str[i] >= 0 && str[i] <= 9) {
+                str1[n] = str[i];
+                n = n + 1;
+                alert(str1);
+            } else if(str[i] >= "a" && str[i] <= "z"||str[i] >= "A" && str[i]<= "Z"){
+                str5[p] = str[i];
+                p = p + 1;
+                alert(str5);
+            }
+            else {
+                str2[m] = str[i];
+                m++;
+                alert(str2);
+            }
+        }
+        var a=0;
+        // var str11 = str1.sort();
+        var str111=new Array();
+        for (i = 0; i < n-1; i++) {
+        if(str1[i]!=str1[i+1]){
+            str111[a]=str1[i];
+            a++;
+
+        }else{
+            continue;
+        }
+    }
+        alert(str111);
+        var c=0;
+        // var str21 = str2.sort();
+        var str22=new Array();
+        for (i = 0; i < m-1; i++) {
+            if(str2[i]!=str2[i+1]){
+                c++;
+                str22[c]=str2[i];
+            }else{
+                continue;
+            }
+        }
+        alert(str22);
+        var d=0;
+
+        var str55=new Array();
+        for (i = 0; i < p-1; i++) {
+            if(str5[i]!=str5[i+1]){
+                d++;
+                str55[d]=str5[i];
+            }else{
+                continue;
+            }
+        }
+        alert(str55);
+
+        var str3=str111+str22;
+        alert(str3);
+      var str4=str3.replace(/,/g,'');
+        alert(str4);
+
+    }
+
+
+
+    paixu();
+
+</script>
+</body>
+</html>

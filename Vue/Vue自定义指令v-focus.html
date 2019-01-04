@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>页面载入时，input 元素自动获取焦点：</p>
+    <input v-focus>
+</div>
+<div id="app2">
+    <p>页面载入时，input 元素自动获取焦点：</p>
+    <input v-focus>
+</div>
+<script>
+    /*除了默认设置的核心指令( v-model 和 v-show ), Vue 也允许注册自定义指令。
+下面我们注册一个directive全局指令 v-focus, 该指令的功能是在页面加载时，元素获得焦点：*/
+   Vue.directive("focus",{
+       inserted:function(el){
+           el.focus()
+       }
+   })
+    new Vue({
+        el:"#app"
+    })
+
+
+
+    //局部指令
+    new Vue({
+        el:"#app2",
+        directives:{
+           "focus":{
+               inserted:function(el){
+                   el.focus();
+                   }
+           }
+
+        }
+    })
+</script>
+</body>
+</html>

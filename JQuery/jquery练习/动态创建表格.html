@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+
+</head>
+<body>
+	<button>创建表格</button>
+	<table>
+     <thead>
+       <tr>
+         <th>标题</th>
+         <th>地址</th>
+         <th>说明</th>
+       </tr>
+     </thead>
+     <tbody>
+       <!-- data 数组长度哟多少就生成几行
+         步骤：获取元素
+         1遍历数组
+         2根据数组长度for循环  ，生成每一行每一列
+         3把生成的每一行每一列拼接到tbody里面去
+        -->
+    <!--     <tr>
+         <td>1</td>
+         <td>2</td>
+         <td>3</td>
+        </tr> -->
+     </tbody>
+	</table>
+
+<script type="text/javascript">
+	//模拟从后台拿到数据
+	
+	$(function(){
+       var data =[
+       {"name":"知善教育",
+         "url":"www.lalal.com",
+         "type":"IT最强培训机构"
+       },
+       {
+       	"name":"知善科技",
+         "url":"www.hahh.com",
+         "type":"大学生IT培训机构"
+       },
+       {"name":"知善堂",
+         "url":"www.ddd.com",
+         "type":"前端的黄甫军校"
+
+       }];
+       $("button").click(function(){
+       	   var str=""
+       for(var i=0;i<data.length;i++){
+            str+="<tr>"
+                  +"<td>"+data[i].name+"</td>"
+                  +"<td>"+data[i].url+"</td>"
+                   +"<td>"+data[i].type+"</td> "
+                   +"</tr>"
+       }
+       $("tbody").html(str)
+       })
+    
+
+
+	})
+	//点击按钮 根据后台拿到的数据动态创建表格行和列
+	
+	
+
+</script>	
+</body>
+</html>

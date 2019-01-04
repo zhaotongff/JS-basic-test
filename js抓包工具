@@ -1,0 +1,18 @@
+抓包工具有哪些
+
+比较熟悉的是Mac上用Charles,Windows上用Fiddler。
+最好介绍一款集合了抓包和H5页面调试的工具spy-debugger。
+一站式页面调试、抓包工具。远程调试任何手机浏览器页面，任何手机移动端webview（如：微信，HybridApp等）。支持HTTP/HTTPS，无需USB连接设备。
+特性：
+
+1 页面调试＋抓包
+2 操作简单，无需USB连接设备
+3 支持HTTPS。
+4 spy-debugger内部集成了weinre、node-mitmproxy、AnyProxy。
+5 自动忽略原生App发起的https请求，只拦截webview发起的https请求。对使用了SSL pinning技术的原生App不造成任何影响。
+5 可以配合其它代理工具一起使用(默认使用AnyProxy) (设置外部代理)
+
+
+。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+

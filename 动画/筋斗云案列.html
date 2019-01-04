@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgba(0,0,0,0.76);
+        }
+        #banner{
+            width: 900px;
+             height: 45px;
+             border-radius: 10px;
+             margin: 100px auto;
+             background: url("imgs/3.jpg")  right white no-repeat;
+            position: relative;
+        }
+     #banner ul{
+
+           list-style: none;
+         position: absolute;
+        }
+      ul li{
+            width:80px;
+            height: 45px;
+            text-align: center;
+            float: left;
+            font:100  15px/45px "simsun";
+
+        }
+        span{
+            display: inline-block;
+            width:80px;
+            height: 45px;
+            background: url("imgs/2.jpg")  no-repeat;
+           position: absolute;
+            left:0px;
+        }
+    </style>
+</head>
+<body>
+<div id ="banner">
+    <span></span>
+    <ul>
+        <li>新闻首页</li>
+        <li>活动策划</li>
+        <li>师资力量</li>
+        <li>企业文化</li>
+        <li>招聘信息</li>
+        <li>公司简介</li>
+        <li>学员信息</li>
+        <li>反馈意见</li>
+    </ul>
+
+</div>
+<!--//思路：鼠标移动把SPAN移动到对应位置，鼠标离开span还动到原来位置
+鼠标点击 记录当前位置 然后span移动到当前位置，鼠标离开span回到记录位置-->
+<script>
+    var sp=document.getElementsByTagName("span")[0];
+    var liArr=document.getElementsByTagName("li");
+    var liWidth=liArr[0].offsetWidth;
+    var nowIndex=0;
+    for(var i=0;i<liArr.length;i++){
+        liArr[i].index=i;
+        liArr[i].onmouseover=function(){
+            linearApeedAnimateX(sp,this.index*liWidth);
+        }
+
+        liArr[i].onclick=function(){
+            nowIndex=this.index;
+            linearApeedAnimateX(sp,nowIndex*liWidth);
+        }
+        liArr[i].onmouseout=function(){
+            linearApeedAnimateX(sp,nowIndex*liWidth);
+        }
+    }
+   function linearApeedAnimateX(ele,endX){
+        clearInterval(ele.timer);
+        ele.timer=setInterval(function () {
+            var step=(endX-ele.offsetLeft)/10;//step离终点越近  步长越小
+            step=step>10?Math.ceil(step):Math.floor(step);
+            ele.style.left=ele.offsetLeft+step+"px";
+            if(Math.abs(endX-ele.offsetLeft)<=Math.abs(step)){
+                ele.style.left=endX+"px";
+                clearInterval(ele.timer);
+            }
+        },20)
+    }
+</script>
+</body>
+</html>

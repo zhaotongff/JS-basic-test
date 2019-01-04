@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        input{
+            width:200px;
+            height:80px;
+           border: solid white 10px;
+            margin:auto;
+            display:block;
+            position: relative;
+            background-color: #999999;
+            bottom: 0px;
+
+
+
+        }
+
+button{
+    width:200px;
+    height:80px;
+    margin: auto;
+    display:block;
+}
+
+    </style>
+</head>
+<body>
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<input type="text">
+<button>重置</button>
+<script>
+    var inp=document.getElementsByTagName("input");
+    for (var i=0;i<inp.length;i++) {
+        inp[i].onfocus = function () {
+            this.style.backgroundColor = "blue";
+            this.style.border = "2px solid red";
+
+        }
+        inp[i].onblur = function () {
+            this.style.backgroundColor = "";
+            this.style.border = "";
+
+        }
+    }
+</script>
+</body>
+</html>

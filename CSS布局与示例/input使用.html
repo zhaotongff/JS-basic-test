@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div>
+    <!--在form标签中，属性action写将表单数据提交到哪个URL，method写以哪种方法提交（get/post）-->
+    <form action="http://localhost:8888/index" method="get">
+        <div>
+            <!--input标签中，type="text"时，输入框内可输入任意文本内容-->
+            <!--当input做输入框时，name属性必须设置，后台程序使用name的值提取表单数据-->
+            <input type="text" name="user" />
+        </div>
+
+        <div>
+            <!--input标签中，type="password"时，输入框内输入密码-->
+            <input type="password" name="password" />
+        </div>
+
+        <div>
+            <!--当input做输入框时，可使用value属性为输入框提供默认值-->
+            <input type="text" name="email" value="abc@example.com" />
+        </div>
+
+        <p>
+            <span>请选择性别：</span>
+            <!--使用input标签做单选按钮，属性设置type="radio" name="gender"几个选项的name必须一样-->
+            <!--当checked="checked"时，该项默认选中-->
+            男：<input type="radio" name="gender" value="F" checked="checked" />
+            女：<input type="radio" name="gender" value="M"/>
+            <br />
+            <span>爱好：</span>
+            <!--使用input标签做复选按钮，属性设置type="checkbox" name="hobby"几个选项的name必须一样-->
+            <!--当checked="checked"时，该项默认选中-->
+            篮球：<input type="checkbox" name="hobby" value="1" checked="checked" />
+            游泳：<input type="checkbox" name="hobby" value="2" />
+            阅读：<input type="checkbox" name="hobby" value="3" checked="checked" />
+            唱歌：<input type="checkbox" name="hobby" value="4" />
+        </p>
+
+
+        <div>
+            <!--input标签中，type="button"时，为普通按钮，默认无任何功能，可用CSS为其添加功能-->
+            <!--当input做按钮时，value的值显示在按钮上-->
+            <input type="button" value="按钮" />
+        </div>
+
+        <div>
+            <!--input标签中，type="reset"时，为重置按钮，重置当前表单的所有内容-->
+            <input type="reset" value="重置">
+            <!--input标签中，type="submit"时，为提交按钮，在浏览器中点击后向服务器端提交表单数据-->
+            <input type="submit" value="提交" />
+        </div>
+    </form>
+
+    <p>
+        <!--当要上传文件时，form标签的enctype="multipart/form-data"属性需设置-->
+        <form enctype="multipart/form-data">
+            <!--input标签做文件上传按钮，type="file"-->
+            上传文件：<input type="file" name="filename" /><br />
+            <input type="submit">
+        </form>
+    </p>
+<!-- HTML5 拥有多个新的表单输入类型。这些新特性提供了更好的输入控制和验证。
+
+本章全面介绍这些新的输入类型：
+
+color
+date
+datetime
+datetime-local
+email
+month
+number
+range
+search
+tel
+time
+url
+week -->
+<input type="color">颜色选择器<br/>
+<input type="date">时间选择器<br/>
+<input type="datetime">时间UTC 时间<br/>
+<input type="email">邮箱<br/>
+<input type="month">允许你选择一个月份<br/>
+<input type="week">星期选择器<br/>
+<input type="number">数字选择器<br/><!-- min="1" max="5" （1-5）-->  
+<input type="range">范围选择器<br/><!-- min="1" max="5" （1-5）-->  
+<input type="search">搜索选择器<br/>
+<input type="tel">日历选择器<br/>
+<input type="time">时间选择器<br/>
+<input type="url">链接选择器<br/>
+</div>
+</body>
+</html>

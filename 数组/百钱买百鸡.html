@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //公元前五世纪，我国古代数学家张丘建在《算经》一书中提出了“百鸡问题”：鸡翁一值钱五，鸡母一值钱三，鸡雏三值钱一。百钱买百鸡，问鸡翁、鸡母、鸡雏各几何？
+
+    function fn(n){
+        var n=n;
+        while(n){
+            for(var i=0;i<=20;i++){
+                for(var j=0;j<=33;j++){
+                    for(var k=0;k<=300;k++){
+                            if((i+j+k==100)&&(5*i+3*j+1/3*k==100)){
+                                alert("i:"+ i+" j:"+j+" k:"+k)
+                            }
+                    }
+                }
+            }
+        }
+    }
+    fn(1)
+</script>
+</body>
+</html>

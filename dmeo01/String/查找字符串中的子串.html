@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*给定一个 haystack 字符串和一个 needle 字符串，在 haystack 字符串中找出 needle 字符串出现的第一个位置 (从0开始)。如果不存在，则返回  -1。
+
+示例 1:
+
+输入: haystack = "hello", needle = "ll"
+输出: 2
+示例 2:
+
+输入: haystack = "aaaaa", needle = "bba"
+输出: -1*/
+     var haystack="hello";
+     var needle="ll";
+     var strStr = function(haystack, needle) {
+        var reg=new RegExp(needle);
+        return(haystack.search(reg))//   字符串方法：search  如果存在返回索引位置，，，不存在返回-1；
+                                   //     mach:返回对象，里面包含索引 ，取出索引属性的值；
+                                     //   正则方法：test 如果存在返回true   ，不存在返回false;
+                                    //              eaec  如果存在 ，返回找的那个子串，，不存在返回null
+
+     };
+     console.log(strStr(haystack, needle))
+</script>
+</body>
+</html>

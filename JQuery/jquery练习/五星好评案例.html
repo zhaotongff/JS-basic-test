@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+    <style>
+*{
+	margin:0px;
+	padding:0px;
+}
+ul{
+  font:50px "simsun";
+
+}
+li{
+	list-style: none;
+	 float:left;
+	 margin-left: 10px
+}
+.current{
+
+}
+   </style>
+}
+
+</head>
+<body>
+  <ul>
+  	<li>☆</li>
+  	<li>☆</li>
+  	<li>☆</li>
+  	<li>☆</li>
+  	<li>☆</li>
+  </ul>
+  <script>
+  	var fullStar="★"
+  	var emptyStar="☆"
+    $(function(){
+       $("ul").on("mouseenter","li",function(){
+
+       	//1、鼠标移入当前li变成实心
+       	//
+       	//2、鼠标移入之前所有Li变实心  之后所有li变成空心
+          $(this).text(fullStar).prevAll().text(fullStar).end().nextAll().text(emptyStar)
+
+       })
+       //3鼠标移开  恢复空心
+     $(document).on("mouseleave","ul",function(){
+     	$("ul li").text(emptyStar)
+     	$("ul .current").text(fullStar).prevAll().text(fullStar).end().nextAll().text(emptyStar)
+     })
+   //4 点击星星记录状态 鼠标移开也不恢复
+   //思路：点击当前Li 把当前Li添加一个class  其他li移除class  
+   //鼠标移开后以jq选择有class的li 左边实心， 右边空心
+     
+     $("ul").on("click","li",function(){
+
+     
+          $(this).addClass("current").siblings().removeClass("current")
+
+       })
+    })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//第二题，小偷背包  给定5个宝贝，宝贝价值不一样，重量不一样，小偷背包重量有现，之所以要在宝贝中做出选择，使偷盗财富最大，请计算一下
+
+function test(arr1,arr2,count) {
+      var maxArr=[];
+      var max=0;
+         for(var i=0;i<arr1.length;i++){
+               var counts=arr2[i];
+               var value=arr1[i]
+               var newarr=[]
+              if(counts<=count){
+                 newarr.push(value) //先将每一个重量小于10的放入新数组
+              }
+           
+             for(var j=0;j<arr2.length;j++){
+                 if(i!==j){
+                  counts+=arr2[j];
+                  value+=arr1[j]
+                  if(counts<=count){
+                   newarr.push(value) //循环相加，将小于10的放入
+                }
+              }
+                
+            }
+
+            maxArr.push(Math.max.apply(this,newarr))//每次循环数组中的最大数拿出来
+
+         }
+         max=Math.max.apply(this, maxArr)//整体循环中最大数拿出来
+        console.log(max)
+        }
+var arr1=[6,3,5,4,6]
+var arr2=[2,2,6,5,4]
+var count=10;
+    test(arr1,arr2,count)
+</script>
+</body>
+</html>
+
+
+<!-- #include <stdio.h>
+#define ZH(n) (1<<n)
+int main()
+{
+    int a[5];
+    int ch[5]; 
+    int count=0; 
+    unsigned char bit=31;
+    int maxa=0;
+    scanf("%d,%d,%d,%d,%d",&a[0],&a[1],&a[2],&a[3],&a[4]); 
+    scanf("%d,%d,%d,%d,%d",&ch[0],&ch[1],&ch[2],&ch[3],&ch[4]); 
+    scanf("%d",&count);
+   
+    for(int i=0;i<=bit;i++)
+    {
+     if(ch[0]*(i&ZH(0))+ch[1]*((i&ZH(1))>>1)+ch[2]*((i&ZH(2))>>2)+ch[3]*\ 
+     ((i&ZH(3))>>3)+ch[4]*((i&ZH(4))>>4)<=count) 
+     {   
+         if( a[0]*(i&ZH(0))+a[1]*((i&ZH(1))>>1)+a[2]*((i&ZH(2))>>2)+a[3]*\
+         ((i&ZH(3))>>3)+a[4]*((i&ZH(4))>>4)>maxa)
+         maxa=a[0]*(i&ZH(0))+a[1]*((i&ZH(1))>>1)+a[2]*((i&ZH(2))>>2)+a[3]*\
+         ((i&ZH(3))>>3)+a[4]*((i&ZH(4))>>4);
+     }
+    }
+         
+     
+    printf("%d",maxa);
+    return 0; -->

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(".button1").click(function(){             /* fadeIn淡入操作*/
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(2000);
+            });
+            $(".button2").click(function(){             /* fadeIn淡出操作*/
+                $("#div1").fadeOut();
+                $("#div2").fadeOut("slow");
+                $("#div3").fadeOut(2000);
+            });
+            $(".button3").click(function(){              /* fadeIn淡入淡出一起操作*/
+                $("#div1").toggle();
+                $("#div2").toggle("slow");
+                $("#div3").toggle(2000);
+            });
+            $(".button4").click(function(){                  /* fadeIn颜色渐变为指定透明的操作*/
+                $("#div1").fadeTo("slow",0.15);
+                $("#div2").fadeTo("slow",0.4);
+                $("#div3").fadeTo("slow",0.5);
+            });
+        });
+    </script>
+</head>
+
+<body>
+<p>以下实例演示了 fadeIn() 使用了不同参数的效果。</p>
+<button class="button1">点击淡入 div 元素。</button>
+<p>以下实例演示了 fadeOut 使用了不同参数的效果。</p>
+<button class="button2">点击淡出 div 元素。</button>
+<p>以下实例演示了 toggle 使用了不同参数的效果。</p>
+<button class="button3">点击淡入淡出 div 元素。 同时实现上两个按钮功能</button>
+<p>以下实例演示了 fadeTo使用了不同参数的效果。 渐变色为给定的透明度</p>
+<button class="button4">点击颜色渐变 div 元素。</button>
+<br><br>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+<div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+
+</body>
+</html>

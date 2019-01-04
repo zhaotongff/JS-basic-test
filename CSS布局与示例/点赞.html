@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        button{
+            width: 400px;
+            height:150px;
+           background-color: #999888;
+            color:white;
+            text-align: center;
+        }
+        img{
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+<div class="paint">
+    <button>
+        <span class="btn-text">点赞</span>
+        <span><img src="../imgs/1.jpg"></span>
+    </button>
+<!--    <button>
+        <span>取消</span>
+        <span><img src="../imgs/2.jpg"></span>
+    </button>-->
+</div>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+
+    var btntext=document.getElementsByClassName("btn-text")[0]
+
+    let isLike=false;
+
+    btn.addEventListener('click',()=>{
+        isLike=!isLike;
+        if(isLike){
+            console.log("取消")
+            btntext.innerHTML="取消";
+        }else{
+            btntext.innerHTML="点赞";
+            console.log("点赞")
+        }
+    })
+
+</script>
+</body>
+</html>

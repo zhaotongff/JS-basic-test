@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //数组中的元素均为 Number 类型   [ 1, 2, 3, 4 ]  10
+    function arrSum(arr) {
+        var sum=0;
+        var l=arr.length;
+        for(var i=0;i<l;i++){
+            sum+=arr[i];
+        }
+        return sum;
+    }
+    var arr=[1, 2, 3, 4];
+    console.log(arrSum(arr));
+</script>
+</body>
+</html>

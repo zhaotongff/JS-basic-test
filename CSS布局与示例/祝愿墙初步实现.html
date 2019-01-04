@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0 auto;
+            padding:0px;
+            background:url(../dmeo01/imgs/6.jpg) no-repeat center 36px;
+            text-align:center;
+            background-color:#c30203;
+
+
+        }
+        #content{
+           margin:0 auto;
+            background:url(../dmeo01/imgs/1.jpg) no-repeat left top;
+            width:960px;
+            height:627px;
+            position:absolute;
+
+        }
+   #content #tip{
+       position:absolute;
+       left:200px;
+       top:300px;
+   }
+
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id ="tip"><img src="../dmeo01/imgs/6.jpg"></div>
+
+</div>
+<script>
+    var tip=document.getElementById("tip");
+    var content=document.getElementById("content");
+    var num=10;
+   /* for(var i=0;i<num;i++){
+        var newtip=tip.cloneNode(true);
+        var topValue=parseInt(Math.random()*400);
+        var leftValue=parseInt(Math.random()*700);
+        newtip.style.top=topValue+"px";
+        newtip.style.left=leftValue+"px";
+        content.appendChild(newtip);
+    }*/
+
+
+</script>
+</body>
+</html>

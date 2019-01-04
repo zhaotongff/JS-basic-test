@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="box">
+<ul>
+<li>item 1</li>
+<li>item 2</li>
+<li>item 3</li>
+<li>item 4</li>
+</ul>
+</div>
+<script>
+  var ul=document.getElementsByTagName("ul")[0]
+var li=document.createElement("li")//创建元素节点
+li.id="li"
+li.class="liname";
+li.innerHTML="item "+(ul.children.length+1)   //1
+var liinner=document.createTextNode("hello world")//创建文本节点//2
+var liinner2=document.createTextNode(" zhao")//创建文本节点//3
+li.appendChild(liinner)
+li.appendChild(liinner2)
+ul.appendChild(li)
+alert(li.childNodes.length)//3
+li.normalize()//将相邻文本节点合并
+alert(li.childNodes.length)//1
+var g=li.firstChild.splitText(3)//将一个文本节点分成两个文本节点，接受的参数是一个数值，表示数值之前是一个文本节点，文本之后是一个节点
+alert(g.nodeValue)//
+alert(li.childNodes.length)//2
+</script>
+
+</body>
+</html>

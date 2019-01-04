@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    function parse (obj,str) {
+        var arr = str.replace(/\[(\w)\]/g,'.$1').split('.'),  temp = obj
+        for(var i=0;i<arr.length;i++) {
+            if(temp[arr[i]]) {
+                temp = temp[arr[i]]
+
+            }else {
+                return
+            }
+        }
+        return temp
+    }
+var object={
+b:{c:4},d:[{e:5},{e:6}]
+};
+console.log(parse(object,'b.c'));
+</script>
+</body>
+</html>

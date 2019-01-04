@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<!--<script>
+/*&lt;!&ndash;<style>
+    .box{
+        width:200px;
+        height:200px;
+        background-color:red;
+
+    }
+
+</style>
+
+<div class="box" id="boxid"></div>
+
+<script>
+
+    /!*事件：在什么时候做什么事
+     1.事件源： 谁触发什么事                                页面
+     2 事件：什么事                                        点击事件
+     3： 事件驱动函数： 事情触发了 要做什么事情           匿名函数
+     *!/
+
+     获取事件对象方式：
+     1 根据ID选取
+     document.getElementById("boxid");
+     根据标签name属性获取
+   2   document.getElementsByName("");
+   根据标签名字获取
+   3  document.getElementsByTagName("");
+
+
+
+    //通过DOM对象获取页面标签对象
+    //通过ID获取事件源
+    var div= document.getElementById("boxid");
+    alert(div)
+      div.onclick = function(){
+        /!*  alert(1);*!/
+        div.style.height="800px";
+        div.style.width="400px";
+      }
+
+    //点击事件&ndash;&gt;*/
+
+
+</script>-->
+
+<!--//删除广告案例-->
+<style>
+    *{
+        margin:0;
+        padding:0;
+
+    }
+    #top-banner{
+        background-color:pink;
+        margin:20px;
+        height:150px;
+    }
+    .bg{
+        height:150px;
+        width:120px;
+        margin:auto;
+        background-color:blue;
+        position:relative;
+    }
+    img{
+
+        width:100%;
+        height:100%;
+    }
+    a{
+        position:absolute;
+        top:5px;
+        right:5px;
+        text-decoration:none;
+        width:20px;
+        height:20px;
+        text-align:center;
+        background-color:black;
+        color:white;
+    }
+.hide{
+    display:none !important;
+
+}
+</style>
+<div id="top-banner">
+    <div class="bg">
+        <img src="" alt="">
+        <a herf="#" id="closebanner">×</a>
+
+
+    </div>
+
+</div>
+<script>
+    var closebanner=document.getElementById("closebanner");
+    var topbanner=document.getElementById("top-banner");
+    closebanner.onclick=function(){
+        topbanner.className="hide";
+
+
+    }
+//事件拓展
+</script>
+
+
+</body>
+</html>

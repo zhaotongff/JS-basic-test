@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+
+        }
+        #banner{
+            width:2000px;
+            height:2000px;
+            background-color: #999999;
+            color:red;
+            text-align: center;
+            margin:10px auto;
+
+        }
+        #inner1{
+            width:500px;
+            height:550px;
+            margin-left: 0px;
+
+        }
+        #inner2{
+            width:500px;
+            height:550px;
+            margin-top: 20px;
+            margin-left:1500px;
+
+        }
+        img{
+            width:330px;
+            height:550px;
+            top:20px;
+            position: fixed;
+
+        }
+        #a1{
+            color:white;
+            background-color: black;
+            width:60px;
+            height:60px;
+            top:20px;
+           margin-left:160px;
+            position: absolute;
+        }
+        #a2{
+            color:white;
+            background-color: black;
+            width:60px;
+            height:60px;
+            top:20px;
+           margin-right:20px;
+            position: absolute;
+        }
+
+       #content{
+           width:400px;
+           height:400px;
+          text-align: center;
+           color:red;
+           margin: auto;
+           position:absolute;
+           top:10px;
+
+           font:700 20px/40px "simsun";
+       }
+        p{
+            width:130px;
+            height:30px;
+            background-color: #c3c3c3;
+
+        }
+        #timeL{
+            position:absolute;
+            top:240px;
+            left:1500px;
+
+        }
+        #timeR{
+            position:absolute;
+            top:240px;
+            right:1500px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="banner">
+    <div id="banner2">
+        <div id="inner1">
+
+            <img src="../dmeo01/imgs/1.jpg" id="img1">
+            <a id="a1" onclick="function fn() {
+
+            }">×</a>
+            <p id="timeL">5秒后自动关闭</p>
+        </div>
+        <div id="inner2">
+            <img src="../dmeo01/imgs/2.jpg" id="img2">
+            <a id="a2">×</a>
+            <p id ="timeR">5秒后自动关闭</p>
+        </div>
+
+    </div>
+
+    <div id="content">
+        <h2>中国 你好</h2>
+        <h3>HELLO</h3>
+        <h4>HELLO</h4>
+    </div>
+
+
+
+</div>
+<script>
+    var banner2=document.getElementById("banner2");
+    var pl=document.getElementById("timeL");
+    var pr=document.getElementById("timeR");
+    var a1=document.getElementById("a1");
+    var a2=document.getElementById("a2");
+    var num=5;
+    var timer=setInterval(function(){
+        var str=(--num)+"秒后关闭";
+        pl.innerHTML=str;
+        pr.innerHTML=str;
+
+       if(num<=0){
+           banner2.style.display="none";
+           clearInterval(timer);
+       }
+    },1000);
+
+        a1.onclick=function(){
+            banner2.style.display="none";
+            clearInterval(timer);
+
+    }
+    a2.onclick=function(){
+        banner2.style.display="none";
+        clearInterval(timer);
+
+    }
+</script>
+</body>
+</html>
+
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    &lt;!&ndash; <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>&lt;!&ndash;菜鸟CDN&ndash;&gt;
+     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>百度CDN&ndash;&gt;
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        #box{
+            width: 2000px;
+            height: 2000px;
+            border: 2px solid blue;
+            margin: auto;
+            position: relative;
+        }
+        img{
+            width:500px;
+            height: 700px;
+        }
+        button{
+            width: 60px;
+            height: 60px;
+            background-color: blue;
+            color: white;
+        }
+        #box1{
+            width: 700px;
+            height: 700px;
+            position:absolute;
+            left:0px;
+
+        }
+        #box3{
+
+            width: 700px;
+            height: 700px;
+            right: 0px;
+            position: absolute;
+        }
+        #box2 {
+            height: 400px;
+            position: absolute;
+            margin: auto 700px;
+            text-align: center;
+            font:700 80px/400px "simsun";
+        }
+        #button1{
+            position: relative;
+            top:-670px ;
+            left: -80px;
+
+        }
+        #button2{
+            position: relative;
+            top:-670px ;
+            right: 500px;
+
+        }
+        #box1>p {
+            width: 300px;
+            background-color: #999888;
+            color: white;
+            position: absolute;
+            left: 200px;
+
+        }
+        #box3>p {
+            width: 300px;
+            background-color: #999888;
+            color: white;
+            position: absolute;
+            right: 200px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="box1">
+        <img src="imgs/1.jpg">
+        <button id="button1">×</button>
+        <p id="p1">5秒后关闭</p>
+    </div>
+    <div id="box2">
+        <p>sustaniable</p>
+        <p>firebox</p>
+        <p>google</p>
+        <p>safria</p>
+    </div>
+    <div id="box3">
+        <img src="imgs/2.jpg">
+        <button id="button2">×</button>
+        <p id="p2">5秒后关闭</p>
+    </div>
+</div>
+<script>
+    var btn1=document.getElementById("button1")
+    var btn2=document.getElementById("button2");
+    var p1=document.getElementById("p1")
+    var p2=document.getElementById("p2")
+    var box1=document.getElementById("box1")
+    var box3=document.getElementById("box3")
+    var num=5
+    var timer=setInterval(function(){
+        var str=(&#45;&#45;num)+"秒后关闭";
+        p1.innerHTML=str;
+        p2.innerHTML=str;
+        if(num<=0){
+            box1.style.display="none";
+            box3.style.display="none";
+            clearInterval(timer)
+        }
+
+    },1000)
+    btn1.onclick=function(){
+        box1.style.display="none";
+        clearInterval(timer)
+
+    }
+    btn1.onclick=function(){
+        box1.style.display="none";
+
+    }
+    btn2.onclick=function(){
+        box2.style.display="none";
+
+    }
+</script>
+
+</body>
+</html>-->

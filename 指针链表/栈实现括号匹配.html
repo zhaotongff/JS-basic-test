@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+*{
+  margin:0px;
+  padding:0;
+}
+#test-list{
+   width:800px;
+   height:100px;
+   background-color:#00ffff;
+   margin-left: 100px;
+   list-style:none;
+
+
+
+}
+.lang{
+  display:inline-block;
+ width:30px;
+  border:1px solid black;
+ 
+  background-color: blue;
+  margin-left: 10px
+
+}
+</style>
+</head>
+<body>
+
+
+<script>
+    var s="()([{])"
+    var result=isTue(s)
+    console.log(result)
+    function isTue(s){
+    /*if(s.length===0){
+     return "输入不合法"
+    }*/
+       var stack=[];
+    while (!(s.length===0)) {
+      var string=s.substring(0, 1);
+         s=s.substring(1);
+      if (string=="("||string=="{"||string=="[") {
+        stack.push(string);
+      }else if(string==")"||string=="}"||string=="]"){
+        if (stack.length==0) {
+          return(false) ;
+        }       
+       var string2=stack.pop();
+        if (string==")") {
+          if (string2=="(") {
+            if(s==0&&stack.length==0){
+               return(true) 
+            }
+          }
+        }
+        if (string=="}") {
+          if (string2=="{") {
+            if(s==0&&stack.length==0){
+               return(true) 
+            }
+          }
+        }
+        if (string=="]") {
+          if (string2=="[") {
+            if(s==0&&stack.length==0){
+               return(true) 
+            }
+          }
+        }
+      }
+      return(stack.length===0) 
+    }
+    
+  }
+</script>
+</body>
+</html>

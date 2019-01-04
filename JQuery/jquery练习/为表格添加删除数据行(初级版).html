@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+<style>
+
+  *{
+     padding: 0px;
+     margin: 0px;
+  }
+  table,button{
+    margin-left:40%;
+    text-align: center;
+  }
+  table>thead{
+    background-color: blue;
+    color:white;
+
+  }
+  tbody{
+   background-color: #AAA;
+
+  }
+   #j_mask{
+
+    position: absolute;
+    top: 0px;
+     width:100%;
+     height:100%;
+    background-color: #999;
+     opacity: 0.5;
+     display: none;
+   
+  }
+  #j_fromadd{
+     width: 300px;
+     height: 200px;
+     margin-left:40%;
+     border: 1px solid black;
+    position: absolute;
+    background-color: white;
+   display: none;
+    
+  }
+  #fu{
+     float: left;
+  }
+  #fu1{
+    width:15px;
+    height: 15px;
+    float: right;
+    border:1px solid black;
+   text-align: center;
+  }
+ 
+</style>
+</head>
+<body>
+	<button id="adddata">添加数据</button>
+	<div class="wrap">
+     <table border="1px">
+      <thead>
+        <tr>
+           <th>课程名称</th>
+           <th>所属学院</th>
+           <th>已学会</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+           <td>JAVA</td>
+           <td>至善科技</td>
+           <td><a href="javascript:;"  class="get">Get</a></td>
+        </tr>
+        <tr>
+
+           <td>HTML</td>
+           <td>至善教育</td>
+           <td><a href="javascript:;"  class="get">Get</a></td>      
+        </tr>
+        <tr>
+           <td>CSS</td>
+           <td>至善堂</td>
+           <td><a href="javascript:;"  class="get">Get</a></td>
+        </tr>
+
+      </tbody>
+     </table>
+  </div>
+  <div id="j_mask"></div>
+   
+  <div id="j_fromadd" class="add">
+    <div id="fu">添加数据</div>
+    <div id="fu1">×</div>
+    <br>
+    <div>
+     <label for="textlession">课程名称</label>
+     <input type="text" id="textlession" placeholder="请输入课程名称">
+    </div>
+    <div>
+     <label for="textbesch">所属学院</label>
+     <input type="text" id="textbesch" value="知善教育平台">
+    </div>
+     <div>
+      <input type="button" value="添加" id="addend">
+     </div>
+ </div>
+
+<script type="text/javascript">
+	//分析：
+  //1点击添加按钮事件，显示遮罩层和盒子
+  //2点击盒子关闭按钮，关闭当前盒子
+  //3点击get删去当前行数据
+  //4点击弹出盒子的添加按钮，将数据动态添加大表格上面
+	
+//1点击添加按钮事件，显示遮罩层和盒子
+  $(function(){
+    $("#adddata").click(function(){
+      $("#j_mask").show();
+       $("#j_fromadd").show();
+   
+    })
+ //2点击盒子关闭按钮，关闭当前盒子
+    $("#fu1").click(function(){
+       $("#j_mask").hide();
+       $("#j_fromadd").hide();
+    })
+
+     //3点击get删去当前行数据
+     $(".get").click(function(){
+        $(this).parent().parent().hide()
+        //$(this).parent().parent().remove()
+     })
+    //4点击弹出盒子的添加按钮，将数据动态添加大表格上面 隐藏盒子和遮罩层
+    //
+    $("#addend").click(function(){
+         $("#j_mask").hide();
+         $("#j_fromadd").hide();
+      var str="<tr>"
+           +"<td>"+$("#textlession").val()+"</td>"
+           +"<td>"+$("#textbesch").val()+"</td>"
+           +"<td><a href='javascript:;' class='get'>Get</a></td>"
+           +"</tr>"
+           
+       // $("tbody").append(str)//可以实现  appned一个字符串标签
+         $("tbody").append($(str))//jq创建元素
+    })
+
+    //1 存在的bug  添加数据 课程名不能为空，
+    //2 添加完数据要把input清空
+    //3 新添加的数据无法删除
+  })
+
+</script>	
+</body>
+</html>

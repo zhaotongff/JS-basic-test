@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+   <div>
+       <ul>
+           <li><p id="p1"> 你好</p> </li>
+       </ul>
+       <span>
+           <p id="p2"> 世界</p>
+       </span>
+   </div>
+
+</div>
+<script>
+   /* function commonParentNode(oNode1, oNode2) {
+        var on1_parents = getParents(oNode1);
+        var on2_parents = getParents(oNode2);
+        var i = on1_parents.length;
+        var j = on2_parents.length;
+        for(; i >= 0 && j >= 0 && on1_parents[i] === on2_parents[j]; i--, j--);
+        return on1_parents[i+1];
+    }
+    function getParents(oNode) {
+        var parents = [];
+        var parent = oNode;
+        while(parent) {
+            parents.push(parent);
+            parent = parent.parentElement;
+        }
+        return parents;
+    }*/
+    function commonParentNode(oNode1, oNode2) {
+      var p1s=getParents(oNode1)
+        var p2s=getParents(oNode2)
+        var i= p1s.length;
+      var j=p2s.length
+
+        for(;i>=0&&j>=0&&p1s[i]===p2s[j];i--,j--);
+               return p1s[i+1]
+
+
+    }
+    function getParents(node){
+        var parent=node;
+        var parents=[];
+       while(parent){
+            parents.push(parent);
+            parent =parent.parentElement;
+        }
+return  parents
+    }
+    var p1=document.getElementById("p1");
+    var p2=document.getElementById("p2");
+    document.write(commonParentNode(p1, p2))
+
+</script>
+</body>
+</html>

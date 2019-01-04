@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title>heatmap.js | Dynamic Heatmaps for the Web</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/commons.css" />
+
+    <link rel="stylesheet" href="css/landingpage.css" />
+  </head>
+
+  <body>
+
+    <div class="heatmap-wrapper">
+
+        <div class="heatmap">
+        </div>
+    </div>
+  <section class="example">
+
+      <div class="example-1">
+          <button class="btn-gethm btn"></button>
+      </div>
+  </section>
+
+  <script src="js/heatmap.min.js"></script>
+
+  <script>
+    // @TODO:
+    // clean up.
+      window.onload = function() {
+        var ex1el = document.querySelector('.example-1');
+        document.querySelector('.btn-gethm').onclick = function() {
+          var xhr = new XMLHttpRequest();
+
+          xhr.onload = function() {
+
+            document.querySelector('.cta-in').innerHTML = "<strong>You'll be the first to know when the beta starts</strong>";
+          };
+          xhr.open('GET', 'pre-register.php?email=' + email, true);
+
+          xhr.send();
+
+        };
+        var heatmap1 = h337.create({
+          container: ex1el
+        });
+        var refreshHeatmap1 = function() {
+          var data1 = {};
+          var datap1 = [];
+          var max1 = 0;
+          var w = 320;
+          var h = 270;
+          var l = 50;
+          while(l--) {
+            var val = Math.random()*10;
+            max1 = Math.max(max1, val);
+            var d = {
+              x: Math.floor(Math.random()*w),
+              y: Math.floor(Math.random()*h),
+              value: val
+            };
+            datap1.push(d);
+          }
+          data1["max"] = max1;
+          data1["data"] = datap1;
+          heatmap1.setData(data1);
+        };
+        refreshHeatmap1();
+        ex1el.onclick = function() {
+          refreshHeatmap1();
+        };
+
+        window.requestAnimationFrame = (function(){
+          return  window.requestAnimationFrame       ||
+                  window.webkitRequestAnimationFrame ||
+                  window.mozRequestAnimationFrame    ||
+                  function( callback ){
+                      window.setTimeout(callback, 1000 / 60);
+                  };
+        })();
+        var body = document.body;
+        var bodyStyle = getComputedStyle(body);
+        var hmEl = document.querySelector('.heatmap-wrapper');
+        hmEl.style.width = bodyStyle.width;
+        hmEl.style.height = '1400px';
+        var hm = document.querySelector('.heatmap');
+        var heatmap = h337.create({
+          container: hm
+        });
+        var trackData = false;
+        setInterval(function() {
+
+          trackData = true;
+
+        }, 50);
+        var idleTimeout, idleInterval;
+        var lastX, lastY;
+        var idleCount;
+
+
+
+        body.onmousemove = function(ev) {
+          if (idleTimeout) clearTimeout(idleTimeout);
+
+          if (idleInterval) clearInterval(idleInterval);
+
+          if (trackData) {
+            lastX = ev.pageX;
+            lastY = ev.pageY;
+            heatmap.addData({
+              x: lastX,
+              y: lastY
+            });
+            trackData = false;
+
+          }
+          idleTimeout = setTimeout(startIdle, 500);
+        };
+
+
+      };
+
+    </script>
+
+  </body>
+
+</html>

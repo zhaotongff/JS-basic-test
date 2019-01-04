@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    国破山河在
+</div>
+<script>
+    var div=document.getElementsByTagName("div")[0];
+
+    //scrollHeight  火狐 ie8+  IE8 chrome  不能比盒子小
+    // 如果元素没有超过盒子限制，则输出盒子本身高度，如果内容超出则输出内容高度（IE  chrome）
+    //IE7及一下超不超出都是内容高度    可以比盒子小
+   // scrollWidth同上  ,width+  scrollWidth=width+padding值  s    crollHeight=height+padding
+    console.log(div.scrollHeight);
+
+    //
+
+</script>
+</body>
+</html>

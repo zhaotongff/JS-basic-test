@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        #div{
+            width:200px;
+            height:200px;
+            background-color: #c30203;
+            margin-left: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<!--remove() - 删除被选元素（及其子元素）   可以加参数表示选择滤除的条件
+
+   empty() - 从被选元素中删除子元素-->
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#div").empty();
+
+        });
+        $("#btn2").click(function(){
+            $("#div").remove();
+
+        });
+        $("#btn3").click(function(){
+            $("p").remove(".la");
+
+        });
+    });
+
+</script>
+
+<div id="div">
+    <p>这是div中一些文本</p>
+    <p class="la">这是另一些文本</p>
+    <p class="la">>这是另一些文本</p>
+</div>
+<button id="btn1" style="margin-left:50px">清空内容</button>
+<button id="btn2" style="margin-left:50px">删除元素</button><br>
+<br>
+<button id="btn3" style="margin-left:50px">删除元素</button>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //计算两个字符串的最大公共字串的长度，字符不区分大小写
+    function fn(str1,str2){
+        var maxLen = 0;
+       var newarr=[];
+        for(var i = 0; i < str1.length - 1; i++)
+        for(var j = i + 1; j <= str1.length; j++){
+            var temp = str1.substring(i,j);
+            var re = new RegExp(temp);
+            if(!(re.test(str2))){
+                break
+            } else if (j - i > maxLen) {
+                maxLen = j - i
+                newarr.push(str1.substr(i,maxLen))
+            };
+        }
+        for(var k=0;k<newarr.length;k++){
+            if(newarr[i].length=== maxLen){
+                return newarr[i];
+            }
+        }
+
+
+
+    }
+    str1="asdfas";
+    str2="werasdfaswer";
+   console.log(fn( str1,str2));
+</script>
+</body>
+</html>

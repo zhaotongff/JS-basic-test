@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   var arr1=[]
+   var n=1;
+   for(var i=0;i<5;i++){
+       var arr2=[];
+       for(var j=0;j<3;j++){
+           arr2.push(n);
+           n++
+       }
+       arr1[i]=arr2
+   }
+   var target=16;
+    alert(find(target,arr1))
+    function find(target, array) {
+        var row=array.length;
+        var col=array[0].length;
+
+        var i,j;
+        var d=0;
+        if(target>array[row-1][col-1]){
+
+            return ("没有该数");
+
+        }
+        for( i=0;i<row;i++){
+            for(j=col-1;j>=0;j--){
+
+                if(array[i][j]===target){
+
+                    d="["+i+ ","+ j+"]"
+                    return (d);
+                    break;
+                }
+                else if(target<array[i][j]) {
+
+                    continue;
+                }
+                else if(target>array[i][j]){
+
+                    i++;
+                    continue;
+                }
+
+
+            }
+
+
+        }
+
+
+    }
+
+
+</script>
+</body>
+</html>

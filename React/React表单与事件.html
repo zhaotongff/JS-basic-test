@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    /*在实例中我们设置了输入框 input 值value = {this.state.data}。在输入框值发生变化时我们可以更新 state。
+    我们可以使用 onChange 事件来监听 input 的变化，并修改 state。*/
+
+    var HelloMessage=React.createClass({
+        getInitialState: function() {
+            return {value: 'Hello Runoob!'};
+        },
+        handelChange:function(event){
+            this.setState({value: event.target.value});
+            },
+
+        render:function(){
+            var value=this.state.value
+            return <div>
+                <input type="text" value={value} onChange={this.handleChange} />
+                <h4>{value}</h4>
+            </div>;
+      }
+
+
+        })
+
+ReactDOM.render(
+    <HelloMessage />
+    ,
+    document.getElementById("example")
+);
+</script>
+
+<div id="example2"></div>
+<script type="text/babel">
+    var HelloMessage = React.createClass({
+        getInitialState: function() {
+            return {value: 'Hello Runoob!'};
+        },
+        handleChange: function(event) {
+            this.setState({value: '菜鸟教程'})
+        },
+        render: function() {
+            var value = this.state.value;
+            return <div>
+                <button onClick={this.handleChange}>点我</button>
+                <h4>{value}</h4>
+            </div>;
+        }
+    });
+    ReactDOM.render(
+        <HelloMessage />,
+        document.getElementById('example2')
+    );
+</script>
+</body>
+</html>

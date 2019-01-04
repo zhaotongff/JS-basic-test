@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+   .banner{
+            width:600px;
+            height:200px;
+            background-color: red;
+            margin-left: auto ;
+            margin-right: auto ;
+
+        }
+       .inner{
+           width:300px;
+           height:100px;
+           background-color: pink;
+          margin-left: 100px;
+       }
+#a{
+    width:40px;
+    height:30px;
+    color:white;
+    background-color: black;
+    top:20px;
+   margin-left:290px;
+    text-decoration: none;
+}
+        .content{
+            width:800px;
+            height:500px;
+            background-color:yellow;
+            top:50px;
+            margin:0 auto;
+
+        }
+    </style>
+</head>
+<body>
+<div class="banner" style="opacity: 1;">
+    <div class="inner">
+        <a href="JavaScript:void(0)" id="a">×</a>
+    </div>
+
+</div>
+<div class="content"></div>
+<script>
+var a=document.getElementById("a");
+var banner=document.getElementsByClassName("banner")[0];
+a.onclick=function(){
+    /*思路：
+    启动定时器；
+    每过100毫秒把透明度降低0.1；
+    判断当透明度小于等于0 把display设为：none;
+    清除定时器*/
+       var timer=setInterval(function(){
+           banner.style.opacity -=0.1;
+          if( banner.style.opacity<=0){
+              a.parentNode.parentNode.style.display="none";
+              clearInterval(timer);
+          }
+
+
+       },100)                                       //加入计时器模块慢慢消失
+
+
+
+}
+
+
+</script>
+</body>
+</html>

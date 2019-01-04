@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程</title>
+</head>
+<section align="left"><h2>菜单栏</h2></section>
+<script  src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<body>
+<style>
+    body{background-color:black;}
+    h1{color:red;
+        text-align:center;}
+    p{color:yellow;
+        text-align:right;
+
+    }
+    section{
+        background-color:green;
+        text-align:left;
+
+    }
+    #div1{
+        width:100px;
+        height:100px;
+        background:blue;
+        position:relative;
+        animation:mymove 5s infinite;
+        -webkit-animation:mymove 5s infinite;
+
+    }
+    #div2{
+        width:100px;
+        height:100px;
+        background:blue;
+        position:relative;
+        margin-left: 200px;
+
+
+    }
+    @keyframes mymove{
+        0% {top:0px;}
+        10% {top:200px;}
+        30% {top:50px;}
+        40% {top:100px;}
+        50% {top:200px;}
+        60% {top:130px;}
+        80% {top:180px;}
+        100% {top:200px;}
+    }
+    @-webkit-keyframes mymove{
+        0% {top:0px;}
+        10% {top:200px;}
+        30% {top:50px;}
+        40% {top:100px;}
+        50% {top:200px;}
+        60% {top:130px;}
+        80% {top:180px;}
+        100% {top:200px;}
+    }
+
+</style>
+<h1>这是第一个标题</h1>
+<p>第一个段落<p>
+<div id="div1"></div>
+<!--//别的-->
+<div id="div2"></div>
+
+<script>
+    var div=document.getElementById("div2");
+   $(document).ready(function(){
+       var box= $("#div2");
+      box.animate({
+          marginTop:"0px"
+      });
+        box.animate({
+            marginTop: "200px"
+        });
+       box.animate({
+           marginTop:"0px"
+       });
+        });
+</script>
+</body>
+
+</html>

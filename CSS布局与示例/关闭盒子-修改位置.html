@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: pink;
+            margin-bottom: 10px;
+
+        }
+        #box2{
+            width:100px;
+            height:100px;
+            background-color: pink;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<button id="id1">小按钮1</button>
+<div id="box2"></div>
+<button id="id2">小按钮2</button>
+<script>
+    var box1=document.getElementById("box1");
+    var btn1=document.getElementById("id1");
+    var btn2=document.getElementById("id2");
+    btn1.onclick=function(){
+        box1.style.display="none";
+
+    }
+    var box2=document.getElementById("box2");
+    btn2.onclick=function(){
+        box2.style.visibility="hidden";
+
+    }
+</script>
+</body>
+</html>

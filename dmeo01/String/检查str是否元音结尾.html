@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //给定字符串 str，检查其是否以元音字母结尾
+  /*  1、元音字母包括 a，e，i，o，u，以及对应的大写
+    2、包含返回 true，否则返回 false*/
+
+    function endsWithVowel(str) {
+    /*  var i=str.length-1;
+                  if(str[i]==="a"||str[i]==="A"||str[i]==="i"||str[i]==="I"||str[i]==="e"||str[i]==="E"||str[i]==="o"||str[i]==="O"||str[i]==="u"||str[i]==="U"){
+                      return true;
+
+            }else{
+                      return false
+                  }*/
+    var reg=/[aeiouAEIOU]$/g;
+    return reg.test(str);
+
+    }
+    var str='gorilla';
+    document.write(endsWithVowel(str))
+</script>
+</body>
+</html>

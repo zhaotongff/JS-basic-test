@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /*JSOn字符串{"键1":"值1","键2":"值2"}  JOSN就是服务器和前端相互传递那个字符串变量的名字
+    传输过程：JS对象---》JSON字符串发给服务器---》到服务器  从JSON字符串解析为对应语言的对象或数据
+  JS解析JSON      var  per=JSON.parse(json); 或者var  per=json
+   JSOn  和字面量区别：  字面量键和值可以不加双引号，
+    JSON键和值一定要加双引号，按照字符串处理，因为服务器和前端传输的是字符串，所以双引号是JSON的标准格式*/
+/*   var json={
+
+       "name":"mike",
+       "age":"27",
+       "length":"275"
+   };
+   //遍历  for  --in  循环
+     for(var j in json){
+         document.write(j);//属性名
+         document.write(json[j]);//属性值
+     }*/
+
+   //找数组重复元素次数   去重
+/*   var json={ };
+var arr=["s","d","d","s","d","c","v"];
+arr.forEach(function(item,index,arr){
+if(json[item]===undefined){
+    json[item]=1;
+
+}else{
+    json[item]+=1;
+}
+
+});
+  console.log(json);*/
+   //找数组重复元素次数   去重     转换成字符串用过json去重
+   var json={ };
+   var newArr=[];
+   var arr=["s","d","d","s","d","c","v"];
+   var str=arr.join("");
+   for(var i=0;i<arr.length;i++)  {
+       var c=str.charAt(i);
+       if(json[c]===undefined){
+           json[c]=1;
+
+       }else{
+           json[c]+=1;
+       }
+       if(json[c]===1){
+           newArr.push(c);
+       }
+
+
+   };alert( newArr);
+
+   //找数组重复元素次数   去重   利用indexOf 查找第一个新字符
+  var newArr=[];
+   var arr=["s","d","d","s","d","c","v"];
+   for(var i=0;i<arr.length;i++) {
+       if(arr.indexOf(arr[i])===i){
+
+           newArr.push(arr[i]);
+       }
+   }
+   alert( newArr);
+</script>
+</body>
+</html>

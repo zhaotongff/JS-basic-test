@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+
+  
+</style>
+</head>
+<body>
+
+</div>
+
+<script>
+  function Arr(arr1,arr2){
+    
+      this.arr1=arr1;
+     this.arr2=arr2;
+     this.add=function(){
+     var arr=this.arr1.concat(this.arr2);
+     var newarr=[]
+     for(var i=0;i<arr.length;i++){
+       if(arr.indexOf(arr[i])===i){
+         newarr.push(arr[i])
+       }
+     }
+     return newarr
+   }
+     this.sort=function(newarr){
+    if(newarr.length===0){
+      return []
+    }else{
+      
+    var pivot=newarr[0]
+    var left=[];
+    var right=[]
+   for(var i=1;i<newarr.length;i++){
+     if(newarr[i]<pivot){
+     left.push(newarr[i])
+     }else{
+     right.push(newarr[i])
+     }
+   }
+    }
+     return  this.sort(left).concat(pivot, this.sort(right))
+  
+  }
+  }
+function add(){
+
+}
+function main(arr1,arr2){
+ //请勿修改main()的函数名称
+ //输入数据时，字符串数据前后需加英文引号。输入多个数据时请用英文逗号隔开，并且与main()中参数个数相同
+ var a=new Arr(arr1,arr2)
+ var b=a.add();
+  var c=a.sort(b)
+  console.log(c)
+
+}
+var arr1=[1,2,5,3,1,4];
+var arr2=[6,8,2,100,1000];
+main(arr1,arr2)
+
+
+
+</script>
+</body>
+</html>

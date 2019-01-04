@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+   /* //阶乘  n!
+    function jieCheng(n) {
+
+        if (n < 1)
+            return 1;
+        else {
+          //  return n * arguments.callee(n - 1);
+            return n *jieCheng(n - 1);
+        }
+    }
+   var s= jieCheng(3);
+    alert(s);
+
+    //阶乘  n!
+    function jieCheng(n) {
+       var num=1;
+       for(var i=1;i<=n;i++){
+           num=num*i;
+       }
+        return(num);
+    }
+    // jieCheng(14);
+    //阶乘的和是1！+2!+3!...调用上面阶乘
+    function jieSum(sn) {
+        var total=0;
+        for(var i=1;i<=sn;i++){
+            jieCheng(i);
+            total+=jieCheng(i);
+        }
+        alert(total);
+    }
+    jieSum(5);*/
+
+
+
+    function outer(){
+        inner();
+    }
+    function inner(){
+       alert(arguments.callee.caller);
+    }
+    outer();
+</script>
+</body>
+</html>

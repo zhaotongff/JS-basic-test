@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*为了得到一个数的"相反数",我们将这个数的数字顺序颠倒,然后再加上原先的数得到"相反数"。例如,为了得到1325的"相反数",
+    首先我们将该数的数字顺序颠倒,我们得到5231,之后再加上原先的数,我们得到5231+1325=6556.如果颠倒之后的数字有前缀零
+    ,前缀零将会被忽略。例如n = 100, 颠倒之后是1.*/
+    /*输入包括一个整数n,(1 ≤ n ≤ 10^5)  1325 */
+    /*  输出一个整数,表示n的相反数   6556*/
+    /*var num=1325;
+    var arr=[];
+    var a1=parseInt( num/100000);
+    if(a1){
+        arr.unshift(a1)
+
+    }
+    var a2=parseInt( num/10000%10);
+    if(a1!==0||a2){
+        arr.unshift(a2)
+    }
+    var a3=parseInt( num/1000%10);
+    if(a1!==0||a2!==0||a3){
+        arr.unshift(a3)
+
+    }
+    var a4=parseInt( num/100%10)
+    if(a1!==0||a2!==0||a3!==0||a4){
+        arr.unshift(a4)
+    }
+    var a5=parseInt( num/10%10);
+    if(a1!==0||a2!==0||a3!==0||a4!==0||a5){
+        arr.unshift(a5)
+    }
+    var a6=parseInt( num%10);
+    if(a1!==0||a2!==0||a3!==0||a4!==0||a5!==0||a6){
+        arr.unshift(a6)
+    }
+    alert(arr)
+    var str=arr.join("")
+    var num1=Number(str)
+    num1+=num;
+
+   console.log(num1);*/
+    var n=1325;
+    fn(n);
+    function fn(n){
+     var arr=[]
+        var a1=parseInt( n/100000)
+        if(a1){arr.push(a1)}
+        var a2=parseInt( n/10000%10  )
+        if(a1!==0||a2){arr.push(a2)}
+        var a3=parseInt( n/1000%10  )
+        if(a1!==0||a2!==0||a3){arr.push(a3)}
+        var a4=parseInt( n/100%10  )
+        if(a1!==0||a2!==0||a3!==0||a4){arr.push(a4)}
+
+        var a5=parseInt( n/10%10  )
+      if(a1!==0||a2!==0||a3!==0||a4!==0||a5){arr.push(a5)}
+        var a6=parseInt( n%10  )
+      if(a1!==0||a2!==0||a3!==0||a4!==0||a5!==0||a6){arr.push(a6)}
+    arr.reverse()
+    var str=arr.join("")
+        var num=Number(str)
+        num+=n;
+        alert(num)
+    }
+</script>
+</body>
+</html>

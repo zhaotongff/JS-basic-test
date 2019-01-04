@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* var pre=[1,2,4,7,3,5,6,8]
+    var mid=[4,7,2,1,5,3,8,6]
+    var arr=[];
+    rebuildTree(pre, mid);
+    console.log(arr) ;*/
+    /*function node(data, left, right){  //用来表示一棵树中的节点
+        this.data = data;
+        this.left = left;
+        this.right = right;
+       // this.show = show;
+    }
+    function show(){
+        return this.data;
+    }
+
+    function rebuildBT(pre, mid){ //根据前序遍历和中序遍历重建这棵树并且输出头节点
+        var root; //保存头结点
+        var len = pre.length;
+        if(len > 1){
+            var data = pre[0]; //前序遍历的第一个元素即树的根节点
+            for(var i = 0; i<len; i++){
+                if(mid[i] === data){
+                    switch(i){
+                        case 0:
+                            var midtree = mid.slice(i+1);
+                            var pretree = pre.slice(1);
+                            root = new node(data, null, rebuildBT(pretree,midtree));
+                            break;
+                        case (len -1):
+                            var midtree = mid.slice(0,i);
+                            var pretree = pre.slice(1);
+                            root = new node(data, rebuildBT(pretree,midtree), null)
+                            break;
+                        default:
+                            var lfmidtree = mid.slice(0,i);
+                            var rgmidtree = mid.slice(i+1);
+                            var k = lfmidtree.length;
+                            var lfpretree = pre.slice(1,k+1);
+                            var rgpretree = pre.slice(k+1);
+                            root = new node(data, rebuildBT(lfpretree,lfmidtree), rebuildBT(rgpretree,rgmidtree))
+                            break;
+                    }
+                }
+
+            }
+
+        }else if(len === 1){
+            var data = pre[0];
+            root  = new node(data, null, null);
+        }
+        arr.push(root.data)
+
+      // return(arr)  ;
+
+    }*/
+  var pre=[1,2,4,7,3,5,6,8]
+    var mid=[4,7,2,1,5,3,8,6]
+    var arr=[];
+    rebuildBT(pre,mid);
+    console.log(arr) ;
+   function node(data,left,right){
+      this.data=data;
+      this.left=left;
+      this.right=right;
+   }
+
+   function rebuildBT(pre,mid){
+    var root=[];
+    var len=pre.length;
+    if(len>1){
+        var data=pre[0]
+        for(var i=0;i<len;i++){
+            if(mid[i]==data){
+           switch(i){
+           case 0: 
+                var midTree=mid.slice(i+1)
+                var preTree=pre.slice(1);
+                root= new node(data,null,rebuildBT(preTree,midTree))
+                break;
+            case (len-1):
+                var midTree=mid.slice(0,i);
+                var preTree=pre.slice(1);
+                root= new node(data,rebuildBT(preTree,midTree),null)
+                break;
+           default:
+             var lfmidTree=mid.slice(0,i)
+             var rtmidTree=mid.slice(i+1)
+             var k=lfmidTree.length
+             var lfpreTree=pre.slice(1,k+1)
+             var rtpreTree=pre.slice(k+1)
+              root= new node(data,rebuildBT(lfpreTree,lfmidTree),rebuildBT(rtpreTree,rtmidTree))
+           }
+            }
+
+        }
+
+    }else if(len==1){
+        var data=pre[0]
+        root= new node(data,null,null)
+    }
+     arr.push(root.data)
+   }
+</script>
+</body>
+</html>

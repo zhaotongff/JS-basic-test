@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .wrap{
+        height: 200px;
+        background-color: #999888;
+
+    }
+    .box{
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+       top:20px;
+    }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <button>右移200px</button>
+    <button>右移400px</button>
+    <div class="box"></div>
+</div>
+<script>
+    var btns=document.getElementsByTagName("button");
+    var box=document.getElementsByClassName("box")[0];
+
+    //动画步骤
+    /*
+    * 1定义终点
+    * 2 启动定时器
+    * 3 计算步长
+    *  4 改变盒子距离 移动
+    *  5 停止
+    * */
+    btns[0].onclick=function(){
+        var temp=setInterval(function(){
+
+            box.style.left=box.offsetLeft+10+"px";
+            if( box.offsetLeft>=200){
+                clearInterval(temp);
+            }
+
+        },100)
+
+
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--jQuery是一个JavaScript函数库。
+jQuery是一个轻量级的"写的少，做的多"的JavaScript库。
+jQuery库包含以下功能：
+HTML 元素选取
+HTML 元素操作
+CSS 操作
+HTML 事件函数
+JavaScript 特效和动画
+HTML DOM 遍历和修改
+AJAX
+Utilities-->
+    <!--
+如果您不希望下载并存放 jQuery，那么也可以通过 CDN（内容分发网络） 引用它。
+    -->
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script><!--菜鸟CDN-->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <!--谷歌CDN-->
+    <script src="http://ajax.htmlnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script><!--microsoftCDN-->
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p").toggle();
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<h2>这是一个标题</h2>
+<p>这是一个段落。</p>
+<p>这是另一个段落。</p>
+<button>点我</button>
+</body>
+</html>

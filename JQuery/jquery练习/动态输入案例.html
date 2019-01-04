@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+		  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+  <style>
+    *{
+     margin: 0px;
+     padding: 0px;
+
+    }
+#box{
+	width:500px;
+	height:500px;
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin: -250px 0 0 -250px
+}
+@-moz-keyframes blink{
+	0%,
+	100%{
+		opacity: 1;
+	},
+	50%{
+		opacity: 0;
+	}
+
+}
+@-webkit-keyframes blink{
+	0%,
+	
+	100%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0;
+	}
+	
+
+}
+.type-cursor{
+	opacity: 1;
+	-webkit-animation:blink .7s infinite;
+	-moz-animation:blink 0.7s infinite;	
+	display: none;
+}
+  </style>
+
+</head>
+<body>
+	<div id="box">
+    <h3>what you want to say:<span class="word"></span><span class="type-cursor">|</span>!</h3>
+	<input type="text" id="inp">
+	<button id="btn">Say</button>
+	</div>
+	
+	<script type="text/javascript">
+      $(function(){
+
+        $("#btn").click(function(){
+        	 var str=$("#inp").val()
+      //1 页面加载  光标显示 吧字符分批次   相隔固定时间设置到word里面去
+       //字符串变成数组清除角标
+      	var arr=str.split("");
+      	//用来拼接字符串
+      	var showstr="";
+      	//用来计数
+      	var num=0;
+      	var timer=setInterval(function(){
+      		//2 清除定时器
+           if(arr[num]===undefined){
+              clearInterval(timer);
+              //隐藏光标
+              $(".type-cursor").hide()
+              return;
+           }else{
+           	//显示光标
+           	$(".type-cursor").show()
+            showstr+=arr[num];
+            $(".word").text(showstr)
+            num++;
+           }
+      	},200)
+      	$("#inp").val("")
+        })
+       
+      	
+      })
+
+ 
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //将数组 arr 中的元素作为调用函数 fn 的参数
+    //调用函数可以使用call或者apply这两个方法，区别在于call需要将传递给函数的参数明确写出来，是多少参数就需要写多少参数。而apply则将传递给函数的参数放入一个数组中，传入参数数组即可。
+
+    //这里的this指向window,但是function里没有用到this,也就是说function里没有会根据作用域不同而需要指定的this的值,所以这里apply的第一个参数放什么都可以,null也行.
+
+
+
+   /* function argsAsArray(fn, arr) {
+        return fn.apply(this,arr);
+    }
+    var fn=function (greeting, name, punctuation) {return greeting + ', ' + name + (punctuation || '!');} ;
+    var arr=['Hello', 'Ellie', '!']
+    document.write(argsAsArray(fn, arr) );*/
+
+    /*在JS中，this的指向是动态变化的，很可能在写程序的过程中，无意中破坏掉this的指向，所以我们需要一种可以把this的含义固定的技术，于是就有了call,apply和bind这三个方法
+    apply：应用某一对象的一个方法，用另一个对象替换当前对象。
+call：调用一个对象的一个方法，以另一个对象替换当前对象。
+    △它们的共同之处：
+都可以用来代替另一个对象调用一个方法，将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
+    △它们的不同之处：
+    ①apply：最多只能有两个参数——新this对象和一个数组 argArray。如果给该方法传递多个参数，则把参数都写进这个数组里面
+    当然，即使只有一个参数，也要写进数组里面。如果 argArray 不是一个有
+    效的数组或者不是 arguments 对象，那么将导致一个 TypeError。如果没有提供 argArray 和 thisObj 任何一个参数，
+    那么 Global 对象将被用作 thisObj，并且无法被传递任何参数。
+call跟apply的区别不大，主要是后面的传入参数，call的直接可以传入this的对象后，继续传参数，apply的话传入this的对象后，需要传一个数组。
+还有call跟apply作用主要是改变this的作用域，也可以理解为冒充this对象，主要应用于对象继承上面*/
+    //将函数 fn 的执行上下文改为 obj 对象     function () {return this.greeting + ', ' + this.name + '!!!';}, {greeting: 'Hello', name: 'Rebecca'}
+                                           //Hello, Rebecca!!!
+
+    function speak(fn, obj) {
+      return fn.call(obj)
+    }
+    var fn=function () {return this.greeting + ', ' + this.name + '!!!';}
+    var obj={greeting: 'Hello', name: 'Rebecca'};
+
+    document.write(speak(fn, obj));
+</script>
+</body>
+</html>

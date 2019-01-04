@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+/*Question:
+定义这样一个函数
+function repeat(func, times, wait) {
+}
+参数分别是需要 repeat的函数， repeat的次数，每次repeat的间隔
+使用方式如下
+调用这个函数能返回一个新函数。
+
+比如传入的是alert， 执行10次，间隔5秒
+var repeatedFun = repeat(alert, 10, 5000);
+调用返回的这个新函数，如:
+
+repeatedFun("hellworld");
+
+会alert十次 helloworld
+====================请自行完成=========================*/
+    function repeat(func, times, wait) {
+        return function callBack(str){
+            for(var i=1;i<=times;i++){
+                var interval = setInterval(function(){
+                    if(i=== times){
+                        clearInterval(interval);
+                    }
+                    console.log(i)
+                    func(str);
+                }(i), wait);
+
+            }
+
+        }
+
+    }
+    var repeatedFun = repeat(alert, 10, 5000);
+    repeatedFun("hellworld");
+</script>
+</body>
+</html>

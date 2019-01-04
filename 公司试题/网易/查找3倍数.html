@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*  function fn(n,m){
+        var count=0;
+        var  str=""
+        for(var k=1;k<n;k++){
+            str+=k;
+        }
+       var arr=[]
+        for(var i=n;i<=m;i++){
+            str+=i;
+           arr.push(str)
+
+        }
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]%3==0){
+
+                count=count+1;
+            }
+        }
+        console.log(count) ;
+    }
+fn(1,29)
+
+*/
+ /*   var line=readline()
+    if(line){
+        var arr=line.split(" ")
+        var n=arr[0]
+        var m=arr[1]
+        print(fn(n,m))
+    }*/
+    function fn(n,m){
+        var count=0;
+        var  str=""
+        for(var k=1;k<n;k++){
+            str+=k;
+        }
+        console.log(str)
+        for(var i=n;i<=m;i++){
+            str+=i;
+            var num=Number(str);
+            if(num%3===0){
+                count+=1;
+            }
+        }
+        return count;
+    }
+    fn(10,110)
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<DOCTYPE!>
+<html>
+<head>
+	<meta charset="UTF-8"></mata>
+	<title>jquery手风琴目录</title>
+	<style>
+     *{
+     	margin:0;
+     	padding:0;
+     }
+    #box{
+       text-align: center;
+       width:200px;
+       background-color: blue;
+     }
+     .wrapgroup{
+       border: 1px solid black;
+     }
+     .wrapgroup>div{
+        display: none;
+        height:50px;
+        background-color: #fff;
+     }
+    </style>
+   
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+   
+</head>
+<body>
+ <div id="box">
+    <ul>
+        <li class="wrapgroup">
+           <span>菜单1</span>
+           <div>这是第一个菜单内容</div>
+        </li>
+         <li class="wrapgroup">
+           <span>菜单2</span>
+           <div>这是第二个菜单内容</div>
+        </li>
+         <li class="wrapgroup">
+           <span>菜单3</span>
+           <div>这是第三个菜单内容</div>
+        </li>
+         <li class="wrapgroup">
+           <span>菜单4</span>
+           <div>这是第四个菜单内容</div>
+        </li>
+
+    </ul>
+ </div>
+	<script>
+	$(function(){
+      $("ul>.wrapgroup").children("span").click(function(){
+        $(this).next().show();
+        $(this).parent().siblings().children("div").hide();
+      });
+    });
+	</script>
+</body>
+</html>

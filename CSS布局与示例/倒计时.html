@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+​<html>
+<head>
+    <meta charset="UTF-8">​
+    ​<title>题目</title>
+    ​<style>
+    #div{
+        width:450px;
+        height:120px;
+        background-color:pink;
+        margin-left:320px;
+        color:white;
+    }
+    #btn{
+        width:100px;
+        margin-left:300px;
+        margin-bottom: 10px;
+
+
+    }
+    p{
+
+        display: inline;
+        font-size:30px;
+        color:white;
+        text-align: center;
+    }
+ ​ ​</style>
+</head>​
+​<body>
+<button id="btn">定时器开始</button>
+<div id="div">
+
+        <p id="day"></p><p id="hour"></p><p id="minute"></p><p id="seconde"></p>
+
+</div>
+    ​<script>
+    var  dow=document.getElementById("btn");
+    dow.onclick= function() {
+        function countTime() {
+            //获取当前时间
+            var date = new Date();
+            var now = date.getTime();
+            //设置截止时间
+            var endDate = new Date("09/10/2018");
+            var end = endDate.getTime();
+            //时间差
+            var leftTime = end - now;
+            //定义变量 d,h,m,s保存倒计时的时间
+            var d=0, h=0, m=0, s=0;
+            if (leftTime >= 0) {
+                d = Math.floor(leftTime / 1000 / 60 / 60 / 24);
+                h = Math.floor(leftTime / 1000 / 60 / 60 % 24);
+                m = Math.floor(leftTime / 1000 / 60 % 60);
+                s = Math.floor(leftTime / 1000 % 60);
+            }
+            console.log(d)
+
+            //将倒计时赋值到div中
+            document.getElementById("day").innerHTML = d+"天";
+            document.getElementById("hour").innerHTML = h+":";
+            document.getElementById("minute").innerHTML = m+":";
+            document.getElementById("seconde").innerHTML = s;
+
+        }
+
+        setInterval(countTime, 1000);
+    }
+    </script>
+​</body>
+​</html>

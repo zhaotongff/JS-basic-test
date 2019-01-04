@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src=""></script>
+    <script>
+
+       // pageX和pageY  IE8以下有兼容问题
+       //解决：
+       //pageY (页面高度)=当前可视区域高度clientY+被卷曲的头部scrollTop
+   document.onclick=function (event) {
+       var event=event||window.event
+      // console.log(event.pageY);
+       var pagey=event.clientY+
+   }
+    </script>
+</body>
+</html>

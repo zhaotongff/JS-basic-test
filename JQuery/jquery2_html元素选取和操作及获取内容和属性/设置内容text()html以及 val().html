@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+   <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<script>
+
+
+    /*text()设置或返回所选元素的文本内容
+    * html()设置或返回所选元素的内容（包括 HTML 标记）
+    * vak()设置或返回表单字段的值
+    * attr()attr() 方法用于设置属性值。*/
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#test1").text("我改变为text");
+
+        });
+        $("#btn2").click(function(){
+            $("#test2").html("<b>我改变为HTML</b>");
+
+        });
+        $("#btn3").click(function(){
+            $("#test3").val("ruun");
+
+        });
+        $("#btn4").click(function(){
+            $("#a").attr("href","http://www.runoob.com/jquery");
+            alert($("#a").attr("href"))
+
+        });
+    });
+
+
+</script>
+<p id="test1">第一个段落</p>
+<p id="test2">第二个段落</p>
+<input type="text" value="菜鸟教程" id="test3">
+<button id="btn1">设置文本</button>
+<button id="btn2">设置HTML</button>
+<button id="btn3">设置值</button>
+<br>
+<a href="http://www.runoob.com" id ="a">链接</a>
+<button id="btn4">设置属性</button>
+
+
+</body>
+</html>

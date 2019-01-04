@@ -1,0 +1,64 @@
+
+   <!-- JSON 对象使用在大括号({})中书写。
+    对象可以包含多个 key/value（键/值）对。
+    key 必须是字符串，value 可以是合法的 JSON 数据类型（字符串, 数字, 对象, 数组, 布尔值或 null）。
+    key 和 value 中使用冒号(:)分割。
+    每个 key/value 对使用逗号(,)分割。
+
+你可以使用点号（.）来访问对象的值
+你也可以使用中括号（[]）来访问对象的值
+你可以使用 for-in 来循环对象的属性：
+在 for-in 循环对象的属性时，使用中括号（[]）来访问属性的值：
+
+对象可以嵌套，可以通过（.）和（[]）方法修改对象属性。
+    -->
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>菜鸟教程(runoob.com)</title>
+    </head>
+<body>
+
+<p >你可以使用点号（.）来访问 JSON 对象的值：</p>
+<p id="demo"></p>
+
+
+
+<script>
+
+    var myObj, x;
+    myObj = { "name":"runoob", "alexa":10000, "site":null };
+    x = myObj.name;
+    document.getElementById("demo").innerHTML = x;
+
+</script>
+<p >你可以使用点号（[]）来访问 JSON 对象的值：</p>
+<p id="demo2"></p>
+
+<script>
+
+    var myObj, x;
+    myObj = { "name":"runoob", "alexa":10000, "site":null };
+    x = myObj["name"];
+    document.getElementById("demo3").innerHTML = x;
+
+</script>
+
+<p > 在 for-in 循环对象的属性时，使用中括号（[]）来访问属性的值：</p>
+<p id="demo4"></p>
+
+<script>
+
+    var myObj, x;
+    myObj = { "name":"runoob", "alexa":10000, "site":null };
+    for(var c in  myObj){
+        document.getElementById("demo4").innerHTML += c +":"+myObj [c] +"<br>";
+    }
+
+
+
+</script>
+</body>
+</html>

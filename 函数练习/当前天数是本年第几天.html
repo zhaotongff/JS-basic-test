@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* 输入某年月日，判断这一天是这一年的第几天
+    闰年：四年一润，百年不润，四百年一润
+    1 判断闰年情况
+    2计算天数，1 把某月天数封装数组里
+              2  先把2月当28天 判断出闰年，判断出大于2月就+1*/
+   function isRun(year){
+       if(year%4===0&&year%100!==0||year%400===0){
+           return true
+       }else {
+           return false
+       }
+   }
+   function getDay(year,month,day){
+       //把天数封装成数组
+       var arr=[31,28,31,30,31,30,31,31,30,31,30,31];
+       //根据月份算出当前天数
+       for(var i=0;i<month-1;i++){
+           day=day+arr[i];
+       }
+       //判断是否是闰年  若是超过二  加1
+       if(month>2&&isRun){
+           day+=1;
+
+
+       }
+       return day;
+   }
+   alert(getDay(2017,2,25));
+
+
+   var date=new Date();
+   var day=date.getDate();
+   alert(day);
+   var month=date.getMonth();
+   alert(month);
+   var year=date.getFullYear();
+//更简单判断当前是一年的第几天
+
+   var monthday=0;
+   var m=[31,28,31,30,31,30,31,31,30,31,30,31];
+   for(var i=0;i<month;i++) {
+       monthday +=m[i];
+   }
+   alert(monthday);
+   var d=day+monthday;
+   if(year%4==0&&year%100!=0||year%400==0){
+       d=d+1;
+   }
+   alert(d);
+</script>
+
+</body>
+</html>

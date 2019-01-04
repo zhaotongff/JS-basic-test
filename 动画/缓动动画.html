@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;
+          padding:0;}
+       div{
+            width: 50px;
+            height: 50px;
+            left:0;
+            background-color: pink;
+            margin-top: 10px;
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+<button>缓动到200</button>
+<button>缓动到400</button>
+<div >
+
+</div>
+<script>
+    //动画步骤
+    /*缓动动画=盒子当前距离+步长
+    * 1定义终点
+    * 2 启动定时器
+    * 3 计算步长                       步长=(终点位置-当前位置)/10
+    *  4 改变盒子距离 移动
+    *  5 停止
+    * */
+    var btn=document.getElementsByTagName("button");
+    var div=document.getElementsByTagName("div")[0];
+    var timer;
+    btn[0].onclick=function () {
+        var endX=200;
+        clearInterval(timer);
+        timer=setInterval(function(){
+            var step=(endX-div.offsetLeft)/10;
+            div.style.left=div.offsetLeft+step+"px";
+           /* if(Math.abs(endX-div.offsetLeft)<Math.abs(step)){
+                div.style.left=endX+"px";
+                clearInterval(timer);
+            }*/
+           if(div.offsetLeft>200){
+               clearInterval(timer);
+
+           }
+        },10)
+    }
+</script>
+</body>
+</html>

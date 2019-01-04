@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //如果数组中存在 item，则返回元素在数组中的位置，否则返回 -1    [ 1, 2, 3, 4 ], 3  返回2
+    function index(arr, item) {
+        //第一种方法
+
+            var d=arr.indexOf(item);
+        if(d){
+            return d;
+        }else{
+            return -1
+        }
+    }
+
+
+ //第二种方法
+  /* for(var i=0;i<arr.length;i++){
+     if(arr[i]===item){
+        return i;
+        break;
+    }
+ }
+return -1;
+
+    }*/
+    var arr=[1, 2, 3, 4 ];
+    var item=3;
+    console.log(index(arr, item));
+</script>
+</body>
+</html>

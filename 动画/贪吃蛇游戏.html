@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+
+
+</style>
+</head>
+<body>
+
+</div>
+
+<script>
+var map=[]
+var arr1=[0,3,0,0]
+var arr2=[0,1,5,0]
+var arr3=[2,0,7,0]
+var arr4=[6,0,4,0]
+map.push(arr1)
+map.push(arr2)
+map.push(arr3)
+map.push(arr4)
+var snake=[{step:1,x:1,y:1}]
+
+test(map,snake)
+function test(map,snake){
+var len=map.length;
+var len1=map[0].length;
+var newmap=[]
+    for(var m=0;m<len;m++){
+          for(var n=0;n<len1;n++){
+       newmap.push(map[m][n])
+          }
+   }
+var max=Math.max.apply(this,newmap)
+
+for(var k=map[1][1]+1;k<=max;k++){
+     loop:for(var i=0;i<len;i++){
+          for(var j=0;j<len1;j++){
+           if(map[i][j]===k){
+             var obj={}
+             obj.step=snake[snake.length-1].step+1
+             obj.x=i;
+             obj.y=j;
+             snake.push(obj)
+             break loop;
+           }
+} 
+}
+}
+console.log(snake)
+}
+
+</script>
+</body>
+</html> -->
+
+
+<!doctype html>
+<html>
+<body>
+  <canvas id="can" width="400" height="400" style="background: Black"></canvas>
+  <script>
+    var sn = [ 42, 41 ], dz = 43, fx = 1, n, 
+    ctx = document.getElementById("can").getContext("2d");
+    function draw(t, c) {
+      ctx.fillStyle = c;
+      ctx.fillRect(t % 20 * 20 + 1, ~~(t / 20) * 20 + 1, 18, 18);
+    }
+    document.onkeydown = function(e) {
+      fx = sn[1] - sn[0] == (n = [ -1, -20, 1, 20 ][(e || event).keyCode - 37] || fx) ? fx : n
+    };
+    !function() {
+      sn.unshift(n = sn[0] + fx);
+      if (sn.indexOf(n, 1) > 0 || n<0||n>399 || fx == 1 && n % 20 == 0 || fx == -1 && n % 20 == 19)
+        return alert("GAME OVER");
+      draw(n, "Lime");
+      if (n == dz) {
+        while (sn.indexOf(dz = ~~(Math.random() * 400)) >= 0);
+        draw(dz, "Yellow");
+      } else
+        draw(sn.pop(), "Black");
+        console.log(sn.length)
+        setTimeout(arguments.callee, 1000-sn.length*50);//根据步长确定速度
+    }();
+  </script>
+</body>
+</html>

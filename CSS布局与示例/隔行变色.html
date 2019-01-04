@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            width:600px;
+            height:700px;
+            margin:10px;
+            margin: auto;
+          border:2px solid indianred;
+            text-align: center;
+        }
+
+        th{
+            width:300px;
+            height:100px;
+            background-color: blue;
+
+        }
+
+    </style>
+
+    <style>
+       ul{
+           width:600px;
+           height:800px;
+           background-color:red;
+           padding:30px;
+       }
+       ul{
+           margin: auto;
+           margin-top:10px;
+       }
+        li{
+            width:600px;
+            height:100px;
+            list-style:none;
+            margin-top:10px;
+            background-color:#999;
+
+            color: #e5eecc;
+            vertical-align: middle;
+        }
+
+
+    </style>
+</head>
+<body>
+<table  border="1px">
+    <thead >
+    <tr >
+
+        <th>菜名</th>
+        <th>餐馆名</th>
+    </tr><br>
+    </thead>
+    <tbody id="tbody">
+
+    <tr>
+
+        <td>西兰花</td>
+        <td>矿大</td>
+    </tr><br>
+    <tr>
+
+        <td>番茄鸡蛋</td>
+        <td>南大</td>
+    </tr><br>
+    <tr>
+
+        <td>豆腐</td>
+        <td>苏大</td>
+    </tr><br>
+    <tr>
+
+        <td>公爆鸡丁</td>
+        <td>东南</td>
+    </tr><br>
+
+    </tbody>
+
+</table>
+
+
+
+<ul>
+    <li>星期一</li>
+    <li>星期二</li>
+    <li>星期三</li>
+    <li>星期四</li>
+    <li>星期五</li>
+    <li>星期六</li>
+    <li>星期日</li>
+</ul>
+<script>
+    var li=document.getElementsByTagName("li");
+    for(var i=0;i<li.length;i++){
+        if(i%2===0){
+            li[i].style.backgroundColor="#666";
+        }
+    }
+</script>
+<script>
+    var tr=document.getElementsByTagName("tr");
+    for(var j=1;j<tr.length;j++){
+        if(j%2===0){
+            tr[j].style.backgroundColor="#999";
+
+        }else{
+
+            tr[j].style.backgroundColor="#459";
+        }
+        //记录器  把鼠标进入之前的颜色记住
+        var color="";
+        tr[j].onmouseover=function(){
+            color=this.style.backgroundColor;
+          this.style.backgroundColor="#fff";
+
+        }
+        tr[j].onmouseout=function(){
+
+            this.style.backgroundColor=color;
+
+        }
+    }
+
+
+
+
+
+</script>
+<script>
+
+    var li=document.getElementsByTagName("li")[3];
+    var ul=li.parentNode;
+    var li2=li.parentNode.children;
+   //封装模式  获取前一个兄弟元素
+   function getprevious(ele){
+   var node=ele.previousElementSibling||previousSibling
+   return node;
+   }
+
+    //封装模式  获取第一个子元素
+    function getFirst(ele){
+        var node=ele.firstElementChild||firstChild
+        return node;
+    }
+
+
+    //nodetype  =1 元素节点 2 属性节点 3文本节点
+    var newarr=[];
+    for(var i=0;i<li2.length;i++){
+       if(li2[i].nodeType===1){
+           newarr.push(li2[i]);
+
+       }
+    }
+    for(var i=0;i<newarr.length;i++){
+        if(i%2===1){
+            newarr[i].style.backgroundColor="#111"
+
+        }
+
+    }
+
+    getprevious(li).style.backgroundColor="#968";//使用封装
+    li.nextElementSibling.style.backgroundColor="#968";//未使用封装   previousSibling会出错
+    getFirst(ul).style.backgroundColor="#189";
+    ul.lastElementChild.style.backgroundColor="#189";
+
+    console.log( li.previousElementSibling);
+
+</script>
+</body>
+</html>

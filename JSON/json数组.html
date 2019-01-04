@@ -1,0 +1,50 @@
+
+   <!-- JSON 数组在中括号中书写。
+    JSON 中数组值必须是合法的 JSON 数据类型（字符串, 数字, 对象, 数组, 布尔值或 null）。
+    JavaScript 中，数组值可以是以上的 JSON 数据类型，也可以是 JavaScript 的表达式，包括函数，日期，及 undefined。
+
+    -->
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>菜鸟教程(runoob.com)</title>
+    </head>
+<body>
+
+<p>访问 JSON 对象数组值。</p>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<script>
+
+    var myObj, x;
+    myObj = {
+        "name":"网站",
+        "num":3,
+        "sites":[ "Google", "Runoob", "Taobao" ]
+    }
+    x = myObj.sites[0];   // Google 索引值访问数组
+    document.getElementById("demo").innerHTML = x;
+
+    for (i in myObj.sites) {   // "Google", "Runoob", "Taobao"数组循环访问
+        x += myObj.sites[i] + "<br>";
+    }
+    document.getElementById("demo1").innerHTML = x;
+
+
+    myObj.sites[1] = "Github"; //你可以使用索引值来修改数组值
+    x = myObj.sites[1];
+    document.getElementById("demo2").innerHTML = x;
+
+
+    delete myObj.sites[1];//我们可以使用 delete 关键字来删除数组元素
+    x = myObj.sites;
+    document.getElementById("demo3").innerHTML = x;
+
+</script>
+
+</body>
+</html>

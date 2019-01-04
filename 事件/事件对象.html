@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      body{
+          height: 500px;
+      }
+  </style>
+</head>
+<body>
+<button id="btn">创建</button>
+<script src="json封装scroll.html"></script>
+<script>
+    //事件触发时，我们需要获取一些当前事件的属性和状态，这时候需要用到事件对象
+    //事件对象获取：event
+    var btn=document.getElementById("btn");
+  /*  btn.onclick=function(){
+        //console.log(event);//mouseEvent  点击事件是鼠标触发 输出事件源
+        console.log(event)
+    }
+*/
+
+  /*  btn.onclick=function(e){//定义驱动函数形参 系统会把事件传入参数  这时候时间对象是局部变量  可以自定义名称
+
+        console.log(e)
+    }*/
+    //兼容问题
+  /*  btn.onclick=function(){//window.event默认无参数时
+
+        console.log(window.event)
+    }
+*/
+  /*  btn.onclick=function(event){//兼容写法
+var e=event||window.event
+        console.log(e)
+    }*/
+
+    //event属性获取
+
+   /* btn.onclick=function(event){//兼容写法
+        var e=event||window.event;
+
+        console.log(event.timeStamp);//     返回生成事件触发事件 从页面展开那一刻开始记时到事件触发的时间  单维毫秒值
+        console.log(event.bubbles);//  1     是否支持冒泡  默认true支持
+        console.log(event.button);//   0   触发事件的按钮类型  左键0  中间1
+        console.log(event.target);//<button>创建<button>  事件作用在哪个按钮上面
+
+
+        //重要属性
+    console.log(event.pageX);//鼠标到页面的横向部分
+    console.log(event.pageY);//鼠标到页面的纵向部分
+    console.log(event.screenX);//鼠标到屏幕的横向部分
+    console.log(event.screenY);//鼠标到屏幕的纵向部分
+    console.log(event.clientX);//鼠标到浏览器body的横向部可视分
+    console.log(event.clientY);//鼠标到浏览器body的纵向部可视分
+
+    }*/
+
+   // pageX,pageY兼容问题  IE8及一下
+   // pageY  可视区域高度+被卷曲的头部
+
+    document.onclick=function(event) {//兼容写法
+        var event = event || window.event;
+        console.log(event.pageY);
+        var pagey=event.clientY+scroll().top//引入jquert
+    }
+
+</script>
+</body>
+</html>

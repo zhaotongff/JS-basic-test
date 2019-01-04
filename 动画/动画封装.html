@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrap{
+            height: 200px;
+            background-color: #999888;
+
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            left:20px;
+            top:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <button>右移200px</button>
+    <button>右移400px</button>
+    <div class="box"></div>
+</div>
+<script>
+    var btns=document.getElementsByTagName("button");
+    var box=document.getElementsByClassName("box")[0];
+    btns[0].onclick=function(){
+      translateAnimate(box,200,10);
+
+    }
+    btns[1].onclick=function() {
+        translateAnimate(box,400,10);
+    }
+    function translateAnimate(ele,endX,speed){
+        //tomer为defined或null，  正常清除，不会报错
+        //把定时器绑定到当前元素对象上面，每个盒子都有自己的定时器对象
+       clearInterval( ele.timer);
+       var s;
+       //如果目标位置大于当前位置 +步长
+        //如果目标位置小于当前位置 - 步长
+       if(endX>ele.offsetLeft){
+           s=speed;
+       }else if(endX<ele.offsetLeft){
+           s=-speed;
+       }else{
+           s=0;
+       }
+      ele.timer=setInterval(function(){
+          var offval=endX-ele.offsetLeft;
+          ele.style.left=ele.offsetLeft+s+"px";
+          //如何停止
+          if(Math.abs(offval)<Math.abs(s)){
+              ele.style.left=endX;
+              clearInterval(ele.timer);
+          }
+
+
+      },10);
+
+    }
+
+</script>
+</body>
+</html>

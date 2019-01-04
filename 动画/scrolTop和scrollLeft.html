@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 5000px;
+            width: 5000px;
+        }
+
+    </style>
+</head>
+<body>
+<script>
+    //每滚动一像素就触发一次  不同浏览器滚动高度不一样
+/*    window.onscroll=function(){
+
+        //crollTop  子元素所在父元素中滚动以后被卷曲的头部
+        //在谷歌中不论是否声明DTD-document.body.scrollTop都可以获取
+        //火狐中声明了DTDdocument.body.scrollTop获取不到，不声明获取到
+        //IE9无论是否声明了DTDdocument.body.scrollTop都获取不到
+        document.title=document.documentElement.scrollTop;
+
+       // document.title=document.body.scrollTop;//版本不支持
+
+        //在谷歌中声明DTD-document.documentElement.scrollTop可以获取
+        //火狐中声明了DTD-document.documentElement.scrollTop获取到，不声明获取不到  跟上面相反
+        //IE9无论是否声明了DTD-document.documentElement.scrollTop都可以获取
+       /// document.title=parseInt(document.documentElement.scrollTop);
+
+
+        //兼容写法*/
+       window. onscroll=function(){
+           var top1=window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop
+           document.title=parseInt(top1);
+       }
+
+
+    }
+</script>
+</body>
+</html>

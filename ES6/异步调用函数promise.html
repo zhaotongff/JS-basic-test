@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+    /*Question:
+有一个url数组
+
+var urls = ['/a', '/b', '/c',...]
+
+要求依次请求这几个url， 要求是 第一个请求完了才发第二个请求，第二个完了才发第三个请求
+如此依次。
+
+
+
+===================请自行完成*/
+     var getJSON=function(url){
+     var promise=new Promise(function(resolve,reject){
+         var client=new XMLHttpRequest();
+         client.open("GET",url);
+         client.onreadstatechange=handler;
+         client.responseType="json";
+         client.setRequestHeader("Accept","application/json");
+         client.send();
+
+         function handler() {
+             if(this.readyState!==4){
+                 return;
+             }
+             if(this.status===200){
+                 resolve(this.response)
+             }else{
+                 reject(new Error(this.statusText));
+             }
+
+         };
+     });
+     return promise;
+ };
+var urlArr=["/a",'/b','/c'];
+for(var i=0;i<urlArr.length;i++){
+   getJSON(String(urlArr[i])).then(function(json) {
+       console.log('内容:'+json);
+   },function(error){
+       console.log('出错了' , error);
+
+   })
+}
+</script>
+</body>
+</html>

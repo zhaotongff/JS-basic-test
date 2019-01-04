@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>   //table  input  form
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <table border="1" cellspacing="1" cellpadding="1">
+        <tr>
+            <td>标题1</td>
+            <td>标题1</td>
+            <td>标题1</td>
+        </tr>
+        <tr>
+
+            <!- -向下合并单元格- ->
+            <td rowspan="2">内容1</td>
+            <td>内容1</td>
+            <td>内容1</td>
+        </tr>
+        <tr>
+
+            <!- -向右合并单元格- ->
+            <td colspan="2"; align="center">内容1</td>
+        </tr>
+    </table>
+
+
+
+
+    <form action="http://www.baidu.com" method="post"  autocomplete="on" style="width: 300px;padding:20px 20px;">
+        <fieldset name="basic">
+            <legend>基本信息</legend>
+            用户名：<input type="text" name="name" id="username" autofocus placeholder="请输入用户名" /><p>
+            密码：<input type="password" name="password" id="password" placeholder="请输入密码"  autocomplete="off" /><p>
+            血型：<input type="text" name="xuexing" list="xx"/><p>
+            出生年月：<input type="date" name="birthday"/><p>
+            邮箱：<input type="email" name="email"/><p>
+            喜欢的颜色：<input type="color" name="color"/><p>
+            今天是第几周：<input type="week" name="week"/><p>
+            今天是第几月：<input type="month" name="month"/><p>
+            最喜欢的数字：<input type="number" name="number" max="9" min="0" step="1" /><p>
+            <input type="submit" name="ok" id="ok" value="提交">&nbsp;&nbsp;&nbsp;
+            <input type="reset" name="reset" id="reset" value="重置">
+        </fieldset>
+        <datalist id="xx">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>
+            <option value="O">O</option>
+            <option value="T">特殊血型</option>
+        </datalist>
+    </form>
+</head>
+<body>
+
+</body>
+</html>

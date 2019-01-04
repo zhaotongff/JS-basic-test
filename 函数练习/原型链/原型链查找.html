@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function iterate(obj){
+        var arr=[];
+        for(var key in obj){
+            if(obj.hasOwnProperty(key)){
+                arr.push(key+": "+obj[key])
+            }
+           
+        }
+        alert(arr)
+    }
+
+    var C = function() {
+        this.foo = 'bar';
+        this.baz = 'bim';
+    };
+    C.prototype.bop = 'bip';
+    iterate(new C());
+
+
+</script>
+</body>
+</html>

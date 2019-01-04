@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    //组件类(首字母大写且只能包含一个顶层标签)
+    var LikeButton = React.createClass({
+
+        /*这个方法名称是已经定义好的，不能改名称。用于定义初始状态*/
+        getInitialState: function() {
+           return{ liked:false};
+        },
+
+        handlerclick:function(event){
+            this.setState({
+                liked:!this.state.liked})
+
+        },
+        render:function(){
+            var text=this.state.liked?"喜欢":"不喜欢";
+           return (   <p onClick={ this.handlerclick}>  你<b>{text}</b>我。点我切换状态。</p>);
+        }
+    })
+
+    ReactDOM.render(
+        <LikeButton />,
+        document.getElementById('example')
+    );
+
+</script>
+
+</body>
+</html>

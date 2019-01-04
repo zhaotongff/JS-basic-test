@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>-->
+
+    
+</head>
+<body>
+  
+<script>
+
+  /*数组全排列*/
+/*function swap(arr,i,j){
+      if(i!=j){
+       var temp=arr[i];
+       arr[i]=arr[j]
+       arr[j]=temp
+      }
+   }
+
+   function test(arr){
+   
+       (function fn(n){
+          for(var i=n;i<arr.length;i++){
+                 swap(arr,i,n)
+             if(n+1<arr.length-1){
+              fn(n+1)
+             }else{
+              console.log(arr)
+             }
+             swap(arr,i,n)
+          }
+       })(0)
+
+   }
+   var arr=[1,2,3]
+test(arr)*/
+
+// 字符串全排列
+
+function swap(arr,i,j){
+if(i!=j){
+  var temp=arr[i];
+  arr[i]=arr[j];
+  arr[j]=temp
+
+}
+}
+function test(str){
+  var arr=str.split("");
+  var newarr=[];
+  (function fn(n){     ///全排列组合
+    for(var i=n;i<arr.length;i++){
+      swap(arr,i,n)
+       if(n+1<arr.length-1){
+      fn(n+1)
+    }else{
+     newarr.push(arr.join(""))
+    }
+      swap(arr,i,n)
+    }
+  })(0)
+ var newarr2=[]
+ for(var j=0;j<newarr.length;j++){    //去除重复字符串
+  if(newarr.indexOf(newarr[j])===j){
+   newarr2.push(newarr[j])
+  }
+
+ }
+  for(var k=0;k<newarr2.length-1;k++){    //字母排序  字典排序
+         for(var m=k+1;m<newarr2.length;m++){   
+           if(newarr2[k]>newarr2[m]){
+            var temp=newarr2[k];
+            newarr2[k]=newarr2[m]
+            newarr2[m]=temp
+       }
+
+ }
+
+ }
+ 
+  console.log(newarr2)
+
+}
+var str="adbb";
+test(str);
+</script>
+
+</body>
+</html>

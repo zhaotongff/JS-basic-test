@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">  </script>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script><!--菜鸟CDN-->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+</head>
+<body>
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function () {
+            var txt='';
+            txt+="div1宽度是："+ $("#div1").width()+"</br>";//width()设置或返回元素的宽度（不包括内边距，边框和外边距 只有width）
+            txt+="div1高度是："+ $("#div1").height()+"</br>";//height()设置或返回元素的高度（不包括内边距，边框和外边距）只有height
+            $("#div1").html(txt);
+        });
+
+
+        $("#btn2").click(function () {
+            var txt='';
+            txt+="div1宽度是："+ $("#div1").innerWidth()+"</br>";//innerWidth()设置或返回元素的宽度（包括内边距）计算包括width+2*padding
+            txt+="div1高度是："+ $("#div1").innerHeight()+"</br>";//innerHeight()设置或返回元素的高度（包括内边距）计算包括height+2*padding
+            $("#div1").html(txt);
+        });
+
+        $("#btn3").click(function () {
+            var txt='';
+            txt+="div1宽度是："+ $("#div1").outerWidth()+"</br>";//outerWidth()设置或返回元素的宽度（包括内边距和边框）计算包括width+2*padding+2*border
+            txt+="div1高度是："+ $("#div1").outerHeight()+"</br>";//outerHeight()设置或返回元素的高度（包括内边距和边框）计算包括height+padding+2*border
+            $("#div1").html(txt);
+        });
+    });
+
+
+</script>
+<div id="div1" style="width:200px;height:100px;margin:50px;border:2px solid red;padding:5px;background-color: blue"></div>
+<button id="btn1">获取宽度高度</button><br><br>
+<button id="btn2">获取宽度高度</button><br><br>
+<button id="btn3">获取宽度高度</button><br><br>
+<p>width()-获取宽度</p>
+<p>height()-获取高度</p>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+   <style>
+    *{
+    	padding: 0;
+    	margin: 0;
+    }
+   #ad{
+
+   	width: 400px;
+   	height:300px;
+   	background: url("imges/呢大衣.jpg"); 
+   	position: absolute;
+   	bottom: 0px;
+   	right: 0px;
+   	display: none;
+   }
+   #bt{
+    border: 1px solid black;
+    float: right;
+    color: red;
+    cursor: pointer;
+   }
+   </style>
+</head>
+<body>
+ <p>正文内容</p>
+ <div id="ad">
+ 	<span id="bt">×</span>
+ </div>
+ <script>
+$(function(){
+	$("#ad").slideDown(1000,function(){
+		$("#ad").slideUp(1000,function(){
+		  $("#ad").fadeIn(1000,function(){
+		    $("#bt").click(function(){
+		    	$(this).parent().fadeOut(1000);
+		    })
+	})
+	})
+	})
+})
+ </script>
+</body>
+</html>

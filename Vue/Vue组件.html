@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <qj></qj>
+</div>
+
+<div id="app2">
+    <jb></jb>
+</div>
+
+
+<div id="app3">
+    <input v-model="message">
+    <br>
+    <child v-bind:message="message"></child>
+</div>
+<script>
+    //自定义全局组件
+    Vue.component("qj",{
+        template:"<h1>自定义全局组件</h1>"
+    })
+    new Vue({
+        el:"#app"
+    })
+
+//自定义局部组件
+    var child={
+        template:"<h1>自定义局部组件</h1>"
+    }
+    new Vue({
+        el:"#app2",
+        components:{
+           'jb':child
+        }
+    })
+//动态调用Prop  prop 是父组件用来传递数据的一个自定义属性。
+ //   父组件的数据需要通过 props 把数据传给子组件，子组件需要显式地用 props 选项声明 "prop"：
+
+Vue.component('child',{
+    props:['message'],
+    template:"<span>{{message}}</span>"
+})
+    new Vue({
+        el:"#app3",
+        data:{
+            message:"父组件内容"
+        }
+    })
+
+</script>
+</body>
+</html>

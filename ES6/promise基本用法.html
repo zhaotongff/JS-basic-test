@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   function loadImage(url){
+       var promise=new Promise(function(resolve, reject){
+           var image=new Image();
+           var onload=function(){
+               return resolve(this.url);
+           }
+
+           var onerror=function(){
+               return reject(new Error("错了"))
+           }
+
+           image.src=url;
+       });
+
+
+
+   }
+
+
+   loadImage("http://pic.58pic.com/58pic/15/69/99/55958PICpUx_1024.jpg").then(function(url) {
+       console.log("正确")
+
+    })
+
+</script>
+</body>
+</html>

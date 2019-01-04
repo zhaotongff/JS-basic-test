@@ -1,0 +1,86 @@
+# This is an example of a HEX merge file (.hem)
+# =============================================
+#
+# The SmartRF Flash Programmer normally operates on traditional Intel HEX 
+# files (.hex). However, it also supports a simple non-standard file format 
+# called HEX merge file (.hem).
+#
+#
+# A HEX merge file allows you to specify multiple Intel HEX files so the 
+# programmer can merge them together into one flash image before it gets 
+# programmed to the chip.
+#
+# This can be very useful in order to avoid having to e.g. link two images 
+# together into one image, manually edit Intel HEX files, or in some cases 
+# program the chip in multiple portions (e.g. via appending).
+#
+# One typical use case could be if you have developed the firmware in two 
+# parts, where one part is a flash bootloader and the other part is a 
+# upgradable application firmware residing on top of the bootloader.
+#
+# This example file explains the few simple features of the .hem file format 
+# to show how you can make your own .hem files.
+
+
+
+
+#
+# a)
+# You can add comments to a .hem file by starting the line with a '#'
+#
+# Example:
+
+#This is a comment (obviously), and will be ignored.
+
+
+
+
+#
+# b)
+# You can "include" several Intel HEX files you want to merge into one image
+# by listing the files with the following command:
+#
+# F=<path_to_hex_file>
+#
+# Example:
+
+F=c:\projects\example\image1.hex
+F=c:\projects\path with blanks\image2.hex
+F=c:\projects\path with blanks\config_data_addon.hex
+
+# NOTE: If the included Intel HEX files contains any overlapping data records 
+#      (i.e. data at overlapping addresses) the last file listed will 
+#      overwrite any previous data because the .hem file parser processes 
+#      the HEX files sequentially.
+#
+
+
+
+
+#
+# c) 
+# The HEX merge file format also supports a change command to modify/replace
+# single bytes. It is used by specifing the address to modify and the data
+# byte value, using hexadecimal values on the following format:
+#
+# A=<address>,D=<data_byte_value>
+#
+# Example:
+
+A=1A88,D=BE
+A=1A89,D=EF
+A=1A8A,D=BA
+A=1A8B,D=BE
+
+# The above example shows how one can replace a 4 byte variable located at 
+# flash address 0x1A88 with the values {0xBE, 0xEF, 0xBA, 0xBE}.
+#
+
+
+
+
+
+# ---
+# PS: for more tools on modifying/converting flash image files (e.g. Intel HEX
+# or other formats), check out the free and versatile tools of the SRecord project: 
+#   http://srecord.sourceforge.net/

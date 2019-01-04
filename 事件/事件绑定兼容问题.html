@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>添加</button>
+<script>
+    btn=document.getElementsByTagName("button")[0];
+    btn.addEventListener("click",fn);//ie9 chrom都支持，ie8不支持
+    btn.attachEven("onclick",fn);//ie8
+    function fn(){
+        alert("lalal");
+    }
+
+    //自己封装添加兼容写法
+var EventListener={
+
+        addEvent:function(ele,evename,func){
+            if(ele.addEventListener()){
+                ele.addEventListener("evename",func);
+            }else if(ele.attachEven){
+                btn.attachEven("onclick",fn);//ie9
+            }
+        }}
+</script>
+</body>
+</html>

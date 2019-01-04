@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // 中序遍历：LDR
+
+   var inOrder = function (node) {
+       if (node) {
+           inOrder(node.left);
+           console.log(node.value);
+           inOrder(node.right);
+       }
+   }
+</script>
+</body>
+</html>

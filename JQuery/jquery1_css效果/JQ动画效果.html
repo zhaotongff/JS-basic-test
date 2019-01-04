@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        #box0,#box1,#box2,#box3,#box4{
+            width:100px;
+            height:100px;
+            background-color: green;
+            margin:10px 0 0 50px;
+            position: absolute;/*重要*/
+
+        }
+     #div0,#div1,#div2,#div3,#div4{
+      width:500px;
+     height:200px;
+
+
+     }
+
+    </style>
+</head>
+<body>
+<div id="div0">
+    <button id="bt0">创建动画</button>
+    <p>静态静止，一旦点击按钮盒子向右移动250px</p>
+    <div id="box0"></div>
+</div>
+
+<div id="div1">
+    <button id="bt1">创建多功能动画</button>
+    <p>一旦点击按钮盒子颜色，透明度，大小，位置都变化</p>
+    <div id="box1"></div>
+</div>
+
+<div id="div2">
+    <button id="bt2">开始动画</button>
+    <p>盒子自动显示隐藏</p>
+    <div id="box2"></div>
+</div>
+
+
+<div id="div3">
+    <button id="bt3">开始动画</button>
+    <p>盒子自动改变</p>
+    <div id="box3"></div>
+</div>
+
+
+<div id="div4">
+    <button id="bt4">开始动画</button>
+    <p>盒子自动改变</p>
+    <div id="box4">Hello</div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#bt0").click(function(){                  //向右移动
+            $("#box0").animate({left:'250px'});
+        });
+
+        $("#bt1").click(function(){           //点击按钮盒子颜色，透明度，大小，位置都变化
+            $("#box1").animate({
+                left:'250px',
+                width:'200px',
+                height:'200px',
+                opacity:'0.3'
+
+            });
+        });
+
+        $("#bt2").click(function(){                  //toggle显示与隐藏
+            $("#box2").animate({
+
+               /* height:'toggle'                       //上下隐藏与显示*/
+
+                width:'toggle'                     //左右隐藏
+            });
+        });
+
+
+        $("#bt3").click(function(){                  //toggle显示与隐藏
+            var box=$("#box3");
+            box.animate({height:'300px',opacity:'0.4'},"slow");
+            box.animate({width:'300px',opacity:'0.8'},"slow");
+            box.animate({height:'100px',opacity:'0.4'},"slow");
+            box.animate({width:'100px',opacity:'0.8'},"slow");
+        });
+
+
+        $("#bt4").click(function(){                  //toggle显示与隐藏
+            $("#box4").animate({
+             left:'100px',
+             height:'200px',
+             width:'200px',
+             fontSize:'3em'
+
+            },"slow");
+        });
+
+
+    });
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0
+        }
+        .box{
+            width:450px ;
+            height: 200px;
+            border:1px solid black;
+            margin:100px auto;
+            padding:5px;
+
+        }
+        .box>.inner{
+            width:450px ;
+            height: 200px;
+            overflow: hidden;
+            position: relative;/*移动的父盒子必须定位relative*/
+        }
+        .inner>ul{
+            list-style: none;
+            width: 500%;
+            position: absolute;/*移动盒子必须定位absolute*/
+            left:0;
+        }
+        ul>li{
+            float:left;
+        }
+        img{
+
+            width: 490px;
+            height: 200px;
+        }
+        .inner>.squre{
+            position: absolute;
+            right:10px;
+            bottom: 10px;
+
+            color: black;
+        }
+        .squre span{
+            width: 16px;
+            height: 16px;
+            border:1px solid white;
+            background-color: #e5eecc;
+            display: inline-block;
+            text-align: center;
+            margin-left: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .squre .current{
+            background-color: darkorange;
+            color: #e5eecc;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="inner" id="inner">
+        <ul>
+            <li><img src="imgs/1.gif"></li>
+            <li><img src="imgs/2.jpg"></li>
+            <li><img src="imgs/3.jpg"></li>
+            <li><img src="imgs/4.png"></li>
+        </ul>
+        <div class="squre">
+            <span class="current">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    //获取元素可以通过父容器获取
+    var inner=document.getElementById("inner");
+    var ul=inner.firstElementChild;
+    var liArr=ul.children;
+    var spanArr=inner.lastElementChild.children;
+    var img=document.getElementsByTagName("img")[0];
+
+    //1  span 添加鼠标监听  点亮盒子
+for(var i=0;i<spanArr.length;i++){
+    spanArr[i].index=i;
+    spanArr[i].onmouseover=function(){
+        for(var i=0;i<spanArr.length;i++){
+            spanArr[i].removeAttribute("class");
+        }
+        this.setAttribute("class","current");
+        //ul 要移动的宽度
+        translateAnimate(ul,-(this.index*490),10);
+    }
+}
+
+
+
+
+    function translateAnimate(ele,endX,speed){
+        //tomer为defined或null，  正常清除，不会报错
+        //把定时器绑定到当前元素对象上面，每个盒子都有自己的定时器对象
+        clearInterval( ele.timer);
+        var s;
+        //如果目标位置大于当前位置 +步长
+        //如果目标位置小于当前位置 - 步长
+        if(endX>ele.offsetLeft){
+            s=speed;
+        }else if(endX<ele.offsetLeft){
+            s=-speed;
+        }else{
+            s=0;
+        }
+        ele.timer=setInterval(function(){
+            var offval=endX-ele.offsetLeft;
+            ele.style.left=ele.offsetLeft+s+"px";
+            //如何停止
+            if(Math.abs(offval)<Math.abs(s)){
+                ele.style.left=endX;
+                clearInterval(ele.timer);
+            }
+
+
+        },10);
+
+    }
+
+</script>
+</body>
+</html>

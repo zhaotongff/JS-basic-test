@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var eventUtil={
+        //获取事件
+        getEvent:function(event){
+         return event?event:window.event;
+        },
+
+        //添加事件
+        addEvent:function(element,type,handler){
+            if(element.addEventListener){
+                element.addEventListener(type,handler,true);
+
+            }else if(element.attachEvent){
+              element.attachEvent("on"+type,handler);
+
+            }else{
+               element["on"+type]=handler;
+            }
+
+
+        },
+
+        //移除事件；
+        removeEvent:function(element,type,handler){
+            if(element.removeEventListener){
+                element.removeEventListener(type,handler);
+
+            }else if(element.detachEvent){
+                element.detachEevent("on"+type,handler);
+
+            }else{
+                element["on"+$.type]=null;
+            }
+
+
+        },
+        //阻止默认事件
+
+        preventDefault:function(event){
+            if(event.preventDefault){
+                event.preventDefault();
+
+            } else{
+                  event.returnValue=false;
+            }
+
+        },
+        //阻止冒泡
+        stopPropagation:function(event){
+            if(event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble=true;
+            }
+        },
+        //获取目标事件
+
+    getTarget:function(event){
+            return event.target||event.srcElement;
+}
+
+    }
+
+
+</script>
+</body>
+</html>

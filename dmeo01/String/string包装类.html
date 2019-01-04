@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script>
+   /* //基本数据类型  不能绑定任何属性和方法
+    //基本数据类型去发进行一些属性的调用和函数的操作  所以推出了包装类  能够对基本数据类型及逆行一定的修改 删除 查找 和获取之类的操作
+    var str="xxx";
+   str.aaa="hehe";
+    console.log(str);  //xxx
+    console.log(str.aaa);//undefined
+    var str1="aaa";
+    var str2=new String(str1);//str2已经成i个对象了  所以可以绑定属性
+    str2.aaa="lala";
+    console.log(str1);//aaa
+    console.log(str2);//String
+    console.log(str2.aaa);//lala*/
+
+   //查找功能  chartAt()/ charCodeAt() indexOf()/lastIndexOf()
+    var str="helloitszWorld";
+    console.log(str.charAt(1));//  e         chartAt():根据指定索引查找返回当前位置字符  索引值超出范围返回空字符串
+     console.log(str.charCodeAt(1));// 101    charCodeAt():根据指定索引查找返回当前位置字符的unicode/ASKLL  索引值超出范围返回空字符串
+    console.log(str.indexOf("ll"));//  2     indexOf()根据字符查找第一个字符出现的索引值   大小写敏感
+                                             // indexOf("ll"，5) 13从指定位置5之后找第一个l出现位置
+    console.log(str.lastIndexOf("l"));//  12   lastIndexOf()   从后往前找指定字符的第一个字符出现索引值
+</script>
+</body>
+</html>

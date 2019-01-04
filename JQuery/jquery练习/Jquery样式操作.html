@@ -1,0 +1,89 @@
+<DOCTYPE!>
+<html>
+<head>
+	<meta charset="UTF-8"></mata>
+	<title>样式操作</title>
+	<style>
+     *{
+     	margin:0;
+     	padding:0;
+     }
+  #div{
+    width:100px;
+    height:100px;
+    background-color: pink;
+   padding:10px;
+  }
+  .div{
+    width:100px;
+    height:100px;
+    background-color: pink;
+   padding:10px;
+  display: none;
+
+  }
+ .current{
+   display:block;
+ }
+
+    </style>
+   
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+   
+</head>
+<body>
+<button>获取</button>
+<button>切换</button>
+<div id="div">
+</div>
+<button  id="bt1">添加class</button>
+<button  id="bt2">移除class</button>
+<button  id="bt3">添加class</button>
+<button  id="bt4">添加class</button>
+<div class="div"></div>
+
+
+
+	<script>
+        $(function(){
+            $("#div").css("width","500px")//两个值设置盒子宽高
+
+            $("button").eq(0).click(function(){
+            //JQ获取的宽高就是CSS设置的值，不包含padding
+              alert($("#div").css("width"))
+          } ) 
+
+
+        //传入一个JSON用来设置多个简单样式，，如果样式多且复杂要使用类
+        //简单样式
+        $("#div").css({
+            "width":"500px",
+            "background-color":"red",
+            "top":"30px",
+           
+        })
+      
+       //式多且复杂使用类  addClass为样式添加classname  removeClass  toggleClss  hasClass
+       //
+     
+      $("#bt1").click(function(){
+
+        $(".div").addClass("current");
+      })
+
+      $("#bt2").click(function(){
+
+        $(".div").removeClass("current");
+      })
+
+      //hasClass询问是否具有某个类名
+      $("#bt3").click(function(){
+
+        alert($(".div").hasClass("current"));
+      })
+
+
+        })
+	</script>
+</body>
+</html>

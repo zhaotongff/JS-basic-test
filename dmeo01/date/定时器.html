@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #banner{
+            width:700px;
+            height:500px;
+            background-color: pink;
+            text-align: center;
+            font:700 30px/50px "simsun";
+           margin:20px auto;
+            color:red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="banner">
+    <div>距离七夕还剩：</div>
+    <div id="da">5天10:36:43</div>
+
+</div>
+<script>
+    var da=document.getElementById("da");
+    var str="2018/7/7 00:00:00";
+    var futureTime=new Date(str);
+    setInterval(function(){
+
+        var date=new Date();
+        var cha=futureTime-date//得到毫秒值
+        var day=parseInt(cha/1000/60/60/24);
+        var hour=parseInt(cha/1000/60/60%24);
+        var minutes=parseInt(cha/1000/60%60);
+        var seconds=parseInt(cha/1000%60);
+
+        if(hour<10){
+            hour="0"+hour;
+        }
+
+        if(minutes<10){
+            minutes="0"+minutes;
+        }
+        if(seconds<10){
+            seconds="0"+seconds;
+        }
+        da.innerHTML=day+"天"+hour+"小时"+minutes+"分钟"+seconds+"秒";
+        },1000);
+
+</script>
+</body>
+</html>

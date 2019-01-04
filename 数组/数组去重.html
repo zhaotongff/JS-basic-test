@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //根据字符串找到头位置，如果这个位置跟当前遍历的索引位置相同，表示第一次输入，放入新数组；如果不同表示之气那还有一个跟自己相等字符  那么表示自己重复
+    //不放人新数组
+
+    //总结L；第一次出现放入数组，其他不放；
+
+/*var strr="abcoefoxyozzopp";
+var newArr=[];
+//方法一
+var  arr=strr.split(""); //字符串转换成数组；
+for(var i=0;i<arr.length;i++) {
+if(arr.indexOf(arr[i])===i){
+newArr.push(arr[i]);
+}
+}
+alert(newArr.join(""));*/
+
+
+
+
+//方法二字符串去重  数组去重差不多
+/*var strr="abcoefoxyozzopp"
+var   newArr=[]
+var json={ };
+for(var i=0;i<strr.length;i++){
+    var c=strr.charAt(i);
+    if(json[c]===undefined){
+        json[c]=1;
+
+    }else{
+        json[c]+=1;
+    }
+    if( json[c]===1){
+        newArr.push(c);
+    }
+}
+    var newstr=newArr.join("");
+alert( newstr);*/
+
+
+//v为 Array 对象添加一个去除重复项的方法
+    //[false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN]   ==>[false, true, undefined, null, NaN, 0, 1, {}, {}, 'a']
+
+
+
+
+/*
+
+    Array.prototype.uniq = function () {
+        var resArr = [];
+        var flag = true;
+        for(var i=0;i<this.length;i++){
+            if(resArr.indexOf(this[i]) == -1){
+                if(this[i] != this[i]){   //排除 NaN
+                    if(flag){
+                        resArr.push(this[i]);
+                        flag = false;
+                    }
+                }else{
+                    resArr.push(this[i]);
+                }
+            }
+        }
+        console.log(resArr);
+    }
+
+    x = [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
+    x.uniq();
+
+*/
+
+
+    /*  原数组去重
+     var removeDuplicates = function(nums) {
+        for(var i=0;i<nums.length;i++){
+            for(var j=i+1;j<nums.length;j++){
+                if(nums[i]==nums[j]){
+                    nums.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        console.log(nums)
+        return( nums.length)
+    };
+
+    var nums = [0,0,1,1,1,2,2,3,3,4]
+    console.log(removeDuplicates( nums));
+    * */
+
+
+
+    /*给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+
+你可以假设数组是非空的，并且给定的数组总是存在众数。
+
+示例 1:
+
+输入: [3,2,3]
+输出: 3
+示例 2:
+
+输入: [2,2,1,1,1,2,2]
+输出: 2*/
+/*var nums=[3,2,3]
+    var majorityElement = function(nums) {
+    var json={ };
+    var arr=[];
+for(var i=0;i<nums.length;i++){
+     var c=nums[i];
+
+     if(json[c]==undefined){
+         json[c]=1;
+         arr.push(c)
+     }else{
+         json[c]+=1;
+     }
+}
+        for(var i=0;i<arr.length;i++){
+
+      if(json[arr[i]]>(nums.length/2)){
+
+         return(arr[i]);
+
+   }
+
+        }
+    };
+   console.log(majorityElement(nums) )*/
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+定时器：
+函数定义绑定方式三种
+两种方式同理
+setInterval(函数，毫秒值);  相隔毫秒值重复执行
+setTimeOut(函数，毫秒值);在多少毫秒值后执行一次
+第一个参数 可以是字符串，但是耗能且容易内存泄漏，所以不用
+清除定时器：
+clearInterval();
+clearTimeOut();
+-->
+
+<script>
+    var num=0;
+    /*setInterval(function(){   //第一种定义方式  直接写入函数
+        console.log(++num)
+        },2000);*/
+   /* setInterval(fn,2000);    //第二种定义方式  直接传一个函数进来
+    function fn(){
+
+        console.log(++num);
+    }*/
+    // setInterval("console.log(++num)",1000);//函数部分直接写入字符串
+
+/*    setTimeout()与setInterval()同理
+*
+* 区别：
+* setInterval(函数，毫秒值);  相隔毫秒值重复执行
+* setTimeOut(函数，毫秒值);在多少毫秒值后执行一次
+*
+*
+* */
+   var timer= setInterval(function(){   //第一种定义方式  直接写入函数
+        console.log(++num);
+       if(num>=5){
+           clearInterval(timer);
+           console.log(timer);//表明当前页面timer是第几个定时器从1开始
+       }
+
+    },1000);
+
+
+
+</script>
+</body>
+</html>

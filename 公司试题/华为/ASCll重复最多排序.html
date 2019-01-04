@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+ // 找到最长重复字符串，然后输出ASCll码最小的哪个
+    function fn(str){
+       var json={}
+        for(var i=0;i<str.length;i++){
+           var c=str.charAt(i);
+            if(json[c]===undefined){
+                json[c]=1
+            }else{
+                json[c]+=1
+            }
+        }
+        var arr=[]
+        for(var k in json ){
+           arr.push(json[k])
+
+        }
+        var arr2=[]
+          var max1=Math.max.apply(this,arr)
+        for(var k in json ) {
+            if (json[k] == max1) {
+              arr2.push(k)
+            }
+        }
+       for(var k=0;k<arr2.length-1;k++){
+           for(var g=k+1;g<arr2.length;g++) {
+               if (arr2[k]>arr2[g]) {
+                 var temp=arr2[k]
+                   arr2[k]=arr2[g]
+                   arr2[g]=temp
+               }
+           }
+       }
+       var str1=arr2[0];
+var str2=""
+       for(var l=0;l<max1;l++){
+           str2+=str1
+       }
+        console.log(str2)
+    }
+    var str="aaaabbbbmmmmmmmmmccccccccczzzzzzzzz";
+    fn(str)
+</script>
+</body>
+</html>

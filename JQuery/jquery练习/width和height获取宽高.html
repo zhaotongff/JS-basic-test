@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+	  <style>
+	  *{
+	  	margin: 0;
+	  	padding: 0;
+	  }
+		#box{
+		width:200px;
+		height: 200px;
+		background-color: pink;
+		margin: 10px 20px 10px 10px;
+		border: 5px solid black;
+		padding:3px;
+		}
+	</style>
+</head>
+<body>
+	<button>获取</button>
+	<button>设置</button>
+<div id="box">
+
+</div>	
+<script>
+ $(function(){
+ 	$("button").eq(0).click(function(){
+ 		//width和height获取
+ 		//1 通过CSS方法获取宽高 结果是字符串类型带px 不包含margin padding border
+ 	//alert($("#box").css("width"))
+ 		//2 通过width\height方法获取宽高 结果是number类型不带px 不包含margin padding border
+ 		alert($("#box").width())
+ 	})
+
+ 	//width和height设置宽高
+ 	$("button").eq(1).click(function(){
+    //1、
+    
+    //2、
+    $("#box").width("500")
+    $("#box").width("500px")//带不带px都行
+
+ 	})
+ })
+</script>
+</body>
+</html>

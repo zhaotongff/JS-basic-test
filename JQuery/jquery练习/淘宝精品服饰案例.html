@@ -1,0 +1,105 @@
+<DOCTYPE!>
+<html>
+<head>
+	<meta charset="UTF-8"></mata>
+	<title>淘宝精品服饰案列</title>
+	<style>
+     *{
+     	margin:0;
+     	padding:0;
+     }
+   #box{
+    margin-left: 30%;
+    width:550px;
+    height:200px;
+    border:1px solid black;
+    text-align: center;
+    margin-top:200px;
+     overflow: hidden;
+   }
+   
+   #left,#content,#right{
+    list-style: none;
+    float: left;
+
+   }
+   #left>li{
+    width:150px;
+    height:38px;
+    border: 1px solid #666;
+    background-color: #f98;
+    text-align:center;
+   }
+#right>li{
+    width:145px;
+    height:38px;
+    border: 1px solid #666;
+    background-color: #f98;
+    text-align:center;
+   }
+   img{
+
+   }
+    </style>
+   
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+   
+</head>
+<body>
+ <div id="box">
+    <ul id="left">
+        <li href="#">女鞋</li>
+        <li href="#">雪地靴</li>
+        <li href="#">冬裙</li>
+        <li href="#">呢大衣</li>  
+        <li href="#">毛衣</li>
+      
+
+
+    </ul>
+    <ul id="content">
+        <li><a href="#"><img src="imges/女鞋.jpg" width="250px" height="200x"></a></li>
+        <li><a href="#"><img src="imges/雪地靴.jpg" width="250px" height="200x"></a></li>
+        <li><a href="#"><img src="imges/冬裙.jpg" width="250px" height="200x"></a></li>
+        <li><a href="#"><img src="imges/呢大衣.jpg" width="250px" height="200x"></a></li>  
+        <li><a href="#"><img src="imges/毛衣.jpg" width="250px" height="200x"></a></li>
+        
+
+        <li><a href="#"><img src="imges/男鞋.jpg" width="250px" height="200x"></a></li>
+        <li><a href="#"><img src="imges/皮带.jpg" width="250px" height="200x"></a></li>
+        <li><a href="#"><img src="imges/围巾.jpg" width="250px" height="200x"></a></li>
+        <li><a href="#"><img src="imges/男毛衣0.jpg" width="250px" height="200x"></a></li>  
+        <li><a href="#"><img src="imges/皮衣.jpg" width="250px" height="200x"></a></li>
+        
+
+
+    </ul>
+    <ul id="right">
+        <li href="#">男鞋</li>
+        <li href="#">皮带</li>
+        <li href="#">围巾</li>
+        <li href="#">男毛衣</li>  
+        <li href="#">皮衣</li>
+       
+
+
+    </ul>
+ </div>
+	<script>
+
+    //需求：鼠标移入两侧对应按钮，中间显示对应图片
+	  //鼠标移入左侧栏，获取索引值，让中间对应索引值的图片显示，右侧栏每个按钮只要加上左侧最大索引
+   //左侧li添加监听
+   $(function(){
+    $("#left>li").mouseenter(function(){
+    //  alert($(this).index())
+      $("#content>li").eq($(this).index()).show().siblings().hide();
+    });
+      $("#right>li").mouseenter(function(){
+    //  alert($(this).index())
+      $("#content>li").eq($(this).index()+5).show().siblings().hide();
+    });
+   });
+	</script>
+</body>
+</html>

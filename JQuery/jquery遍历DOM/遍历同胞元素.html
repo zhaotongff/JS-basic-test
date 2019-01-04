@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <!--  siblings()   siblings() 方法返回被选元素的所有同胞元素。
+    next()       next() 方法返回被选元素的下一个同胞元素。
+    nextAll()    nextAll() 方法返回被选元素的所有跟随的同胞元素。
+    nextUntil()  nextUntil() 方法返回介于两个给定参数之间的所有跟随的同胞元素。
+    prev() prevAll()  prevUntil()prev(), prevAll() 以及 prevUntil() 方法的工作方式与上面的方法类似，只不过方向相反而已：它们返回的是前面的同胞元素
+    （在 DOM 树中沿着同胞之前元素遍历，而不是之后元素遍历）。-->
+    <style>
+
+
+        .siblings *
+        {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+        button{
+            color:red;
+            background-color: #999999;
+
+        }
+    </style>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("h2").siblings().css({"color":"red","border":"2px solid red"});
+            });
+
+            $("#btn2").click(function(){
+                $("h2").next().css({"color":"red","border":"2px solid red"});
+            });
+            $("#btn3").click(function(){
+                $("h2").nextAll().css({"color":"red","border":"2px solid red"});
+            });
+            $("#btn4").click(function(){
+                $("h2").nextUntil("h3").css({"color":"red","border":"2px solid red"});
+            });
+
+            $("#btn5").click(function(){
+                $("h2").prev().css({"color":"red","border":"2px solid red"});
+            });
+            $("#btn6").click(function(){
+                $("h2").prevAll().css({"color":"red","border":"2px solid red"});
+            });
+            $("#btn6").click(function(){
+                $("h2").prevUntil("span").css({"color":"red","border":"2px solid red"});
+            });
+        });
+    </script>
+</head>
+<body class="siblings">
+<div>div (父元素)
+    <p>p</p>
+    <span>span</span>
+    <h2>h2</h2>
+    <span>span</span>
+    <h3>h3</h3>
+    <p>p</p>
+
+</div>
+<button id="btn1">slblings返回所有同胞元素</button>
+<button id="btn2">next()返回下一个同胞元素</button>
+<button id="btn3">nextAll()返回下面跟随的所有同胞元素</button>
+<button id="btn4">nextUntil返回指定范围内所有同胞元素</button>
+<button id="btn5">prev()返回上一个同胞元素</button>
+<button id="btn6">prevAll()返回上面所有同胞元素</button>
+<button id="btn7">prevUntil返回上面指定范围内同胞元素</button>
+
+</body>
+</html>

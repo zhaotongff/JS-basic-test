@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //时间日期对象创建方式一 获取当前时间
+    var date=new Date();
+    console.log(date);
+    //时间日期对象创建方式二    获取自定义时间
+    var date1=new Date("2017/08-09 15:28:03");
+    console.log(date1);
+    //时间日期对象创建方式三
+    var date2=new Date(2017,08,09,15,28,03);
+    console.log(date2);
+
+
+   // 获取当前时间的毫秒值  创建方式：从1970/01/01到现在的毫秒值
+    var date1=Date.now();
+    var date2=+new Date();
+    var date3=new Date().getTime();   //推荐使用
+    var date4=new Date().valueOf();
+    console.log(date1);
+    console.log(date2);
+    console.log(date3);
+    console.log(date4);
+
+    var date5=new Date();
+    console.log(date5.getDate());            //获取日期
+    console.log(date5.getDay());              //获取星期 0-6
+    console.log(date5.getMonth());             //获取月份 0-11
+    console.log(date5.getFullYear());                    //获取完整年份
+    console.log(date5.getHours());                       //获取小时 0-23
+    console.log(date5.getMinutes());                        //获取分钟
+    console.log(date5.getSeconds());                         //获取秒
+    console.log(date5.getMilliseconds());                       //获取毫秒
+
+
+    //传入毫秒值  返回该毫秒值传回对应的时间
+var date6=new Date(99887332);
+console.log(date6);
+
+
+//把日期解析成毫秒值
+    var date7=Date.parse("2017-08-12 18:20:32");
+    console.log(date7);
+
+    var date8=new Date();
+    console.log(date8.toString());
+    console.log(date8.toDateString());  //取日期部分
+    console.log(date8.toTimeString());  //取时间部分
+    console.log(date8.toLocaleString());
+    console.log(date8.toLocaleDateString());//取本地操作系统的格式日期部分
+    console.log(date8.toLocaleTimeString());//取本地操作系统的格式时间部分
+</script>
+</body>
+</html>

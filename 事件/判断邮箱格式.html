@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div>
+    邮箱：<input type="text" onblur="isAvailableEmail(this)">
+  </div>
+
+<script>
+    //判断输入是否是正确的邮箱格式  true表示格式正确
+
+        function isAvailableEmail(sEmail){
+           /* var val=sEmail.value;
+            if(val){
+                var index=val.indexOf("@");
+                var ind=val.indexOf(".");
+                var reg=/[a-z]{3}$/ig
+               alert( reg.test("123com"))
+                if(index>0&&index<val.length-4&&ind==val.length-3&&reg.test(val)){
+           alert(true);
+                }else{
+                    alert(  false);
+                }
+            }*/
+       // var reg=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]$/g
+         var reg= /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+
+           return( reg.test(sEmail));
+
+
+
+    };
+    var sEmail="zhaotongff@126.com"
+    document.write( isAvailableEmail(sEmail))
+
+</script>
+</body>
+</html>

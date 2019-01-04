@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*给出一个区间[a, b]，计算区间内“神奇数”的个数。
+神奇数的定义：存在不同位置的两个数位，组成一个两位数（且不含前导0），且这个两位数为质数。
+比如：153，可以使用数字3和数字1组成13，13是质数，满足神奇数。同样153可以找到31和53也为质数，只要找到一个质数即满足神奇数。
+输入描述:
+输入为两个整数a和b，代表[a, b]区间 (1 ≤ a ≤ b ≤ 10000)。
+输出描述:
+输出为一个整数，表示区间内满足条件的整数个数
+
+输入例子1:
+11 20
+
+输出例子1:
+6*/
+var a=11;var b=20
+    fn(a,b)
+    function fn(a,b){
+    var o=0;
+      for(var i=a;i<=b;i++){
+          var n=i;
+          var arr=[];
+         while(n){
+            arr.push(n%10);
+            n=parseInt(n/10 );
+
+         }
+         for(var j=0;j<arr.length;j++){
+             for(var k=j+1;k<arr.length;k++){
+                 var str1="";var str2=""
+                 str1=arr[j].toString();
+                 str2=arr[k].toString();
+                 var str3=str1.concat(str2)
+                 var num=Number(str3)
+                 var l=0;
+                for(var m=1;m<=num;m++){
+                    for(var n=2;n<=num;n++){
+                       if(num===m*n){
+                           l++
+                       }
+                    }
+                }
+                if(l===1){
+                    o++;
+                }
+             }
+         }
+
+      }
+       alert(o);
+    }
+</script>
+</body>
+</html>

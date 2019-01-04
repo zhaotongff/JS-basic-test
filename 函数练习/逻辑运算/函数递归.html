@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数自己调用自己就是递归，是一种思想</title>
+</head>
+<body>
+<script>
+    var num=0;
+function go(){
+    alert("go函数");
+    num++;
+    if(num<5) {
+        go();
+        alert("go函数执行完毕")
+    }
+}
+go();
+
+
+//
+    function fn(demo){//demo是一个函数
+        alert("输出");
+        demo();
+
+
+    }
+    function test(){
+        alert("我是TEST函数");
+
+    }
+    fn(test);
+</script>
+</body>
+</html>

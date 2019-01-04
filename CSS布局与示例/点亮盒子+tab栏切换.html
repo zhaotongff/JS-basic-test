@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+ <!-- 点亮盒子    排他思想-->
+    <style>
+        #boxid1{
+            width:280px;
+            height:200px;
+            background-color:olivedrab;
+            margin-left:100px;
+        }
+        button{
+            width:50px;
+            height:30px;
+            text-align:center;
+            font: 300 13px/30px "simsun";
+            background-color: aqua;
+            cursor:pointer;
+
+        }
+.show1{
+    background-color: red;
+
+}
+    </style>
+<!--tab切换-->
+     <style>
+*{
+    margin:0;
+    padding: 0;
+}
+            #boxid{
+                width:500px;
+                height:400px;
+                margin:50px auto;
+                overflow:hidden;
+
+            }
+            li{
+                width:100px;
+                height:80px;
+                background-color: pink;
+                list-style:none;
+                text-align:center;
+                float:left;
+                font:700 25px/80px "simsun";
+            }
+         .show{
+
+              display:block;
+
+         }
+         .current{
+             background-color:  blue;
+
+         }
+span{
+    width:500px;
+    height:320px;
+    background-color:  blue;
+    display:none;
+    text-align:center;
+    font:700 90px/320px "simsun";
+}
+
+        </style>
+
+
+</head>
+<body>
+
+
+<!--点亮盒子  1添加鼠标点击事件 2 干掉其他人  3  点亮自己-->
+
+<div id="boxid1">
+    <button >菜单1</button>
+    <button>菜单2</button>
+    <button>菜单3</button>
+    <button>菜单4</button>
+    <button>菜单5</button>
+</div>
+
+<script>
+    var bt=document.getElementsByTagName("button");
+
+        for (var i=0;i<bt.length;i++){
+            bt[i].onmouseover=function(){
+                for (var i=0;i<bt.length;i++) {
+                    bt[i].className = "";
+                }
+                this.className="show1";
+            }
+
+
+    }
+
+</script>
+
+
+
+<!--tab切换框-->
+
+<div id="boxid">
+    <ul>
+        <li class="current">帽子</li>
+        <li >袜子</li>
+        <li >鞋子</li>
+        <li >裤子</li>
+        <li >衣服</li>
+    </ul>
+    <span  class="show">帽子</span>
+    <span >袜子</span>
+    <span >鞋子</span>
+    <span >裤子</span>
+    <span >衣服</span>
+
+</div>
+<script>
+    var li =document.getElementsByTagName("li");
+    var sp=document.getElementsByTagName("span");
+    for(var i=0;i<li.length;i++){
+        li[i].index=i;
+       li[i].onmouseover=function(){
+            for(var i=0;i<li.length;i++){
+                li[i].className="";
+                sp[i].className="";
+            }
+            this.className="current";
+          sp[this.index].className="show";
+        }
+
+    }
+</script>
+
+
+
+</body>
+</html>

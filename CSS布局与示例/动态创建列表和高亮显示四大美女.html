@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            height:30px;
+
+        }
+
+    </style>
+</head>
+<body>
+<button>创建</button>
+<ul id="box"></ul>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+    var ul=document.getElementById("box");
+
+    btn.onclick=function(){
+        ul.innerHTML="";
+        var arr=["贵妃醉酒","西施浣纱","昭君出塞","貂蝉拜月"];
+        for(var i=0;i<arr.length;i++) {
+            var li = document.createElement("li");
+            li.innerHTML=arr[i];
+            ul.appendChild(li);
+            var liNodes=ul.children;
+            li.onmouseover = function () {
+                for (var j = 0; j < liNodes.length; j++) {
+                    liNodes[j].style.opacity = "0.2";
+
+                }
+                this.style.opacity = "1";
+            }
+            ul.onmouseout=function() {
+                for (var i = 0; i < arr.length; i++){
+                    liNodes[i].style.opacity = "1";
+
+                }
+
+            }
+        }
+
+    }
+
+</script>
+</body>
+
+</html>

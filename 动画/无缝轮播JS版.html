@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0
+        }
+        .box{
+            width:450px ;
+            height: 200px;
+            border:1px solid black;
+            margin:100px auto;
+            padding:5px;
+
+        }
+        .box>.inner{
+            width:450px ;
+            height: 200px;
+            overflow: hidden;
+            position: relative;/*移动的父盒子必须定位relative*/
+        }
+        .inner>ul{
+            list-style: none;
+            width: 600%;
+            position: absolute;/*移动盒子必须定位absolute*/
+            left:0;
+        }
+        ul>li{
+            float:left;
+            width: 450px;
+            margin-left: 5px;
+        }
+        img{
+
+            width: 450px;
+            height: 200px;
+
+
+        }
+        .switchBox{
+            display: none;
+        }
+        span{
+            width: 30px;
+            height: 40px;
+            color: white;
+            background-color: #c3c3c3;
+            top:60px;
+            display: block;
+            position: absolute;
+            font-size: 30px;
+            text-align: center;
+            cursor: pointer;
+
+        }
+        .right{
+            right:0;
+        }
+        #inner>ol{
+            list-style: none;
+            position: absolute;
+            right: 20px;
+            bottom:10px;
+        }
+        ol>li{
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            text-align: center;
+
+            margin-left: 5px;
+            font:100 12px/15px "simsun";
+            display:inline-block;
+            float:left;
+            cursor: pointer;
+
+        }
+        #inner>ol .current{
+            background-color: darkorange;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="inner" id="inner">
+        <ul>
+            <li><img src="imgs/1.gif"></li>
+            <li><img src="imgs/2.jpg"></li>
+            <li><img src="imgs/3.jpg"></li>
+            <li><img src="imgs/4.png"></li>
+        </ul>
+        <ol>
+
+        </ol>
+        <div class="switchBox">
+            <span class="right">></span>
+            <span class="left"><</span>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    //设计：如何实现无缝轮播  无缝：即第一张到最后 最后到第一之间无空白缝隙  我第一张怎么办 到最后一张怎么办
+    //可以把ul后面再拼接出来一个LI  显示第一张 ，每次移到第五张下一章显示第六张图片（第一张图片）  在移动时  把ul归0显示第一张  往左同理
+
+    //步骤：
+    //1 获取事件源
+    //2 复制第一张图片li拼接到ul最后面
+    //3 实现 ol  里面动态创建小方块1，2，3，4   默认选中一个
+    // 4 添加鼠标移入事件  排他思想
+    //5 添加定时器 实现定时轮播
+    //6  定时器的停止与播放  鼠标移入box停止 ，移除box继续播放   同时加上箭头的显示与隐藏
+    //7  箭头监听  左右切换图
+
+
+
+    //1 获取事件源
+    var inner=document.getElementById("inner");
+    var box=inner.parentNode;
+    var ul=inner.children[0];
+    var ol=inner.children[1];
+    var imgWidth=inner.offsetWidth;
+    var switchBox=document.getElementsByClassName("switchBox")[0];
+    var bts=switchBox.children;
+    //2 复制第一张图片li拼接到ul最后面
+    var ulNewLi=ul.children[0].cloneNode(true);
+    ul.appendChild(ulNewLi);
+    //3 实现 ol  里面动态创建小方块1，2，3，4   默认选中一个
+    for(i=0;i<ul.children.length-1;i++){
+        var olNewLi=document.createElement("li");
+        olNewLi.innerHTML=i+1;
+        ol.appendChild(olNewLi);
+
+    }
+
+    var olLiAarr=ol.children;
+    for(var i=0;i<olLiAarr.length;i++){
+        olLiAarr[i].removeAttribute("class");
+    }
+    olLiAarr[0].setAttribute("class","current");
+    // 4 添加鼠标移入事件  排他思想
+    for(var i=0;i<olLiAarr.length;i++){
+        olLiAarr[i].index=i;
+        olLiAarr[i].onmousemove=function () {
+            for(var i=0;i<olLiAarr.length;i++){
+                olLiAarr[i].removeAttribute("class");
+
+            }
+            //鼠标移入以后彻底把图片和小方块索引和当前鼠标移入索引相等  下一次切换时就是切换本次索引下一个
+            imgindex=squareIndex=this.index;
+            this.setAttribute("class","current")
+            translateAnimate(ul,-(this.index*imgWidth),10)
+
+        }
+    }
+
+    //5 添加定时器 实现定时轮播
+    function translateAnimate(ele,endX,speed){
+        //tomer为defined或null，  正常清除，不会报错
+        //把定时器绑定到当前元素对象上面，每个盒子都有自己的定时器对象
+        clearInterval( ele.timer);
+        var s;
+        //如果目标位置大于当前位置 +步长
+        //如果目标位置小于当前位置 - 步长
+        if(endX>ele.offsetLeft){
+            s=speed;
+        }else if(endX<ele.offsetLeft){
+            s=-speed;
+        }else{
+            s=0;
+        }
+        ele.timer=setInterval(function(){
+            var offval=endX-ele.offsetLeft;
+            ele.style.left=ele.offsetLeft+s+"px";
+            //如何停止
+            if(Math.abs(offval)<Math.abs(s)){
+                ele.style.left=endX;
+                clearInterval(ele.timer);
+            }
+
+        },10);
+
+    }
+    var timer=setInterval(autoPlay,1000);
+    var imgindex=0;
+    var squareIndex=0;
+    function autoPlay(){
+
+        imgindex++;
+        if(imgindex>olLiAarr.length){
+
+            //瞬间把ul变成显示第一张
+            ul.style.left=0;
+            //下一张的index应该是1
+            imgindex=1;
+        }
+        translateAnimate(ul,-(this.imgindex*imgWidth),10);
+        squareIndex++;
+        if(squareIndex>olLiAarr.length-1){
+            squareIndex=0;
+        }
+       // 排他思想 让小方框跟着一起显示
+        for(var i=0;i<olLiAarr.length;i++){
+            olLiAarr[i].removeAttribute("class");
+
+        }
+        olLiAarr[ squareIndex].setAttribute("class","current");
+
+    }
+    //6  定时器的停止与播放  鼠标移入box停止 ，移除box继续播放   同时加上箭头的显示与隐藏
+    box.onmouseover=function () {
+
+        clearInterval(timer);
+        switchBox.style.display="block";
+    }
+    box.onmouseout=function () {
+        switchBox.style.display="none";
+        timer=setInterval(autoPlay,1000);
+
+    }
+    //7  箭头监听  左右切换图
+//右边箭头
+    bts[1].onclick=function(){
+        autoPlay();
+    }
+    bts[0].onclick=function(){
+        imgindex--;
+        if(imgindex<0){
+
+            //瞬间把ul变成显示第一张
+            ul.style.left=-olLiAarr.length*imgWidth +"px";
+            //下一张的index应该是1
+            imgindex=olLiAarr.length-1;
+        }
+        translateAnimate(ul,-(imgindex*imgWidth),10);
+        squareIndex--;
+        if(squareIndex<0){
+            squareIndex=olLiAarr.length-1;
+        }
+        // 排他思想 让小方框跟着一起显示
+        for(var i=0;i<olLiAarr.length;i++){
+            olLiAarr[i].removeAttribute("class");
+
+        }
+        olLiAarr[ squareIndex].setAttribute("class","current");
+
+    }
+</script>
+</body>
+</html>

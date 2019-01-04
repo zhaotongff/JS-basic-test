@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+
+            background: url("../dmeo01/imgs/1.jpg") no-repeat;
+        }
+        #box{
+
+            height:200px;
+
+        }
+        img{
+            float:left;
+            height:250px;
+            margin-left:30px;
+            width:15%;
+        }
+        li{
+            text-align:center;
+            list-style: none;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li> <img src="../dmeo01/imgs/1.jpg"></img></li>
+        <li> <img src="../dmeo01/imgs/2.jpg"></img></li>
+        <li> <img src="../dmeo01/imgs/3.jpg"></img></li>
+        <li> <img src="../dmeo01/imgs/4.jpg"></img></li>
+        <li> <img src="../dmeo01/imgs/5.jpg"></img></li>
+    </ul>
+
+
+</div>
+<script>
+    var img=document.getElementsByTagName("img");
+    for(var i=0;i<img.length;i++){
+       var body=document.body;
+        img[i].onclick=function(){
+           body.style.backgroundImage="url(" + this.src+ ")";
+           body.style.backgroundRepeat="no-repeat";
+        }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //给定字符串 str，检查其是否包含连续重复的字母（a-zA-Z），包含返回 true，否则返回 false
+  /*  function containsRepeatingLetter(str) {
+       /!* var json = { };
+        for (var i = 0; i < str.length; i++) {
+            var c = str.charAt(i);
+            if (json[c] === undefined) {
+                json[c] = 1
+            } else {
+                json[c] += 1;
+            }
+
+        }
+        console.log(json)
+if(json[c]>1){
+          return true;
+}*!/
+        return /([a-zA-Z])\1/.test(str);
+    }
+    var str="rattler"
+    document.write(containsRepeatingLetter(str))*/
+
+   /* 给定字符串 str，检查其是否包含 连续3个数字
+    1、如果包含，返回最新出现的 3 个数字的字符串
+    2、如果不包含，返回 false*/
+
+   /* function captureThreeNumbers(str) {  //'  9876543'   =>987
+        var arr=[];
+        for(var i=0;i<str.length;i++){
+            if(!isNaN(str[i])){
+                if(!isNaN(str[i+1])){
+                    if(!isNaN(str[i+2])){
+                       arr.unshift(str[i+2])
+                    }
+                    arr.unshift(str[i+1])
+                }
+                arr.unshift(str[i])
+                return arr
+                break
+            }
+        }
+       // return /\d/.test(str);  //判断正确返回true
+    }*/
+  var str='9876543'
+    document.write(captureThreeNumbers(str))
+</script>
+</body>
+</html>

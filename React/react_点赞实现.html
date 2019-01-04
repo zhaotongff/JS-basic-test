@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="example">
+
+</div>
+<script type="text/babel">
+   var LikeButton =React.createClass({
+       getInitialState: function() {
+           return{ liked:false};
+       },
+       changeLikeText:function() {
+           const likeText = this.el.querySelector('.like-text')
+           this.state.isLiked = !this.state.isLiked
+           likeText.innerHTML = this.state.isLiked ? '取消' : '点赞';
+       },
+
+       render () {
+
+        <button class='like-button'>
+          <span class='like-text'>点赞</span>
+          <span>👍</span>
+        </button>
+
+           this.el.addEventListener('click', this.changeLikeText.bind(this), false);
+           return this.el
+       }
+   })
+ReactDOM.render(
+    <LikeButton/>,
+        document.getElementById("example")
+    )
+
+</script>
+</body>
+</html>

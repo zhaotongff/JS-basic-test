@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li id="li1">拉拉</li>
+    <li id="li2">哈哈哈</li>
+    <div id="dv">闯入者</div>
+</ul>
+<button>创建</button>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+   var ul=document.getElementsByTagName("ul")[0];
+
+   var li1=document.getElementById("li1");
+    var dv=document.getElementById("dv");
+    document.write("<div>我是document.write创建</div>");
+    btn.onclick=function(){
+       /* document.write("<div>我是document.write创建</div>");//1   document.write创建  document会刷新整个页面  重新布局*/
+     /* ul .innerHTML="<div>我是innerHTML创建</div>";//2  innerHTML创建   会替换父节点ul中所有内容*/
+        var li=document.createElement("li");//3  createElement创建标签名，通过标签.innerHTML天加元素内容，通过父节点.appengChild添加上去   父节点.removeChild删除
+        li.innerHTML="我是CREAT创建的元素"
+        //在父节点最后拼接一个子节点
+       ul.appendChild(li);
+        //删除一个子节点参数，传入一个子节点对象
+        ul.removeChild(li1);
+        //修改标签replace  （旧节点，新节点）
+        ul.replaceChild(li1,dv);
+    }
+</script>
+</body>
+</html>

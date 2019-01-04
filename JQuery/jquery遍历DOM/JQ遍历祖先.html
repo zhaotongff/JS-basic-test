@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+    parent()  parent() 方法返回被选元素的直接父元素。
+    parents()  parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素html。
+    parentsUntil()  parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。-->
+
+
+
+
+    <meta charset="utf-8">
+    <style>
+        .ancestors *
+        {
+            display: block;
+            border: 2px solid lightgrey;
+            color: lightgrey;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                $("span").parent().css({"color":"red","border":"2px solid red"});// parent() 方法返回被选元素的直接父元素。
+            });
+
+
+            $("#btn2").click(function(){
+                $("#div2 span").parents().css({"color":"red","border":"2px solid red"});//parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素html。
+            });
+
+
+            $("#btn3").click(function(){
+                $("#div2 span").parentsUntil("#div2").css({"color":"red","border":"2px solid red"});//parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="ancestors">
+    <div  id="div2"style="width:500px;">div (曾祖父元素)
+        <ul>ul (祖父元素)
+            <li>li (父元素)
+                <span>span</span>
+            </li>
+        </ul>
+    </div>
+
+    <div style="width:500px;">div (祖父元素)
+        <p>p (父元素)
+            <span>span</span>
+        </p>
+    </div>
+</div>
+<button id="btn1">直接parent</button><br><br>
+<button id="btn2">parents</button><br><br>
+<button id="btn3">parentsUntil</button><br><br>
+</body>
+</html>

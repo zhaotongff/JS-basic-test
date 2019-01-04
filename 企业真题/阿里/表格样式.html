@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       .current{
+           background-color: yellow;
+       }
+    </style>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>姓名</th>
+        <th>学号</th>
+    </tr>
+    <tr>
+        <td>小王</td>
+        <td>sss</td>
+    </tr>
+    <tr>
+        <td>小张</td>
+        <td>dfg</td>
+    </tr>
+
+    <tr>
+        <td>小里</td>
+        <td>df</td>
+    </tr>
+    <tr>
+        <td>小孙</td>
+        <td>sdd</td>
+    </tr>
+
+
+</table>
+<script>
+   // 请写一个表格以及对应的CSS，使表格奇数行为白色背景，偶数行为灰色背景，鼠标移上去时为黄色背景。
+    var trArr=document.getElementsByTagName("tr");
+    var c;
+    for(var i=0;i<trArr.length;i++){
+        if(i%2===0){
+            trArr[i].style.backgroundColor="#999999";
+        }else{
+            trArr[i].style.backgroundColor="#FFFFFF";
+        }
+
+        trArr[i].onmouseover=function () {
+            c=this.style.backgroundColor;
+            this.style.backgroundColor="yellow";
+
+        }
+        trArr[i].onmouseout=function () {
+            this.style.backgroundColor=c;
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>创建</button>
+<script>
+    var EventListener={   //自己封装事件
+        addEvent:function(ele,eventName,func){
+
+            ele["on"+eventName]=func;
+
+        }
+    }
+    var btn=document.getElementsByTagName("button")[0];
+    EventListener.addEvent(btn,"click",function(){
+        alert("lalal");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(".hide ").click(function(){                  /* jquery 隐藏*/
+                $(this).parent(".ex").hide("slow");
+            });
+            $(".show").click(function(){                      /* jquery 显示*/
+                $(".ex").show("slow");
+            });
+        });
+
+
+        $(document).ready(function(){
+            $("#hide2").click(function(){
+                $("p#p").hide();
+            });
+            $("#show2").click(function(){
+                $("p").show();
+            });
+        });
+    </script>
+    <style type="text/css">
+        div.ex
+        {
+            background-color:#e5eecc;
+            padding:7px;
+            border:solid 1px #c3c3c3;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Google</h3>
+
+<div class="ex">
+    <button class="hide">点我隐藏</button>
+    <p>站点名: Google<br>
+        站点 URL：http://www.google.com</p>
+</div>
+<button class="show">显示</button>
+<h3>菜鸟教程</h3>
+
+
+<div class="ex">
+    <button class="hide">点我隐藏</button>
+    <p>站点名: 菜鸟教程<br>
+        站点 URL：http://www.runoob.com</p>
+
+</div>
+<button class="show">显示</button>
+
+<br>
+
+
+
+
+<p id="p">如果你点击“隐藏” 按钮，我将会消失。</p>
+<button id="hide2">隐藏</button>
+<button id="show2">显示</button>
+</body>
+</html>

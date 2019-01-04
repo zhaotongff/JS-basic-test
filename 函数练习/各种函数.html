@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* 实现函数 makeClosures，调用之后满足如下条件：
+1、返回一个函数数组 result，长度与 arr 相同
+    2、运行 result 中第 i 个函数，即 result[i]()，结果与 fn(arr[i]) 相同*/
+
+/*
+ function makeClosures(arr, fn) {
+    var result=[];
+    arr.forEach(function (e) {
+        result.push( (function(num){
+            return fn(num)
+        })(e));
+    })
+       return result;
+   }
+
+  /!*function makeClosures(arr, fn) {
+    var result=[];
+    for(var i=0;i<arr.length;i++){
+
+        result.push(function(num){
+            return function(){
+                return fn(num);}
+        }(arr[i]));
+    }
+    return result;
+
+}*!/
+   var arr= [1, 2, 3];
+   var fn=function (x) {
+       return x * x;
+   }
+   document.write( makeClosures(arr, fn))
+*/
+
+  /* 已知函数 fn 执行需要 3 个参数。请实现函数 partial，调用之后满足如下条件：
+1、返回一个函数 result，该函数接受一个参数
+   2、执行 result(str3) ，返回的结果与 fn(str1, str2, str3) 一致*/
+
+ /*  function partial(fn, str1, str2) {
+       var result =function(str3){
+         return fn(str1, str2,str3);
+       }
+ return result
+   }
+   var sayIt = function(greeting, name, punctuation) {     return greeting + ', ' + name + (punctuation || '!'); };
+   document.write(partial(sayIt, 'Hello', 'Ellie')('!!!'))*/
+
+
+  /* 函数 useArguments 可以接收 1 个及以上的参数。请实现函数 useArguments，返回所有调用参数相加后的结果。本题的测试参数全部为 Number 类型，不需考虑参数转换。*/
+//输入1,2,3,4  返回10
+  /* function useArguments() {
+     var l=arguments.length
+       var  sum=0;
+       for(var i=0;i<l;i++){
+         sum+=arguments[i];
+       }
+       return sum;
+   }
+   document.write(useArguments(1,2,3,4))*/
+
+
+  /* 实现函数 callIt，调用之后满足如下条件
+   1、返回的结果为调用 fn 之后的结果
+   2、fn 的调用参数为 callIt 的第一个参数之后的全部参数*/
+   // function callIt(fn) {
+   //     var arg=Array.prototype.slice.call(arguments,1);
+   //     return fn.apply(this,arg);
+   // }
+   //
+   // var a = 1; var b = 2;
+   // var test = function (first, second) { return first === a && second === b;};
+   // document.write( callIt(test, a, b))
+
+/* --  &lt;!&ndash;实现函数 partialUsingArguments，调用之后满足如下条件：
+1、返回一个函数 result
+   2、调用 result 之后，返回的结果与调用函数 fn 的结果一致
+   3、fn 的调用参数为 partialUsingArguments 的第一个参数之后的全部参数以及 result 的调用参数*/
+
+  /* function partialUsingArguments(fn) {
+         var arg1=Array.prototype.slice.call(arguments,1)
+
+    var result=function(){
+           var argu=Array.prototype.slice.call(arguments)
+    return fn.apply(this,arg1.concat(argu))
+}
+return result
+   }
+   var a = 1; var b = 2; var c = 3; var d = 4;
+   var test = function (first, second, third, forth)
+   {return first + second + third + forth;};partialUsingArguments(test, a, b)(c, d);
+   document.write(partialUsingArguments(test, a, b)(c, d) )*/
+
+   /*完成函数 createModule，调用之后满足如下要求：
+1、返回一个对象
+   2、对象的 greeting 属性值等于 str1， name 属性值等于 str2
+   3、对象存在一个 sayIt 方法，该方法返回的字符串为 greeting属性值 + ', ' + name属性值*/
+
+  /* function createModule(str1, str2) {
+var self=this;
+
+       var obj={
+           greeting:str1,
+           name:str2,
+           sayIt:function () {
+               return(this.greeting+ ', ' +this.name );
+           }
+       }
+       return obj.sayIt();
+   }
+   var str1="hello";
+   var str2="Angla";
+  document.write( createModule(str1, str2))*/
+
+  /*完成函数 createModule，调用之后满足如下要求：
+1、返回一个对象
+2、对象的 greeting 属性值等于 str1， name 属性值等于 str2
+3、对象存在一个 sayIt 方法，该方法返回的字符串为 greeting属性值 + ', ' + name属性值*/
+   function createModule(str1, str2) {
+       var obj={
+           greeting:str1,
+           name:str2,
+           sayIt:function(){
+               return (this.greeting + ', ' + this.name)
+           }
+       }
+       return obj.sayIt()
+   }
+   var str1="zt";
+   var str2=29;
+
+  document.write( createModule(str1, str2) )
+</script>
+</body>
+</html>

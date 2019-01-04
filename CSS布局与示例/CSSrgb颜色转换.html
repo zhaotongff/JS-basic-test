@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+   /* alert(toRGB("#0000FF"));          // 输出 rgb(0, 0, 255)
+    alert(toRGB("invalid"));          // 输出 nvialid
+    alert(toRGB("#G00"));              // 输出 #G00*/
+
+    var str="#G00";
+        toRGB(str);
+    function toRGB(str) {
+        var arr=[];
+        var arr2=[]
+        var shijinzhi=[]
+        if((/^\#/g).test(str)){
+            var l=str.length;
+          //  alert(l)
+            if(l===4){
+                console.log(str)
+            }else if(l===7){
+                for(var i=1;i<l;i++){
+                    if(str[i]>=0&&str[i]<=9){
+                        arr2.push(str[i])
+                    }else{
+                       if(str[i]==="a"||str[i]==="A"){
+                           arr2.push(10)
+                       } else if(str[i]==="b"||str[i]==="B"){
+                            arr2.push(11)
+                        } else if(str[i]==="c"||str[i]==="C"){
+                            arr2.push(12)
+                        } else if(str[i]==="d"||str[i]==="D"){
+                            arr2.push(13)
+                        } else if(str[i]==="E"||str[i]==="e"){
+                            arr2.push(14)
+                        } else if(str[i]==="f"||str[i]==="F"){
+                            arr2.push(15)
+                        }
+                    }
+
+                }
+
+                for(var i=0;i<arr2.length;i++){
+
+                    arr.push (arr2[i]*arr2[i+1])
+
+                    i++;
+                }
+
+
+                console.log("rgb("+arr[0]+","+arr[1]+","+arr[2]+"）")
+            }
+        }else{
+            console.log(str)
+        }
+
+    }
+</script>
+</body>
+</html>

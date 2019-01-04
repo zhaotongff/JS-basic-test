@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //this关键字  当前这个函数对象  当前表示的谁调用就表示那个对象
+    //new关键字 开辟内存空间，存储新创建的对象，把this设为当前对象  执行内部代码，设置对象属性和方法  返回新创建的对象；
+   /* 对象第三种创建方式*/
+ /*  function person(name,age){
+       //当前对象绑定属性
+       this.name=name;
+       this.age=age;
+       //当前对象绑定函数
+       this.sayHi=function(){
+           alert(this.name + "地球你好")
+
+       }
+   }
+  person("阿三",28);*/
+/*
+// //构造函数  创建一个对象的函数  一般用作数据初始化   目的为了对象初始化
+    function person(name,age){
+         this.name=name;
+        this.age=age;
+        this.sayHi=function(){
+            alert("你好世界");
+
+        }
+         alert(this.name+"被调用到了");
+    }
+     var per=new person("酷酷",28);
+*/
+
+
+
+
+
+    //属性绑定的两种方式
+
+    //对象名.属性名=属性名；
+    //对象名[变量或者字符串或者整数]=属性名；
+   /* function Person(name){
+        //绑定属性
+        this.name=name;
+        this[0]="张飞";
+        this["刘玄德"]="刘备";
+
+    this.bubble=function(){
+        alert(this.name+"冒泡排序");
+
+
+    }}
+    var per=new Person("冒泡");
+    per.bubble();*/
+    //函数绑定
+    //对象名.函数名=属性名；
+    //对象名.函数名=已存在的函数名
+    function Person(){
+
+       this.skill=function(){
+
+           alert("大跳");
+       };
+        this.kk=fn();
+        this.ck=check();
+
+    }
+    function check(){
+        alert("检查身体");
+
+    }
+
+    function fn(){
+
+        alert("我是函数");
+    }
+var per=new Person();
+    per.skill();
+    per.ck();
+    per.kk();
+</script>
+</body>
+</html>

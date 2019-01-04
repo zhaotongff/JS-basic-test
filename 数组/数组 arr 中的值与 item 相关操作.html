@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //   移除数组     arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组    [1, 2, 3, 4, 2]   返回 [1,3,4]
+ /*   function fn(arr,item) {
+        var newArr=[];
+        for(var i=0;i<arr.length;i++){
+                 if(arr[i]!==item){
+                     newArr.push(arr[i]) ;
+                     }
+        }
+        return newArr;
+    }
+    var arr=[1, 2, 3, 4, 2]
+    var item=2;
+    console.log(fn(arr,item))*/
+
+    //    splice     移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回
+    /*function fn(arr,item) {
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]==item){
+           arr.splice(i,1)
+                i--;
+            }
+
+        }
+        return arr;
+    }
+    var arr=[1, 2, 3, 4, 2]
+    var item=2;
+    console.log(fn(arr,item))*/
+
+    //  splice()删除元素 添加元素   在数组 arr 末尾添加元素 item。直接修改数组 arr，结果返回
+   /* function fn(arr,item) {
+       arr.splice(arr.length,0,item);
+        return arr;
+    }
+    var arr=[1, 2, 3, 4, 2]
+    var item=2;
+    console.log(fn(arr,item))
+*/
+//   在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组
+  /*  function fn(arr,item) {
+        var newarr=new Array();
+        for(var i=0;i<arr.length;i++) {
+            newarr.push(arr[i])
+        }
+        newarr.push(item);
+        return newarr;
+    }
+    var arr=[1, 2, 3, 4, 2]
+    var item=10;
+    console.log(fn(arr,item))*/
+
+
+   //  pop 删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组
+   /* function fn(arr) {
+        var newarr=new Array();
+       for(var i=0;i<arr.length;i++){
+           newarr.push(arr[i]);
+       }
+       newarr.pop();
+       return newarr
+    }
+    var arr=[1, 2, 3, 4]
+    console.log(fn(arr));*/
+
+    //  在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组   [1, 2, 3, 4], 10      返回[10, 1, 2, 3, 4]
+   /* function fn(arr,item) {
+            var newarr=new Array();
+       for(var i=0;i<arr.length;i++){
+           newarr.push(arr[i]);
+       }
+       newarr.unshift(item);
+       return newarr
+        }
+        var arr=[1, 2, 3, 4]
+        var item=10;
+        console.log(fn(arr,item))*/
+
+
+    //删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组  [1, 2, 3, 4]            [2, 3, 4]
+    /* function fn(arr) {
+     var newarr=new Array();
+       for(var i=0;i<arr.length;i++){
+           newarr.push(arr[i]);
+       }
+       newarr.shift();
+       return newarr
+ }
+ var arr=[1, 2, 3, 4]
+ console.log(fn(arr));*/
+
+     //合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组[1, 2, 3, 4], ['a', 'b', 'c', 1]        [1, 2, 3, 4, 'a', 'b', 'c', 1]
+    /* function fn(arr1,arr2) {
+           var arr=arr1.concat(arr2);
+           return arr;
+        }
+        var arr1=[1, 2, 3, 4, 2];
+     var arr2=['a', 'b', 'c', 1];
+        console.log(fn(arr1,arr2));
+*/
+
+    //在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组
+     /*function fn(arr,item,index) {
+         var newarr=new Array();
+       for(var i=0;i<arr.length;i++){
+           newarr.push(arr[i]);
+       }
+       newarr.splice(index,0,item);
+       return newarr
+      }
+      var arr=[1, 2, 3, 4]
+      var item="z";
+     index=2;
+      console.log(fn(arr,item,index))*/
+
+//统计数组 arr 中值等于 item 的元素出现的次数  [1, 2, 4, 4, 3, 4, 3], 4    返回3
+
+/*     function fn(arr,item) {
+         var s=0;
+         for(var i=0;i<arr.length;i++){
+             if(arr[i]===item){
+                 s++;
+             }
+         }
+         return s
+      }
+      var arr=[1, 2, 4, 4,3,4,3];
+      var item=4;
+      console.log(fn(arr,item))*/
+//找出数组 arr 中重复出现过的元素  [1, 2, 4, 4, 3, 3, 1, 5, 3]  返回[1, 3, 4]
+   /* function fn(arr) {
+     var newArr=[];
+     var newArr2=[]
+       for(var i=0;i<arr.length;i++){
+         if(arr.indexOf(arr[i])===i) {
+            continue
+         }else(
+             newArr.push(arr[i])
+         )
+       }
+        for(var i=0;i<newArr.length;i++) {
+            if (newArr.indexOf(newArr[i]) === i) {
+                newArr2.push(newArr[i])
+            }
+        }
+      return  newArr2.sort()
+   }
+
+   var arr=[1, 2, 4, 4, 3, 3, 1, 5, 3]
+  console.log(fn(arr));*/
+
+
+    //数组去重
+   /* function fn(arr) {
+      var newArr=[]
+        for(var i=0;i<arr.length;i++){
+          if(arr.indexOf(arr[i])===i) {
+              newArr.push(arr[i])
+          }
+        }
+       return  newArr
+    }
+
+    var arr=[1, 2, 4, 4, 3, 3, 1, 5, 3]
+   console.log(fn(arr));*/
+   // 为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组 [1, 2, 3, 4]  [1, 4, 9, 16]
+  /*   function fn(arr) {
+     var newArr=[]
+       for(var i=0;i<arr.length;i++){
+             newArr.push(arr[i]*arr[i]);
+
+       }
+      return  newArr
+   }
+
+   var arr=[1, 2, 3,4]
+  console.log(fn(arr));
+*/
+
+  //在数组 arr 中，查找值与 item 相等的元素出现的所有位置
+  /*     function fn(str,item) {
+         var newarr=new Array()
+        for(var i=0;i<arr.length;i++){
+        if(arr[i]===item){
+            newarr.push(i)
+        }
+        }
+        return newarr
+      }
+      var str='abcdefabc';
+      var item="a";
+      console.log(fn(str,item))
+*/
+
+  //将数组 arr 中的元素作为调用函数 fn 的参数
+    //调用函数可以使用call或者apply这两个方法，区别在于call需要将传递给函数的参数明确写出来，是多少参数就需要写多少参数。而apply则将传递给函数的参数放入一个数组中，传入参数数组即可。
+
+//这里的this指向window,但是function里没有用到this,也就是说function里没有会根据作用域不同而需要指定的this的值,所以这里apply的第一个参数放什么都可以,null也行.
+  /*  function argsAsArray(fn, arr) {
+        return fn.apply(this,arr);
+    }
+     var fn=function (greeting, name, punctuation) {return greeting + ', ' + name + (punctuation || '!');} ;
+    var arr=['Hello', 'Ellie', '!']
+    document.write(argsAsArray(fn, arr) );*/
+
+
+
+  /*
+  * 给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
+
+不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+
+元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
+
+示例 1:
+
+给定 nums = [3,2,2,3], val = 3,
+
+函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。
+
+你不需要考虑数组中超出新长度后面的元素。
+示例 2:
+
+给定 nums = [0,1,2,2,3,0,4,2], val = 2,
+
+函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。
+
+注意这五个元素可为任意顺序。
+
+你不需要考虑数组中超出新长度后面的元素。*/
+    var nums = [0,1,2,2,3,0,4,2];
+    var val = 2;
+
+    var removeElement = function(nums, val) {
+    for(var i=0;i<nums.length;i++){
+        if(nums[i]==val){
+            nums.splice(i,1);
+            i--;
+
+
+        }
+
+
+    }
+        return(nums.length);
+
+    };
+    console.log(removeElement(nums, val));
+
+
+
+</script>
+</body>
+</html>

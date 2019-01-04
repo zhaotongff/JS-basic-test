@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+    <style>
+ *{
+ 	margin: 0px;
+ 	padding: 0px;
+ }
+ #box{
+ 	width:234px;
+ 	height: 129px;
+ 	position: absolute;
+ 	left:50%;
+ 	top:50%;
+    margin: -64px 0 0 -117px;
+   
+
+ }
+ #thead{
+ 	background-color: blue;
+ 	color: white;
+ }
+ #tbody{
+   background-color: #ccc;
+
+ }
+  
+    </style>
+</head>
+<body>
+  <div id="box">
+   <table border="1px">
+   <thead id="thead">
+   	<tr>  
+   	 <th><input type="checkbox" id="thn"> </th>
+     <th>课程名称</th>
+     <th>所属学院</th>
+   	</tr> 
+   </thead>
+   <tbody id="tbody">
+   	<tr>
+     <td><input type="checkbox" class="checked"</td>
+     <td> JavaScript</td>
+     <td>善知教育前端课程</td>
+   	</tr>
+   	<tr>
+      <td><input type="checkbox" class="checked"</td>
+      <td>CSS</td>
+      <td>善知教育前端课程</td>
+   	</tr>
+   	<tr>
+      <td><input type="checkbox" class="checked"</td>
+      <td>HTML</td>
+      <td>善知教育前端课程</td>
+   	</tr>
+   	<tr>
+      <td><input type="checkbox" class="checked"</td>
+      <td>JQuery</td>
+      <td>善知教育前端课程</td>
+   	</tr>
+   </tbody>
+   </table>
+  </div>
+  <script>
+     $(function(){
+     	$("#thead>tr #thn").click(function(){
+     	   $("#tbody>tr .checked").prop("checked",$("#thead>tr #thn").prop("checked"))
+     	})
+     	 $("#tbody>tr .checked").click(function(){
+     	 	//如果下面全选中，上面为true,否则为false
+     	 	//如果选中的checkbox长度与所有的checkbox长度一致，表示所有的都是选中的  否则就至少有一个没选中  	 	
+     	 	if($("#tbody>tr .checked").length===$("#tbody>tr input:checked").length){
+              $("#thead>tr #thn").prop("checked",true)
+     	 	}else{
+     	 	  $("#thead>tr #thn").prop("checked",false)
+     	 	}
+     	 })
+     })
+  </script>
+</body>
+</html>

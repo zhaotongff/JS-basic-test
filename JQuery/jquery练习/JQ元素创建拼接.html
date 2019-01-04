@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+	   <style>
+      li{
+      	list-style: none;
+      }
+
+	  </style>
+</head>
+<body>
+	<button>创建元素</button>
+<div id="box">
+	<ul id="ul">
+      <li>自带的第一个li</li>
+      <div>我是li里面的div</div>
+	</ul>
+</div>
+	<script>
+   $(function(){
+   	var num=0;
+   	$("button").eq(0).click(function(){
+   		//JQ创建元素	
+   		var newLi=$("<li>点击创建的li"+(num++)+"</li>")
+    //1、append拼接子节点在最后 JQ中不是appendChildJS中是appendChild
+   		//$("#ul").append(newLi)
+
+   		//2、appendTo也是拼接子节点  拼到最后  调用者和被调用者换位
+   		//
+   		//newLi.appendTo（$("#ul")）
+   		////拼接子节点在第一个位置 prepend
+   		//$("#ul").prepend(newLi)
+   		//3、after\before
+   		//$("#box>ul>div").before(newLi)
+   		$("#box>ul>div").after(newLi)
+
+   		//清空元素  empty  html("") remove
+   	})
+   })
+	</script>
+</body>
+</html>

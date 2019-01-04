@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--Vue.js读音 /vjuː/, 类似于 view,是一套构建用户界面的渐进式框架-->
+    <!--
+    Vue 只关注视图层， 采用自底向上增量开发的设计。
+Vue 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。
+Vue 学习起来非常简单，本教程基于 Vue 2.1.8 版本测试。-->
+
+<!--使用 CDN 方法-->
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+</div>
+<script>
+
+    new Vue({
+        el:'#app',  //EL
+        data:{
+            message:'Hello Vue.js'
+        }
+    });
+</script>
+</body>
+</html>

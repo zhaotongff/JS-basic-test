@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">  </script>
+        <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script><!--菜鸟CDN-->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><!--百度CDN-->
+
+<!--text() - 设置或返回所选元素的文本内容
+html() - 设置或返回所选元素的内容（包括 HTML 标记）
+val() - 设置或返回表单字段的值-->
+
+
+</head>
+
+<body>
+<p id="test">这是段落中的 <b>粗体</b> 文本。</p>
+<button id="btn1">显示text文本</button>
+<button id="btn2">显示 HTML</button><br><br>
+
+<input type="text" id="test1" value="菜鸟教程">
+<button id="btn3">显示val</button>
+
+
+<p><a href="www.baidu.con" id="a">百度链接</a></p>
+<button id="btn4">获取属性attr</button>
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            alert("Text: " + $("#test").text());           //test() 设置或返回所选元素的文本内容
+        });
+        $("#btn2").click(function(){
+            alert("HTML: " + $("#test").html());            //html() - 设置或返回所选元素的内容（包括 HTML 标记）
+        });
+
+        $("#btn3").click(function(){
+            alert("值为: " + $("#test1").val());            //val() - 设置或返回表单字段的值
+        });
+
+
+        $("#btn4").click(function(){
+            alert("属性为: " + $("#a").attr("href"));        //attr() 方法用于获取属性值。
+        });
+    });
+</script>
+</body>
+</html>

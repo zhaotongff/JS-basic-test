@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //先序遍历：DLR
+ /*   var preOrder = function (node) {
+        if (node) {
+            console.log(node.value);
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+    }*/
+
+
+    //var pre=[1,2,4,7,3,5,6,8]
+    var aft=[7,4,2,5,8,6,3,1]
+    var mid=[4,7,2,1,5,3,8,6]
+    var arr=[];
+    rebuildBT(aft, mid);
+    console.log(arr) ;
+    function node(data){  //用来表示一棵树中的节点
+        this.data = data;
+        this.left=this.right = null;
+    }
+    function rebuildBT(aft, mid){ //根据后序遍历和中序遍历重建这棵树并且输出头节点
+        var root; //保存头结点
+        var len = aft.length;
+        if(len > 1){
+            var data = aft[len-1]; //后序遍历的最后一个元素即树的根节点
+           // alert(data)
+            for(var i = 0; i<len; i++){
+                if(mid[i] === data){
+                    switch(i){
+                        case 0:
+                            var midtree = mid.slice(i+1);
+                            var afttree = aft.slice(0,len-1);
+                            root = new node(data, null, rebuildBT(afttree,midtree));
+                            break;
+                        case (len -1):
+                            var midtree = mid.slice(0,i);
+                            var afttree = aft.slice(0,len-1);
+                            root = new node(data, rebuildBT(afttree,midtree), null)
+                            break;
+                        default:
+                            var lfmidtree = mid.slice(0,i);
+                            var rgmidtree = mid.slice(i+1);
+                            var k = lfmidtree.length;
+                            var lfafttree = aft.slice(0,k);
+                            var rgafttree = aft.slice(k,len-1);
+                            root = new node(data, rebuildBT(lfafttree,lfmidtree), rebuildBT(rgafttree,rgmidtree))
+                            break;
+                    }
+                }
+
+            }
+        }else if(len === 1){
+            var data = aft[len-1];
+            root  = new node(data, null, null);
+          //  alert(data)
+        }
+
+        arr.unshift(root.data)
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+
+有效字符串需满足：
+
+左括号必须用相同类型的右括号闭合。
+左括号必须以正确的顺序闭合。
+注意空字符串可被认为是有效字符串。
+
+示例 1:
+
+输入: "()"
+输出: true
+示例 2:
+
+输入: "()[]{}"
+输出: true
+示例 3:
+
+输入: "(]"
+输出: false
+示例 4:
+
+输入: "([)]"
+输出: false
+示例 5:
+
+输入: "{[]()}"
+输出: true*/
+var s="[({(())}[()])]"
+
+    var isValid = function(s) {
+        if(s.length%2==0){
+            var n=0;
+            for(var i=0;i<s.length;i++){
+                  if(s[i]=="("){
+                      console.log("1")
+                      for(var j=1;j<s.length;j+3){
+                          if(s.charAt(s.length-1-i)==")"||s[i+j]==")") {  n++;
+                          }
+                      }
+
+                  }else  if(s[i]=="{"){
+                      console.log("2")
+                      for(var j=1;j<s.length;j+3){
+                      if(s.charAt(s.length-1-i)=="}"||s[i+j]=="}") {  n++;}
+                  }}else if(s[i]=="["){
+                      console.log("3")
+
+                          for(var j=1;j<s.length;j+3) {
+                              if (s.charAt(s.length - 1 - i) == "]" || s[i + j] == "]" ) {
+                                  n++;
+                              }
+
+                      }
+                  }else{
+                      continue;
+                  }
+            }
+
+            if(n==s.length/2){
+                return true;
+            }else{
+                return false
+            }
+        }else{
+            return false;
+        }
+
+
+
+
+    };
+    console.log(isValid(s))
+</script>
+</body>
+</html>
